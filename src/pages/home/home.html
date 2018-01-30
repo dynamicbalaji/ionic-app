@@ -9,7 +9,7 @@
 
 <ion-content padding>
   <ion-list>
-    <ion-item *ngFor="let c of allActions">
+    <ion-item *ngFor="let c of allActions" (click)="openAction(c)">
       <h2>{{c.action}}</h2>
       <ion-avatar item-right>
         <img src="./assets/imgs/{{c.icon}}" height="80%" width="80%">

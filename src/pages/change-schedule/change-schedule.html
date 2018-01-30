@@ -5,14 +5,37 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>change-schedule</ion-title>
-  </ion-navbar>
-
+    <ion-navbar color="primary">
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>WALLY</ion-title>
+    </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
-
+    <ion-label>Hi John,</ion-label>
+    <br/>
+    <ion-label>Make your choice of schedule</ion-label>
+    <br/>
+    <ion-list>
+        <ion-item>
+          <ion-label>Date</ion-label>
+          <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="date" placeholder="MM/DD/YYYY"></ion-datetime>
+        </ion-item>
+        <ion-item>
+          <ion-label>Start Time</ion-label>
+          <ion-datetime displayFormat="hh:mm A" pickerFormat="hh mm A" [(ngModel)]="startTime" placeholder="HH:MM"></ion-datetime>
+        </ion-item>
+        <ion-item>
+          <ion-label>End Time</ion-label>
+          <ion-datetime displayFormat="hh:mm A" pickerFormat="hh mm A" [(ngModel)]="endTime" placeholder="HH:MM"></ion-datetime>
+        </ion-item>
+    </ion-list>
+    <ion-row center>  
+      <ion-col text-center>   
+       <button ion-button>Submit</button>  
+      </ion-col> 
+     </ion-row>
 </ion-content>

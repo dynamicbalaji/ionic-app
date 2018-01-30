@@ -14,6 +14,10 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class ChangeSchedulePage {
 
+  date: string;
+  startTime: string;
+  endTime: string;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
