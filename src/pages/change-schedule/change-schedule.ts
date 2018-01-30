@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
+import { ChangeScheduleDonePage } from '../change-schedule-done/change-schedule-done';
+
 /**
  * Generated class for the ChangeSchedulePage page.
  *
@@ -23,6 +25,10 @@ export class ChangeSchedulePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ChangeSchedulePage');
+  }
+
+  showSuccess() {
+    this.navCtrl.push(ChangeScheduleDonePage);
   }
 
 }
