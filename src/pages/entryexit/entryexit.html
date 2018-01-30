@@ -15,26 +15,46 @@
 
 
 <ion-content padding>
+
     <ion-list>
 
-      <ion-item>
-        <ion-label color="dark" fixed style="align-self: center">Entry time</ion-label>
-      </ion-item>
-
-      <ion-item>
+      <!--<ion-item>
+        <ion-label color="dark" fixed center>Entry time</ion-label>
         <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" [(ngModel)]="myTime"></ion-datetime>
       </ion-item>
 
       <ion-item>
-        <ion-label color="dark" fixed>Scheduled time</ion-label>
-      </ion-item>
-
-      <ion-item>
+        <ion-label fixed>Scheduled time</ion-label>
         <ion-input [(ngModel)]="scheduledTime"></ion-input>
-      </ion-item>
+      </ion-item>-->
 
     </ion-list>
 
-    <button ion-button color="secondary" end >ENTER</button>
+    <ion-card>
+      <ion-card-header>
+        Entry Time
+      </ion-card-header>
+      <ion-card-content text-center>
+        <div>
+          {{myTime}}
+        </div>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-header>
+        Scheduled Time
+      </ion-card-header>
+      <ion-card-content text-center>
+        <div>
+          {{scheduledTime}}
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-row center>  
+      <ion-col text-center>   
+       <button ion-button (click)="validate()" [color]="buttonColor">ENTER</button> 
+      </ion-col> 
+    </ion-row>
     
 </ion-content>
