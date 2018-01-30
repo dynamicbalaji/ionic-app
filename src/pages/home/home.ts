@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
+import { ChangeSchedulePage } from '../change-schedule/change-schedule';
+
 export interface Actions {
   action: string;
   icon: string;
@@ -22,6 +24,10 @@ export class HomePage {
 
   constructor(public navCtrl: NavController) {
 
+  }
+
+  openAction(action) {
+      this.navCtrl.push(ChangeSchedulePage, action);
   }
 
 }
