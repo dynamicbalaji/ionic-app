@@ -18,16 +18,7 @@
 
     <ion-list>
 
-      <!--<ion-item>
-        <ion-label color="dark" fixed center>Entry time</ion-label>
-        <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" [(ngModel)]="myTime"></ion-datetime>
-      </ion-item>
-
-      <ion-item>
-        <ion-label fixed>Scheduled time</ion-label>
-        <ion-input [(ngModel)]="scheduledTime"></ion-input>
-      </ion-item>-->
-
+     
     </ion-list>
 
     <ion-card>
@@ -56,5 +47,8 @@
        <button ion-button (click)="validate()" [color]="buttonColor">ENTER</button> 
       </ion-col> 
     </ion-row>
+    <br>
+    <br>
+    <div *ngIf='showMessage'>Your clocked in On Time!</div>
     
 </ion-content>

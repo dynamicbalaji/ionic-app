@@ -20,11 +20,13 @@ export class EntryexitPage {
   checkout: boolean = false;
   breaktime: boolean = false;
   // Testing purpose
-  scheduledTime: string = moment().add(2, 'minutes').format('HH:mm');;
+  scheduledTime: string = "00:00";
   myTime: string = "00:00";
   buttonColor: string = "primary";
+  showMessage: boolean = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+     this.scheduledTime = moment().format('HH:mm');
      this.myTime = moment().format('HH:mm');
      console.log(moment().format('HH:mm'));
   }
@@ -39,7 +41,10 @@ export class EntryexitPage {
     if(this.scheduledTime === this.myTime){
       console.log("Matched scheduled time: "+ this.scheduledTime + ", "+ this.myTime);
       this.buttonColor = "secondary"
+      this.showMessage = true;
     }
+
+    this.navCtrl.popToRoot();
   }
 
 }
