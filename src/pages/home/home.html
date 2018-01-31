@@ -10,10 +10,12 @@
 <ion-content padding>
   <ion-list>
     <ion-item *ngFor="let c of allActions" (click)="openAction(c)">
-      <h2>{{c.action}}</h2>
-      <ion-avatar item-right>
-        <img src="./assets/imgs/{{c.icon}}" height="80%" width="80%">
+      <ion-avatar item-left>
+        <ion-icon [name]="c.icon" style="zoom:2.0;"></ion-icon>
       </ion-avatar>
+      <h2>{{c.action}}</h2>
+      <p>{{c.title1}}</p>
+      <p style="font-size:9px">{{c.subTitle1}}</p>
     </ion-item>
   </ion-list>
 </ion-content>
