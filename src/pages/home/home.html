@@ -14,8 +14,16 @@
         <ion-icon [name]="c.icon" style="zoom:2.0;"></ion-icon>
       </ion-avatar>
       <h2>{{c.action}}</h2>
-      <p>{{c.title1}}</p>
-      <p style="font-size:9px">{{c.subTitle1}}</p>
+      <div class="title-section">
+        <div class="title-section-table">
+          <p>{{c.title1}}</p>
+          <p style="font-size:9px">{{c.subTitle1}}</p>
+        </div>
+        <div class="title-section-table">
+          <p>{{c.title2}}</p>
+          <p style="font-size:9px">{{c.subTitle2}}</p>
+        </div>
+      </div>
     </ion-item>
   </ion-list>
 </ion-content>
