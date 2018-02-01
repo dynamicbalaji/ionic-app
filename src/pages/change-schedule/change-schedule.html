@@ -15,22 +15,22 @@
 
 
 <ion-content padding>
-    <ion-label>Hi John,</ion-label>
-    <br/>
-    <ion-label>Make your choice of schedule</ion-label>
+    <ion-label>Hi, Emily!</ion-label>
+    <ion-label text-wrap>Make your choice from the available shifts for</ion-label>
+    <ion-label>{{scheduleDate}}</ion-label>
     <br/>
     <ion-list>
         <ion-item>
-          <ion-label>Date</ion-label>
-          <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="date" placeholder="MM/DD/YYYY"></ion-datetime>
+            <ion-label>7 am    to     4 pm</ion-label>
+            <ion-checkbox class="checkbox-square" item-right disabled></ion-checkbox>
         </ion-item>
         <ion-item>
-          <ion-label>Start Time</ion-label>
-          <ion-datetime displayFormat="hh:mm A" pickerFormat="hh mm A" [(ngModel)]="startTime" placeholder="HH:MM"></ion-datetime>
+            <ion-label>11 am    to     8 pm</ion-label>
+            <ion-checkbox class="checkbox-square" item-right></ion-checkbox>
         </ion-item>
         <ion-item>
-          <ion-label>End Time</ion-label>
-          <ion-datetime displayFormat="hh:mm A" pickerFormat="hh mm A" [(ngModel)]="endTime" placeholder="HH:MM"></ion-datetime>
+            <ion-label>4 pm    to     1 am</ion-label>
+            <ion-checkbox class="checkbox-square" item-right></ion-checkbox>
         </ion-item>
     </ion-list>
     <ion-row center>  

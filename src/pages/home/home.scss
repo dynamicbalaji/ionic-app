@@ -1,18 +1,16 @@
 page-home {
-
-}
-
-.title-section {
-    display: flex;
-    flex-direction: row;
-}
-
-.title-section-table {
-    flex: 1;
-    flex-grow: 1; 
-    display: flex;
-    align-items: left; 
-    justify-content: left; 
-    text-align: left; 
-    flex-direction: column;
+    .title-section {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .title-section-table {
+        flex: 1;
+        flex-grow: 1; 
+        display: flex;
+        align-items: left; 
+        justify-content: left; 
+        text-align: left; 
+        flex-direction: column;
+    }
 }
