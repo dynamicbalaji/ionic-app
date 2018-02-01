@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { EntryexitPage } from '../pages/entryexit/entryexit';
 import { ChangeSchedulePage } from '../pages/change-schedule/change-schedule';
+import { GtamenuPage } from '../pages/gtamenu/gtamenu';
 
 @Component({
   templateUrl: 'app.html'
@@ -26,7 +27,8 @@ export class MyApp {
       { title: 'Home', component: HomePage },
       { title: 'List', component: ListPage },
       { title: 'Change Schedule', component: ChangeSchedulePage },
-      { title: 'Time Clock', component: EntryexitPage }
+      { title: 'Time Clock', component: EntryexitPage },
+      { title: 'GTAMenu', component: GtamenuPage },
     ];
 
   }

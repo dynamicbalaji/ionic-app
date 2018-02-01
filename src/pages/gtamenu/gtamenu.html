@@ -1,0 +1,108 @@
+<!--
+  Generated template for the GtamenuPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="primary">
+      <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>WALLY</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid class="slide-in">
+    <ion-row>
+      <ion-col col-6>
+        <ion-fab top center>
+          <button ion-fab [color]="activeMenuColor" (click)="onStartClick()">START</button>
+        </ion-fab>
+      </ion-col>
+      <ion-col col-6>
+        <ion-fab left>
+        <button ion-fab mini><ion-icon name="arrow-round-forward"></ion-icon></button>
+        </ion-fab>
+      </ion-col>
+    </ion-row>
+    <ion-row><ion-col>
+    <br/><br/><br/><br/>
+    </ion-col></ion-row>
+    <ion-row>
+      <ion-col col-6>
+        <ion-fab right>
+        <button ion-fab mini><ion-icon name="arrow-round-back"></ion-icon></button>
+        </ion-fab>
+      </ion-col>
+      <ion-col col-6>
+        <ion-fab right center>
+          <button ion-fab [color]="inactiveMenuColor"><ion-icon name="pizza" isActive="false"></ion-icon></button>
+        </ion-fab>
+      </ion-col>
+    </ion-row>
+    <ion-row><ion-col>
+    <br/><br/><br/><br/>
+    </ion-col></ion-row>
+    <ion-row>
+      <ion-col col-6>
+        <ion-fab top center>
+          <button ion-fab [color]="inactiveMenuColor"><ion-icon name="cafe" isActive="false"></ion-icon></button>
+        </ion-fab>
+      </ion-col>
+      <ion-col col-6>
+        <ion-fab left>
+        <button ion-fab mini><ion-icon name="arrow-round-forward"></ion-icon></button>
+        </ion-fab>
+      </ion-col>
+    </ion-row>
+    <ion-row><ion-col>
+    <br/><br/><br/>
+    </ion-col></ion-row>
+    <ion-row >
+       <ion-col col-6>
+      </ion-col>
+      <ion-col col-6>
+        <ion-fab center>
+          <button ion-fab [color]="inactiveMenuColor" (click)="onEndClick()">END</button>
+        </ion-fab>
+      </ion-col>
+    </ion-row>
+    <ion-row><ion-col>
+    <br/><br/><br/><br/>
+    </ion-col></ion-row>
+    <ion-row><ion-col>
+    <br/><br/>
+    </ion-col></ion-row>
+    <ion-row>
+      <ion-col col-6>
+          <ion-card>
+            <ion-card-header text-center>
+              Start Time
+            </ion-card-header>
+            <ion-card-content text-center>
+              <div>
+                {{startTime}}
+              </div>
+            </ion-card-content>
+          </ion-card>
+      </ion-col>
+      <ion-col col-6>
+          <ion-card>
+            <ion-card-header text-center>
+              End Time
+            </ion-card-header>
+            <ion-card-content text-center>
+              <div>
+                {{endTime}}
+              </div>
+            </ion-card-content>
+          </ion-card>
+      </ion-col>
+    </ion-row>
+ </ion-grid>
+
+
+</ion-content>

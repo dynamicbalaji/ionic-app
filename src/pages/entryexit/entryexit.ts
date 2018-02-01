@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import * as moment from 'moment';
+import { App } from 'ionic-angular';
 
 /**
  * Generated class for the EntryexitPage page.
@@ -25,7 +26,7 @@ export class EntryexitPage {
   buttonColor: string = "primary";
   showMessage: boolean = false;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public app: App) {
      this.scheduledTime = moment().format('HH:mm');
      this.myTime = moment().format('HH:mm');
      console.log(moment().format('HH:mm'));
@@ -40,11 +41,13 @@ export class EntryexitPage {
   validate(){
     if(this.scheduledTime === this.myTime){
       console.log("Matched scheduled time: "+ this.scheduledTime + ", "+ this.myTime);
-      this.buttonColor = "secondary"
+      this.buttonColor = "secondary";
       this.showMessage = true;
+    }else{
+      this.buttonColor = "danger";
     }
 
-    this.navCtrl.popToRoot();
+    this.app.getActiveNav().popToRoot();
   }
 
 }
