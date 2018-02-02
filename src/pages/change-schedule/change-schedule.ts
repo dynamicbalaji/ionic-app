@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import * as moment from 'moment';
 
 import { ChangeScheduleDonePage } from '../change-schedule-done/change-schedule-done';
 
@@ -19,8 +20,10 @@ export class ChangeSchedulePage {
   date: string;
   startTime: string;
   endTime: string;
+  scheduleDate: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.scheduleDate = moment().format('dddd, Do MMM YYYY');
   }
 
   ionViewDidLoad() {
