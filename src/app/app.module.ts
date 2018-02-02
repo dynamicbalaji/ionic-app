@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { LocalNotifications } from '@ionic-native/local-notifications';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -9,10 +12,7 @@ import { ChangeSchedulePage } from '../pages/change-schedule/change-schedule';
 import { EntryexitPage } from '../pages/entryexit/entryexit';
 import { ChangeScheduleDonePage } from '../pages/change-schedule-done/change-schedule-done';
 import { GtamenuPage } from '../pages/gtamenu/gtamenu';
-
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
-import { LocalNotifications } from '@ionic-native/local-notifications';
+import { WelcomeLoginPage } from '../pages/welcome-login/welcome-login';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,8 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
     ChangeSchedulePage,
     EntryexitPage,
     ChangeScheduleDonePage,
-    GtamenuPage
+    GtamenuPage,
+    WelcomeLoginPage
   ],
   imports: [
     BrowserModule,
@@ -36,7 +37,8 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
     ChangeSchedulePage,
     EntryexitPage,
     ChangeScheduleDonePage,
-    GtamenuPage
+    GtamenuPage,
+    WelcomeLoginPage
   ],
   providers: [
     StatusBar,

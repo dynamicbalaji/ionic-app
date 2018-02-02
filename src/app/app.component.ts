@@ -2,13 +2,13 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import * as moment from 'moment';
 
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
-import { EntryexitPage } from '../pages/entryexit/entryexit';
 import { ChangeSchedulePage } from '../pages/change-schedule/change-schedule';
 import { GtamenuPage } from '../pages/gtamenu/gtamenu';
-import * as moment from 'moment';
+import { WelcomeLoginPage } from '../pages/welcome-login/welcome-login';
 
 @Component({
   templateUrl: 'app.html'
@@ -16,7 +16,7 @@ import * as moment from 'moment';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = WelcomeLoginPage;
 
   pages: Array<{title: string, component: any}>;
   newShift : ShiftTimes = {
@@ -34,7 +34,6 @@ export class MyApp {
       { title: 'Home', component: HomePage },
       { title: 'List', component: ListPage },
       { title: 'Change Schedule', component: ChangeSchedulePage },
-     // { title: 'Time Clock', component: EntryexitPage },
       { title: 'GTAMenu', component: GtamenuPage },
     ];
 
