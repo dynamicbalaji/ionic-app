@@ -5,10 +5,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
-import { EntryexitPage } from '../pages/entryexit/entryexit';
+//import { EntryexitPage } from '../pages/entryexit/entryexit';
 import { ChangeSchedulePage } from '../pages/change-schedule/change-schedule';
 import { GtamenuPage } from '../pages/gtamenu/gtamenu';
 import * as moment from 'moment';
+import { ShiftTimes } from './interfaces';
 
 @Component({
   templateUrl: 'app.html'
@@ -63,12 +64,4 @@ export class MyApp {
 
     console.log("Initialized new shift times: "+ this.newShift.startTime + ", "+ this.newShift.endTime);
   }
-}
-
-
-export interface ShiftTimes {
-  startTime: string;
-  endTime: string;
-  breakTime: string;
-  mealTime: string;
 }

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController  } from 'ionic-angular';
 import * as moment from 'moment';
-import {ShiftTimes} from 'ShiftTimes';
+import {ShiftTimes} from '../../app/interfaces';
 
 /**
  * Generated class for the GtamenuPage page.
