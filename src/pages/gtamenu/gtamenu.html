@@ -16,10 +16,11 @@
 
 <ion-content padding>
   <ion-grid class="slide-in">
-    <ion-row>
+    <ion-row item-height="100px">
       <ion-col col-6>
         <ion-fab top center>
-          <button ion-fab [color]="activeMenuColor" (click)="onStartClick()">START</button>
+          <button ion-fab color="{{startShift === true ? 'secondary' : 'inactive'}}" 
+          (click)="onButtonClick('start')" [disabled]="!startShift">START</button>
         </ion-fab>
       </ion-col>
       <ion-col col-6>
@@ -41,7 +42,8 @@
       </ion-col>
       <ion-col col-6>
         <ion-fab right center>
-          <button ion-fab [color]="inactiveMenuColor"><ion-icon name="pizza" isActive="false"></ion-icon></button>
+          <button ion-fab color="{{mealTime === true ? 'secondary' : 'inactive'}}" 
+          (click)="onButtonClick('meal')" [disabled]="!mealTime"><ion-icon name="pizza"></ion-icon></button>
         </ion-fab>
       </ion-col>
     </ion-row>
@@ -53,7 +55,8 @@
     <ion-row>
       <ion-col col-6>
         <ion-fab top center>
-          <button ion-fab [color]="inactiveMenuColor"><ion-icon name="cafe" isActive="false"></ion-icon></button>
+          <button ion-fab color="{{breakTime === true ? 'secondary' : 'inactive'}}" 
+              (click)="onButtonClick('break')" [disabled] ="!breakTime"><ion-icon name="cafe"></ion-icon></button>
         </ion-fab>
       </ion-col>
       <ion-col col-6>
@@ -72,7 +75,8 @@
       </ion-col>
       <ion-col col-6>
         <ion-fab center>
-          <button ion-fab [color]="inactiveMenuColor" (click)="onEndClick()">END</button>
+          <button ion-fab color="{{endShift === true ? 'secondary' : 'inactive'}}" 
+          (click)="onButtonClick('end')" [disabled]="!endShift">END</button>
         </ion-fab>
       </ion-col>
     </ion-row>

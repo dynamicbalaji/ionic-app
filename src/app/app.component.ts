@@ -8,6 +8,7 @@ import { ListPage } from '../pages/list/list';
 import { EntryexitPage } from '../pages/entryexit/entryexit';
 import { ChangeSchedulePage } from '../pages/change-schedule/change-schedule';
 import { GtamenuPage } from '../pages/gtamenu/gtamenu';
+import * as moment from 'moment';
 
 @Component({
   templateUrl: 'app.html'
@@ -18,16 +19,22 @@ export class MyApp {
   rootPage: any = HomePage;
 
   pages: Array<{title: string, component: any}>;
+  newShift : ShiftTimes = {
+    startTime: '00:00',
+    endTime: '00:00',
+    breakTime: '00:00',
+    mealTime: '00:00'
+  };
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
-
+    this.initializeShiftTimes();
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'List', component: ListPage },
       { title: 'Change Schedule', component: ChangeSchedulePage },
-      { title: 'Time Clock', component: EntryexitPage },
+     // { title: 'Time Clock', component: EntryexitPage },
       { title: 'GTAMenu', component: GtamenuPage },
     ];
 
@@ -45,6 +52,23 @@ export class MyApp {
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
+    this.nav.setRoot(page.component, {'shiftTimes': this.newShift});
   }
+
+  initializeShiftTimes(){
+    this.newShift.startTime = moment().format('hh:mm A');
+    this.newShift.mealTime = moment().add(5,'minutes').format('hh:mm A');
+    this.newShift.breakTime = moment().add(10,'minutes').format('hh:mm A');
+    this.newShift.endTime = moment().add(15,'minutes').format('hh:mm A');
+
+    console.log("Initialized new shift times: "+ this.newShift.startTime + ", "+ this.newShift.endTime);
+  }
+}
+
+
+export interface ShiftTimes {
+  startTime: string;
+  endTime: string;
+  breakTime: string;
+  mealTime: string;
 }
