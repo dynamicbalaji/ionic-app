@@ -8,9 +8,30 @@
     <div text-center style="margin-top:10%">
         <img src="./assets/imgs/Walmart-Logo.png"/> 
     </div>
-    <div id="greeting" style="margin-left: 10%">
+    <div id="greeting" style="margin-left: 10%; display:none">
       <ion-label class="greet-msg">Hi!</ion-label>
       <ion-label class="greet-msg2">I am Wally</ion-label>
     </div>
-
+    <div>
+        <ion-card>
+            <ion-card-header style="font-size:14px;color: rgb(26, 117, 207);" text-center>
+              Login to continue
+            </ion-card-header>
+            <ion-card-content>
+                <ion-list no-lines>
+                    <ion-item>
+                      <ion-label floating>Username</ion-label>
+                      <ion-input type="text"></ion-input>
+                    </ion-item>                  
+                    <ion-item>
+                      <ion-label floating>Password</ion-label>
+                      <ion-input type="password"></ion-input>
+                    </ion-item>                  
+                  </ion-list>                  
+                  <div padding>
+                    <button ion-button round>LOGIN</button>
+                  </div>
+            </ion-card-content>
+        </ion-card>
+    </div>
 </ion-content>
