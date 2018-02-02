@@ -9,6 +9,7 @@ import { ListPage } from '../pages/list/list';
 import { ChangeSchedulePage } from '../pages/change-schedule/change-schedule';
 import { GtamenuPage } from '../pages/gtamenu/gtamenu';
 import { WelcomeLoginPage } from '../pages/welcome-login/welcome-login';
+import { ShiftTimes } from './interfaces';
 
 @Component({
   templateUrl: 'app.html'
@@ -62,12 +63,4 @@ export class MyApp {
 
     console.log("Initialized new shift times: "+ this.newShift.startTime + ", "+ this.newShift.endTime);
   }
-}
-
-
-export interface ShiftTimes {
-  startTime: string;
-  endTime: string;
-  breakTime: string;
-  mealTime: string;
 }
