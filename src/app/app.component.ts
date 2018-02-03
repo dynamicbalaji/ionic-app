@@ -5,7 +5,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import * as moment from 'moment';
 
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 import { ChangeSchedulePage } from '../pages/change-schedule/change-schedule';
 import { GtamenuPage } from '../pages/gtamenu/gtamenu';
 import { WelcomeLoginPage } from '../pages/welcome-login/welcome-login';
@@ -34,7 +33,6 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: NewHomePage },
-      { title: 'List', component: ListPage },
       { title: 'Change Schedule', component: ChangeSchedulePage },
       { title: 'GTAMenu', component: GtamenuPage },
     ];
