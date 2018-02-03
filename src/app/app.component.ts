@@ -32,7 +32,11 @@ export class MyApp {
     this.initializeShiftTimes();
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: NewHomePage },
+      { title: 'DASHBOARD', component: NewHomePage },
+      { title: 'PERSONAL DATA', component: NewHomePage },
+      { title: 'TRAINING', component: NewHomePage },
+      { title: 'PERFORMANCE', component: NewHomePage },
+      { title: 'BENEFITS & REWARDS', component: NewHomePage },
       { title: 'Change Schedule', component: ChangeSchedulePage },
       { title: 'GTAMenu', component: GtamenuPage },
     ];

@@ -39,7 +39,8 @@ $colors: (
   danger:     #f53d3d,
   light:      #f4f4f4,
   dark:       #222,
-  inactive:   #cccccc
+  inactive:   #cccccc,
+  pure:       #ffffff
 );
 
 
@@ -72,6 +73,15 @@ $colors: (
 // default are overridden.
 
 @import "ionic.theme.default";
+
+$toolbar-ios-background: rgb(0, 56, 151);
+$toolbar-md-background: rgb(0, 56, 151);
+$toolbar-wp-background: rgb(0, 56, 151);
+$item-ios-sliding-content-background:rgb(0, 56, 151);
+$item-md-sliding-content-background:rgb(0, 56, 151);
+$menu-ios-background:rgb(0, 56, 151);
+$menu-md-background: rgb(0, 56, 151);
+$menu-wp-background: rgb(0, 56, 151);
 
 
 // Ionicons
