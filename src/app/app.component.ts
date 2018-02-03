@@ -9,6 +9,7 @@ import { ListPage } from '../pages/list/list';
 import { ChangeSchedulePage } from '../pages/change-schedule/change-schedule';
 import { GtamenuPage } from '../pages/gtamenu/gtamenu';
 import { WelcomeLoginPage } from '../pages/welcome-login/welcome-login';
+import { NewHomePage } from '../pages/new-home/new-home';
 import { ShiftTimes } from './interfaces';
 
 @Component({
@@ -17,7 +18,7 @@ import { ShiftTimes } from './interfaces';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = WelcomeLoginPage;
+  rootPage: any = NewHomePage;
 
   pages: Array<{title: string, component: any}>;
   newShift : ShiftTimes = {
@@ -32,7 +33,7 @@ export class MyApp {
     this.initializeShiftTimes();
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
+      { title: 'Home', component: NewHomePage },
       { title: 'List', component: ListPage },
       { title: 'Change Schedule', component: ChangeSchedulePage },
       { title: 'GTAMenu', component: GtamenuPage },

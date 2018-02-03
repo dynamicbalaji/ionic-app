@@ -13,6 +13,7 @@ import { EntryexitPage } from '../pages/entryexit/entryexit';
 import { ChangeScheduleDonePage } from '../pages/change-schedule-done/change-schedule-done';
 import { GtamenuPage } from '../pages/gtamenu/gtamenu';
 import { WelcomeLoginPage } from '../pages/welcome-login/welcome-login';
+import { NewHomePage } from '../pages/new-home/new-home';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { WelcomeLoginPage } from '../pages/welcome-login/welcome-login';
     EntryexitPage,
     ChangeScheduleDonePage,
     GtamenuPage,
-    WelcomeLoginPage
+    WelcomeLoginPage,
+    NewHomePage
   ],
   imports: [
     BrowserModule,
@@ -38,7 +40,8 @@ import { WelcomeLoginPage } from '../pages/welcome-login/welcome-login';
     EntryexitPage,
     ChangeScheduleDonePage,
     GtamenuPage,
-    WelcomeLoginPage
+    WelcomeLoginPage,
+    NewHomePage
   ],
   providers: [
     StatusBar,
