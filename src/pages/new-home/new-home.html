@@ -17,11 +17,37 @@
 
 
 <ion-content padding>
-
-  <ion-card id="page-card24" text-wrap>
+  <ion-row>
+    <ion-col>
+      <ion-card id="clockedhrs" text-wrap>
+        <div class="new-home-card">
+          <div class="card-avatar-section" text-center>
+            <div class="card-avatar">
+              <img src="./assets/imgs/clocked-hours_icon.png" width="30px !important" height="30px !important" />
+            </div>
+            <ion-label class="card-avatar-txt">CLOCKED HOURS</ion-label>
+            <ion-label class="card-avatar-big-txt">22:00</ion-label>
+          </div>
+        </div>
+      </ion-card>
+    </ion-col>
+    <ion-col>
+      <ion-card id="punchesmissed" text-wrap>
+        <div class="new-home-card">
+          <div class="card-avatar-section" text-center>
+            <div class="card-avatar">
+              <img src="./assets/imgs/Punchmissed_icon.png" width="30px !important" />
+            </div>
+            <ion-label class="card-avatar-txt">PUNCHES MISSED</ion-label>
+            <ion-label class="card-avatar-big-txt-red">2 DAYS</ion-label>
+          </div>
+        </div>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  <ion-card id="schedule" text-wrap>
     <div class="new-home-card">
-      <div class="card-avatar-section"
-        text-center>
+      <div class="card-avatar-section" text-center>
         <div class="card-avatar">
           <img src="./assets/imgs/Schedule_icon.png" width="30px !important" />
         </div>
@@ -40,10 +66,9 @@
     </div>
   </ion-card>
 
-  <ion-card id="page-card25" text-wrap>
+  <ion-card id="shifts" text-wrap>
     <div class="new-home-card">
-      <div class="card-avatar-section"
-        text-center>
+      <div class="card-avatar-section" text-center>
         <div class="card-avatar">
           <img src="./assets/imgs/Available-shifts_icon.png" width="30px !important" />
         </div>
@@ -62,10 +87,9 @@
     </div>
   </ion-card>
 
-  <ion-card id="page-card26" text-wrap>
+  <ion-card id="paystub" text-wrap>
     <div class="new-home-card">
-      <div class="card-avatar-section"
-        text-center>
+      <div class="card-avatar-section" text-center>
         <div class="card-avatar">
           <img src="./assets/imgs/Paystubs_icon.png" width="30px !important" />
         </div>
@@ -80,6 +104,19 @@
           <ion-label class="card-avatar-txt">JAN 2018</ion-label>
           <ion-label class="card-avatar-sub-txt">1st - 15th</ion-label>
         </div>
+      </div>
+    </div>
+  </ion-card>
+
+  <ion-card id="leaderboard" text-wrap style="width:50%;">
+    <div class="new-home-card">
+      <div class="card-avatar-section" text-center>
+        <div class="card-avatar">
+          <img src="./assets/imgs/clocked-hours_icon.png" width="30px !important" height="30px !important" />
+        </div>
+        <ion-label class="card-avatar-txt">LEADERBOARD</ion-label>
+        <ion-label class="card-avatar-big-txt">50</ion-label>
+        <ion-label class="card-avatar-sm-txt">POINTS</ion-label>
       </div>
     </div>
   </ion-card>

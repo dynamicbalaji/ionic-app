@@ -42,4 +42,29 @@ page-new-home {
         flex-direction: column;
     }
 
+    .card-avatar-big-txt {
+        font-size:26px !important;
+        color: rgb(26, 117, 207);
+        margin-top: -10%;
+        overflow:visible;
+    }
+
+    .card-avatar-big-txt-red {
+        font-size:26px !important;
+        color: rgb(213, 32, 47);
+        margin-top: -10%;
+        overflow:visible;
+    }
+
+    .card-avatar-sm-txt {
+        font-size:10px !important;
+        color: rgb(26, 117, 207);
+        margin-top: -10%;
+        overflow:visible;
+    }
+
+    ion-card {
+        border-bottom: 3px solid rgb(253, 186, 45);
+     }
+
 }
