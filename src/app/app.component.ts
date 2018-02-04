@@ -4,11 +4,10 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import * as moment from 'moment';
 
-import { HomePage } from '../pages/home/home';
 import { ChangeSchedulePage } from '../pages/change-schedule/change-schedule';
 import { GtamenuPage } from '../pages/gtamenu/gtamenu';
-import { WelcomeLoginPage } from '../pages/welcome-login/welcome-login';
 import { NewHomePage } from '../pages/new-home/new-home';
+import { PersonalDataPage } from '../pages/personal-data/personal-data';
 import { ShiftTimes } from './interfaces';
 
 @Component({
@@ -33,7 +32,7 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'DASHBOARD', component: NewHomePage },
-      { title: 'PERSONAL DATA', component: NewHomePage },
+      { title: 'PERSONAL DATA', component: PersonalDataPage },
       { title: 'TRAINING', component: NewHomePage },
       { title: 'PERFORMANCE', component: NewHomePage },
       { title: 'BENEFITS & REWARDS', component: NewHomePage },
