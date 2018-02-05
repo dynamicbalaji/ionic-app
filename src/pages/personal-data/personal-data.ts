@@ -22,7 +22,7 @@ export class PersonalDataPage {
   maritalStatus: string = "0";
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public ascService: AssociateService) {
-    this.ascService.getAsc().then(data => {console.log(data.toString());this.associate = <Associate>data});
+    this.ascService.getAsc().then(data => {console.log(JSON.stringify(data));this.associate = <Associate>data});
   }
 
   ionViewDidLoad() {
