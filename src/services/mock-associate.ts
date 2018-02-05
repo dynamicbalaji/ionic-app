@@ -1,7 +1,7 @@
 import { Associate } from '../app/interfaces';
 
 let associate: Associate = {
-    fName: "EmilyMurugan",
+    fName: "Emily",
     lName: "Holmes",
     dob: "03/21/1982",
     maritalStatus: "2",
