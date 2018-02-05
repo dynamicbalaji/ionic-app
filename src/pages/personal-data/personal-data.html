@@ -32,7 +32,7 @@
     </ion-card-header>
     <ion-card-content>
         <ion-label stacked class="input-label">First Name</ion-label>
-        <ion-input type="text" value="Emily" class="input-style"></ion-input>
+        <ion-input type="text" class="input-style" [(ngModel)]="associate.fName"></ion-input>
         <ion-label stacked class="input-label">Last Name</ion-label>
         <ion-input type="text" value="Holmes" class="input-style"></ion-input>
       <ion-row>
@@ -42,7 +42,7 @@
         </ion-col>
         <ion-col>
           <ion-label stacked class="input-label">Marital Status</ion-label>
-          <ion-select [(ngModel)]="maritalStatus">
+          <ion-select [(ngModel)]="maritalStatus" class="input-select">
               <ion-option value="0">Select</ion-option>
               <ion-option value="1">Single</ion-option>
               <ion-option value="2">Married</ion-option>

@@ -17,6 +17,7 @@ import { NewHomePage } from '../pages/new-home/new-home';
 import { WeeklySchedulePage } from '../pages/weekly-schedule/weekly-schedule';
 import { PersonalDataPage } from '../pages/personal-data/personal-data';
 import { ChangeShiftModalPage } from '../pages/change-shift-modal/change-shift-modal';
+import { AssociateService } from '../services/associate.service.mock';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { ChangeShiftModalPage } from '../pages/change-shift-modal/change-shift-m
     StatusBar,
     SplashScreen,
     LocalNotifications,
+    AssociateService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

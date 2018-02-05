@@ -1,7 +1,7 @@
 page-weekly-schedule {
 
     .header-txt {
-        font-size: 18px;
+        font-size: 12px;
         font-weight: bold;
         color: rgb(33,33,33);
     }
@@ -30,13 +30,20 @@ page-weekly-schedule {
     // }
 
     .card-wkday-txt {
-        font-size:14px !important;
+        font-size:10px !important;
         color: rgb(33,33,33);
+        text-align: left;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10%;
     }
 
     .card-daytime-txt {
-        font-size:18px !important;
+        font-size:12px !important;
         color: rgb(24,117,208);
+        text-align: left;
+        flex-direction: column;
+        align-items: center;
     }
 
     // .card-avatar-sub-txt {
@@ -45,33 +52,43 @@ page-weekly-schedule {
     // }
 
     .card-schedChg-btn-txt {
-        font-size:14px !important;
+        font-size:10px !important;
         color: rgb(26, 117, 207);
         padding-right: 30px;
+        margin-top: 20%;
+        align-items: center
     }
     .card-calIcon {
         //font-size:14px;
-        height: 64px;
-        width:  64px;
+        height: 52px;
+        width:  52px;
         border: solid;
         border-color: rgb(85,85,85);
         border-radius: 4px;
-        //padding: 0.01em;
         border-width: 1px;
         text-align: center;
         flex-direction: column;
     }
 
     .cal-month-text {
-        font-size:14px !important;
+        font-size:10px;
         color: rgb(33,33,33);
         font-weight: 500;
+        margin-top: 10% !important;
+        padding-left: 2%
     }
 
     .cal-day-text {
-        font-size:28px;
+        font-size:24px;
         color: rgb(33,33,33);
         font-weight: bold;
+        margin-top: 8%;
+        padding-left: 2%
+    }
+
+    .card-daySched-text {
+        text-align: center;
+        flex-direction: column;
     }
 
     .card-calIcon-content {
@@ -121,13 +138,13 @@ page-weekly-schedule {
        margin-right: -3%
      }
     ion-item {
-        height: 120px;
+        height: 80px;
     }
     
-    ion-thumbnail {
-        height: 82px;
-        width:  82px;
-        //font-size: 14px;
-        color: rgb(33,33,33);
-    }
+    // ion-thumbnail {
+    //     //height: 4px;
+    //     //width:  4px;
+    //     //font-size: 14px;
+    //     //color: rgb(33,33,33);
+    // }
 }
