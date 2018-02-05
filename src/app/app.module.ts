@@ -19,6 +19,7 @@ import { WeeklySchedulePage } from '../pages/weekly-schedule/weekly-schedule';
 import { PersonalDataPage } from '../pages/personal-data/personal-data';
 import { ChangeShiftModalPage } from '../pages/change-shift-modal/change-shift-modal';
 import { AssociateService } from '../services/associate.service.mock';
+import { ShiftDayPage } from '../pages/shift-day/shift-day';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { AssociateService } from '../services/associate.service.mock';
     NewHomePage,
     WeeklySchedulePage,
     PersonalDataPage,
-    ChangeShiftModalPage
+    ChangeShiftModalPage,
+    ShiftDayPage
   ],
   imports: [
     BrowserModule,
@@ -62,7 +64,8 @@ import { AssociateService } from '../services/associate.service.mock';
     NewHomePage,
     WeeklySchedulePage,
     PersonalDataPage,
-    ChangeShiftModalPage
+    ChangeShiftModalPage,
+    ShiftDayPage
   ],
   providers: [
     StatusBar,

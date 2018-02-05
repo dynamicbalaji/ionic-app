@@ -9,6 +9,7 @@ import { GtamenuPage } from '../pages/gtamenu/gtamenu';
 import { NewHomePage } from '../pages/new-home/new-home';
 import { PersonalDataPage } from '../pages/personal-data/personal-data';
 import { ShiftTimes } from './interfaces';
+import { ShiftDayPage } from '../pages/shift-day/shift-day';
 
 @Component({
   templateUrl: 'app.html'
@@ -38,6 +39,7 @@ export class MyApp {
       { title: 'BENEFITS & REWARDS', component: NewHomePage },
       { title: 'Change Schedule', component: ChangeSchedulePage },
       { title: 'GTAMenu', component: GtamenuPage },
+      { title: 'Shift Day', component: ShiftDayPage}
     ];
 
   }
