@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
+import { Associate } from '../../app/interfaces';
+import { AssociateService } from '../../services/associate.service.mock';
+
 /**
  * Generated class for the PersonalDataPage page.
  *
@@ -14,10 +17,12 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class PersonalDataPage {
 
+  associate: Associate;
   dob: string = "03/21/1982";
   maritalStatus: string = "0";
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public ascService: AssociateService) {
+    this.ascService.getAsc().then(data => {console.log(data.toString());this.associate = <Associate>data});
   }
 
   ionViewDidLoad() {

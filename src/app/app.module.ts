@@ -16,6 +16,7 @@ import { WelcomeLoginPage } from '../pages/welcome-login/welcome-login';
 import { NewHomePage } from '../pages/new-home/new-home';
 import { WeeklySchedulePage } from '../pages/weekly-schedule/weekly-schedule';
 import { PersonalDataPage } from '../pages/personal-data/personal-data';
+import { AssociateService } from '../services/associate.service.mock';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { PersonalDataPage } from '../pages/personal-data/personal-data';
     StatusBar,
     SplashScreen,
     LocalNotifications,
+    AssociateService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
