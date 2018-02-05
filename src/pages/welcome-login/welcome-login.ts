@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { IonicPage,NavController, NavParams } from 'ionic-angular';
+import { VoiceEnablePage } from '../voice-enable/voice-enable';
 
-/**
+/** 
  * Generated class for the WelcomeLoginPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
@@ -21,4 +22,8 @@ export class WelcomeLoginPage {
     console.log('ionViewDidLoad WelcomeLoginPage');
   }
 
+  NextPage() {
+    this.navCtrl.push(VoiceEnablePage);
+    this.navCtrl.setRoot(VoiceEnablePage);
+    }
 }

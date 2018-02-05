@@ -1,7 +1,7 @@
 page-welcome-login {
     .greet-msg {
         font-size:59px; 
-        color: rgb(26, 117, 207); 
+        color: rgb(141, 171, 201); 
         margin-top:36%
     }
 
@@ -9,4 +9,16 @@ page-welcome-login {
         font-size:39px; 
         color: rgb(0, 56, 150);
     }
-}
+
+      .center{
+        text-align: center;
+    }
+
+    .no-scroll .scroll-content{
+        overflow-y: hidden;
+    }
+
+    .card-md .item-inner { border-bottom: 1px solid #dedede !important; }
+
+       }
+

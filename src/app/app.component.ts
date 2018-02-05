@@ -10,6 +10,8 @@ import { NewHomePage } from '../pages/new-home/new-home';
 import { PersonalDataPage } from '../pages/personal-data/personal-data';
 import { ShiftTimes } from './interfaces';
 import { ShiftDayPage } from '../pages/shift-day/shift-day';
+import { VoiceEnablePage } from '../pages/voice-enable/voice-enable';
+import { WelcomeLoginPage } from '../pages/welcome-login/welcome-login';
 
 @Component({
   templateUrl: 'app.html'
@@ -17,7 +19,7 @@ import { ShiftDayPage } from '../pages/shift-day/shift-day';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = NewHomePage;
+  rootPage: any = WelcomeLoginPage;
 
   pages: Array<{title: string, component: any}>;
   newShift : ShiftTimes = {
