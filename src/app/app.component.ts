@@ -65,6 +65,6 @@ export class MyApp {
     this.newShift.endTime = moment().add(15,'minutes').format('hh:mm A');
 
     console.log("Initialized new shift times: "+ this.newShift.startTime + ", "+ 
-            this.newShift.endTime + this.newShift.breakTime + ", "+ this.newShift.endTime);
+            this.newShift.endTime + this.newShift.breakTime + ", "+ this.newShift.mealTime);
   }
 }

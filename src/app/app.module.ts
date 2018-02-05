@@ -14,6 +14,7 @@ import { ChangeScheduleDonePage } from '../pages/change-schedule-done/change-sch
 import { GtamenuPage } from '../pages/gtamenu/gtamenu';
 import { WelcomeLoginPage } from '../pages/welcome-login/welcome-login';
 import { NewHomePage } from '../pages/new-home/new-home';
+import { WeeklySchedulePage } from '../pages/weekly-schedule/weekly-schedule';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { NewHomePage } from '../pages/new-home/new-home';
     ChangeScheduleDonePage,
     GtamenuPage,
     WelcomeLoginPage,
-    NewHomePage
+    NewHomePage,
+    WeeklySchedulePage
   ],
   imports: [
     BrowserModule,
@@ -41,7 +43,8 @@ import { NewHomePage } from '../pages/new-home/new-home';
     ChangeScheduleDonePage,
     GtamenuPage,
     WelcomeLoginPage,
-    NewHomePage
+    NewHomePage,
+    WeeklySchedulePage
   ],
   providers: [
     StatusBar,

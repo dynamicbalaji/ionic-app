@@ -9,8 +9,8 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title style="margin-top:4%; margin-left:0%">
-      <img src="./assets/imgs/Walmart-Logo.png" width="60%" height="20%" />
+    <ion-title style="margin-top:2%; margin-left:0%">
+      <img src="./assets/imgs/Walmart-Logo.png" width="40%" height="15%" />
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -45,7 +45,7 @@
       </ion-card>
     </ion-col>
   </ion-row>
-  <ion-card id="schedule" text-wrap>
+  <ion-card id="schedule" text-wrap (click)="viewSchedule()">
     <div class="new-home-card">
       <div class="card-avatar-section" text-center>
         <div class="card-avatar">

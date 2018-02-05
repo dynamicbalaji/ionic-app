@@ -1,0 +1,116 @@
+page-weekly-schedule {
+
+    .header-txt {
+        font-size: 18px !important;
+        font-weight: bold;
+        color: rgb(33,33,33);
+    }
+    
+    .schedule-card {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .card-avatar-section {
+        flex: 1;
+        flex-grow: 1;
+        display: flex;
+        align-items: center; 
+        justify-content: center; 
+        text-align: center; 
+        flex-direction: column;
+        margin-top:10%; 
+        width: 5% !important;
+    }
+
+    .card-avatar {
+        width: 30px !important;
+        margin-left:-5%;
+    }
+
+    .card-day-txt {
+        font-size:16px !important;
+        color: rgb(33,33,33);
+    }
+
+    .card-daytime-txt {
+        font-size:24px !important;
+        color: rgb(24,117,208);
+    }
+
+    // .card-avatar-sub-txt {
+    //     font-size:10px !important;
+    //     color: rgb(26, 117, 207);
+    // }
+
+    .card-schedChg-btn-txt {
+        font-size:18px !important;
+        color: rgb(26, 117, 207);
+    }
+    .card-calIcon {
+        font-size:14px !important;
+        height: 82px;
+        width:  82px;
+        border: solid;
+        border-color: rgb(75,75,75);
+        border-radius: 4px;
+        //padding: 0.01em;
+        border-width: 0.1em;
+        text-align: center;
+    }
+    .card-calIcon-content {
+        font-size:14px !important;
+        color: rgb(33,33,33);
+        text-align: center;
+        align-items: center; 
+        justify-content: center; 
+        flex-direction: column;
+        margin-top: 20%;
+        overflow:visible;
+    }
+
+    .card-main {
+        flex: 1;
+        flex-grow: 1;
+        display: flex;
+        align-items: left; 
+        justify-content: left; 
+        text-align: left; 
+        flex-direction: column;
+    }
+
+    // .card-avatar-big-txt {
+    //     font-size:26px !important;
+    //     color: rgb(26, 117, 207);
+    //     margin-top: -10%;
+    //     overflow:visible;
+    // }
+
+    // .card-avatar-big-txt-red {
+    //     font-size:26px !important;
+    //     color: rgb(213, 32, 47);
+    //     margin-top: -10%;
+    //     overflow:visible;
+    // }
+
+    // .card-avatar-sm-txt {
+    //     font-size:10px !important;
+    //     color: rgb(26, 117, 207);
+    //     margin-top: -10%;
+    //     overflow:visible;
+    // }
+
+    // ion-card {
+    //     border-bottom: 3px solid rgb(253, 186, 45);
+    //  }
+    ion-item {
+        height: 120px;
+    }
+    
+    ion-thumbnail {
+        height: 82px;
+        width:  82px;
+        //font-size: 14px;
+        color: rgb(33,33,33);
+    }
+}
