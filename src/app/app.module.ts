@@ -15,6 +15,7 @@ import { GtamenuPage } from '../pages/gtamenu/gtamenu';
 import { WelcomeLoginPage } from '../pages/welcome-login/welcome-login';
 import { NewHomePage } from '../pages/new-home/new-home';
 import { WeeklySchedulePage } from '../pages/weekly-schedule/weekly-schedule';
+import { PersonalDataPage } from '../pages/personal-data/personal-data';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { WeeklySchedulePage } from '../pages/weekly-schedule/weekly-schedule';
     GtamenuPage,
     WelcomeLoginPage,
     NewHomePage,
-    WeeklySchedulePage
+    WeeklySchedulePage,
+    PersonalDataPage
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,8 @@ import { WeeklySchedulePage } from '../pages/weekly-schedule/weekly-schedule';
     GtamenuPage,
     WelcomeLoginPage,
     NewHomePage,
-    WeeklySchedulePage
+    WeeklySchedulePage,
+    PersonalDataPage
   ],
   providers: [
     StatusBar,
