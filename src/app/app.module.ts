@@ -16,6 +16,7 @@ import { WelcomeLoginPage } from '../pages/welcome-login/welcome-login';
 import { NewHomePage } from '../pages/new-home/new-home';
 import { WeeklySchedulePage } from '../pages/weekly-schedule/weekly-schedule';
 import { PersonalDataPage } from '../pages/personal-data/personal-data';
+import { ChangeShiftModalPage } from '../pages/change-shift-modal/change-shift-modal';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { PersonalDataPage } from '../pages/personal-data/personal-data';
     WelcomeLoginPage,
     NewHomePage,
     WeeklySchedulePage,
-    PersonalDataPage
+    PersonalDataPage,
+    ChangeShiftModalPage
   ],
   imports: [
     BrowserModule,
@@ -47,7 +49,8 @@ import { PersonalDataPage } from '../pages/personal-data/personal-data';
     WelcomeLoginPage,
     NewHomePage,
     WeeklySchedulePage,
-    PersonalDataPage
+    PersonalDataPage,
+    ChangeShiftModalPage
   ],
   providers: [
     StatusBar,

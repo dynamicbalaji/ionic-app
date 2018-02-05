@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { ChangeShiftModalPage } from '../change-shift-modal/change-shift-modal';
 
 /**
  * Generated class for the WeeklySchedulePage page.
@@ -15,11 +16,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class WeeklySchedulePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad WeeklySchedulePage');
+  }
+
+  showChangeOptions(){
+    let changeShiftModal = this.modalCtrl.create(ChangeShiftModalPage);
+    changeShiftModal.present();
   }
 
 }
