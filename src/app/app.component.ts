@@ -16,7 +16,7 @@ import { ShiftTimes } from './interfaces';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = PersonalDataPage;
+  rootPage: any = NewHomePage;
 
   pages: Array<{title: string, component: any}>;
   newShift : ShiftTimes = {
