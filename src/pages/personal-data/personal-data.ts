@@ -14,6 +14,9 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class PersonalDataPage {
 
+  dob: string = "03/21/1982";
+  maritalStatus: string = "0";
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
