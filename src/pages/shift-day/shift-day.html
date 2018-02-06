@@ -29,9 +29,14 @@
       </ion-label>
     </ion-col>
   </ion-row>
-  <circle-progress [percent]="85" [radius]="100" [outerStrokeWidth]="16" [innerStrokeWidth]="8" [outerStrokeColor]="'#78C000'"
-    [innerStrokeColor]="'#C7E596'" [animation]="true" [animationDuration]="300"></circle-progress>
-  <button ion-button round>START MY SHIFT</button>
+  <circle-progress [percent]="shiftPercent" [radius]="100" [outerStrokeWidth]="9" [innerStrokeWidth]="10" [outerStrokeColor]="'#4882c2'"
+    [innerStrokeColor]="'#d2e3ee'" [animation]="true" [animationDuration]="1000" [space]="-10"></circle-progress>
+  <!--<br/><img src="./assets/imgs/man_walking.png" width="5%" height="10%" style="margin-top:10%" /><br/>-->
+  <button ion-button round *ngIf="curStatus === ShiftStatus.start" (click)="updateShift(curStatus, shiftPercent)">START MY SHIFT</button>
+  <button ion-button round *ngIf="curStatus === ShiftStatus.coffeebreak || curStatus === ShiftStatus.mealbreak">TAKE A MEAL BREAK</button>
+  <button ion-button round *ngIf="curStatus === ShiftStatus.resume">RESUME SHIFT</button>
+  <button ion-button round *ngIf="curStatus === ShiftStatus.finish">END SHIFT</button>
+  <button ion-button clear *ngIf="curStatus === ShiftStatus.inprogress">SHIFT IN PROGRESS...</button>
   <img src="./assets/imgs/points_icon.png" width="50%" style="margin-top:10%" />
   <ion-label text-wrap class="league-msg">You are just
     <b>400</b> points away from
