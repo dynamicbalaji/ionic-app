@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Renderer } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { ChangeShiftModalPage } from '../change-shift-modal/change-shift-modal';
 
@@ -29,3 +29,4 @@ export class WeeklySchedulePage {
   }
 
 }
+

@@ -1,36 +1,40 @@
 page-change-shift-modal {
 
-    // .modal-wrapper {
-    //     position: absolute;
-    //     top: 80px;
-    //     left: 45px;
-    //     display: block;
-    //     width: 70%;
-    //     height: 62%;
-    // }
-
-    ion-modal.my-popup {
-        @media (min-width: 300px) and (min-height: 500px) {
-            ion-backdrop {
-                visibility: visible;
+    ion-content {
+        &.content {
+            div.scroll-content {
+                top: 10%;
+                left: 10%;
+                width: 84%;
+                height: 40%;
+                overflow:hidden;
             }
         }
 
-        .modal-wrapper {
-            position: absolute;
-            overflow: hidden;
-            max-width: 280px;
-            border-radius: 2px;
-            width: 80vw;
-            height: 50vh;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            margin: auto;
-            border: 0;
-            box-shadow: 0 16px 20px rgba(0,0,0,.4);
-            background-color: #fafafa;
+        &.content-ios {
+            background-color: rgba(0, 0, 0, 0.3);
+
+            div.scroll-content {
+                background-color: #f8f8f8;
+                border-radius: 13px;
+                padding: 16px;
+            }
         }
+
+        &.content-md {
+            background-color: rgba(0, 0, 0, 0.5);
+            
+            div.scroll-content {
+                background-color: #fafafa;
+                border-radius: 2px;
+                box-shadow: 0 16px 20px rgba(0, 0, 0, 0.4);
+                padding: 24px;
+            }
+        }
+    }
+
+    .modal-info-txt{
+        font-size: 12px !important;
+        color: rgb(33,33,33);
     }
 }

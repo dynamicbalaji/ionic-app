@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Renderer } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 
 /**
@@ -15,8 +15,17 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 })
 export class ChangeShiftModalPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
+  changeOptionModal: boolean;
+  shiftSelection: boolean;
+  shiftChangeComplete: boolean;
+  newOption: string;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, 
+  public viewCtrl: ViewController, public renderer: Renderer) {
+    this.changeOptionModal = true;
+    this.shiftSelection = false;
   }
+  
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ChangeShiftModalPage');
@@ -24,6 +33,22 @@ export class ChangeShiftModalPage {
 
   closeModal() {
     this.viewCtrl.dismiss();
+  }
+
+  modifySchedule(optionId){
+    console.log("Selected option: "+ optionId);
+    //this.closeModal();
+    if(optionId === 'AS'){ // Alternate Shift
+      this.changeOptionModal = false;
+      this.shiftSelection = true;
+    }else if (optionId === 'SNT') { // Selected New Time
+      this.shiftSelection = false;
+      this.shiftChangeComplete = true;
+      console.log("Selected alternate time: "+ this.newOption);
+    }else{
+      this.shiftChangeComplete = false;
+      this.closeModal();
+    }
   }
 
 }
