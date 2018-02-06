@@ -19,9 +19,11 @@ export class ShiftDayPage {
   shiftPercent: number = 33;
   curStatus : number;
   ShiftStatus: typeof ShiftStatus = ShiftStatus;
+  shiftStartTime: string = "--:-- PM";
+  shiftEndTime: string = "--:-- AM";
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.curStatus = ShiftStatus.inprogress;
+    this.curStatus = ShiftStatus.coffeebreak;
   }
 
   ionViewDidLoad() {

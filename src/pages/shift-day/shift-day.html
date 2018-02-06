@@ -20,12 +20,12 @@
   <ion-row style="margin-left:3%">
     <ion-col text-right>
       <ion-label class="shift-txt">SHIFT START:
-        <span class="shift-time">--:-- PM</span>
+        <span class="shift-time">{{shiftStartTime}}</span>
       </ion-label>
     </ion-col>
     <ion-col text-left>
       <ion-label class="shift-txt">SHIFT END:
-        <span class="shift-time">--:-- AM</span>
+        <span class="shift-time">{{shiftEndTime}}</span>
       </ion-label>
     </ion-col>
   </ion-row>
@@ -33,7 +33,7 @@
     [innerStrokeColor]="'#d2e3ee'" [animation]="true" [animationDuration]="1000" [space]="-10"></circle-progress>
   <!--<br/><img src="./assets/imgs/man_walking.png" width="5%" height="10%" style="margin-top:10%" /><br/>-->
   <button ion-button round *ngIf="curStatus === ShiftStatus.start" (click)="updateShift(curStatus, shiftPercent)">START MY SHIFT</button>
-  <button ion-button round *ngIf="curStatus === ShiftStatus.coffeebreak || curStatus === ShiftStatus.mealbreak">TAKE A MEAL BREAK</button>
+  <button ion-button round *ngIf="curStatus === ShiftStatus.coffeebreak || curStatus === ShiftStatus.mealbreak" class="meal-brk">TAKE A MEAL BREAK</button>
   <button ion-button round *ngIf="curStatus === ShiftStatus.resume">RESUME SHIFT</button>
   <button ion-button round *ngIf="curStatus === ShiftStatus.finish">END SHIFT</button>
   <button ion-button clear *ngIf="curStatus === ShiftStatus.inprogress">SHIFT IN PROGRESS...</button>
