@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController, Platform } from 'ionic-angular';
 
 import { WeeklySchedulePage } from '../weekly-schedule/weekly-schedule';
+import { PunchMissedPage } from '../punch-missed/punch-missed';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import * as moment from 'moment';
 /**
@@ -37,6 +38,10 @@ export class NewHomePage {
 
   viewSchedule(){
     this.navCtrl.push(WeeklySchedulePage);
+  }
+
+  viewPunchMissed(){
+    this.navCtrl.push(PunchMissedPage);
   }
 
 

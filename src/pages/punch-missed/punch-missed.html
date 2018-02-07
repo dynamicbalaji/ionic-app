@@ -17,5 +17,15 @@
 
 
 <ion-content padding>
-
+  <ion-label text-left class="page-title">PUNCHES MISSED</ion-label>
+  <ion-card class="punch-card" *ngFor="let punch of punchMissed">
+    <ion-row>
+      <ion-col class="punch-date" col-8>
+          {{punch.punchDate}} | {{punch.punchTime}}
+      </ion-col>
+      <ion-col text-right col-4>
+        <button round ion-button class="punch-out-btn">PUNCH OUT</button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
 </ion-content>

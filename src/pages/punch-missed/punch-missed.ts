@@ -14,7 +14,13 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class PunchMissedPage {
 
+  punchMissed: any[];
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.punchMissed = [
+      {punchDate: 'Friday, 28 Jan 2018', punchTime: '1:30 AM'},
+      {punchDate: 'Saturday, 29 Jan 2018', punchTime: '1:30 AM'}
+    ];
   }
 
   ionViewDidLoad() {
