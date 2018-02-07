@@ -19,7 +19,7 @@ import { WelcomeLoginPage } from '../pages/welcome-login/welcome-login';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = PersonalDataPage;
+  rootPage: any = NewHomePage;
 
   pages: Array<{title: string, component: any, selected: boolean}>;
 
@@ -135,12 +135,12 @@ export class MyApp {
             console.log("Notifications are scheduled: "+ this.notifications);
             this.notifications = [];
  
-            // let alert = this.alertCtrl.create({
-            //     title: 'Notifications set',
-            //     buttons: ['Ok']
-            // });
+            let alert = this.alertCtrl.create({
+                title: 'Notifications set',
+                buttons: ['Ok']
+            });
  
-            // alert.present(); 
+            alert.present(); 
         });
  
     }
