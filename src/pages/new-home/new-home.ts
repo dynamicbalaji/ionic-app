@@ -81,12 +81,12 @@ export class NewHomePage {
  
     }else{
       console.log("Not a Cordova platform: "+ this.notifications);
-            let alert = this.alertCtrl.create({
-                title: 'Notifications not set !',
-                buttons: ['OK']
-            });
+            // let alert = this.alertCtrl.create({
+            //     title: 'Notifications not set !',
+            //     buttons: ['OK']
+            // });
  
-            alert.present(); 
+            // alert.present(); 
     }
   }
  

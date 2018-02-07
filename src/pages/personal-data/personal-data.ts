@@ -21,6 +21,8 @@ export class PersonalDataPage {
   dob = '03/21/1982';
   maritalStatus: string = "2";
 
+  editMode: boolean = false;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public ascService: AssociateService) {
     this.dob = "03/21/1982";
     this.maritalStatus = "2";
@@ -29,6 +31,15 @@ export class PersonalDataPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PersonalDataPage');
+  }
+
+  toggleButton(action){
+    if(action === 'Edit'){
+      this.editMode = true;
+    }else{
+      this.editMode = false;
+    }
+    
   }
 
 }

@@ -23,7 +23,7 @@
     </ion-col>
     <ion-col text-right style="margin-top:5%">
       <!-- <button ion-button round>EDIT</button> -->
-      <ion-icon name="open" color="blue"></ion-icon>
+      <ion-icon name="create" color="blue" (click) = "toggleButton('Edit')" *ngIf= "!editMode"></ion-icon>
     </ion-col>
   </ion-row>
   <hr/>
@@ -31,7 +31,7 @@
     <ion-card-header style="font-size: 14px; color:rgb(33, 33, 33)">
       General Information
     </ion-card-header>
-    <ion-card-content>
+    <ion-card-content *ngIf= "editMode">
         <ion-label stacked class="input-label">First Name</ion-label>
         <ion-input type="text" class="input-style" value="Emily"></ion-input>
         <ion-label stacked class="input-label">Last Name</ion-label>
@@ -51,12 +51,28 @@
         </ion-col>
       </ion-row>
     </ion-card-content>
+    <ion-card-content *ngIf= "!editMode">
+        <ion-label stacked class="input-label">First Name</ion-label>
+        <ion-label class="view-style">Emily</ion-label>
+        <ion-label stacked class="input-label">Last Name</ion-label>
+        <ion-label class="view-style">Holmes</ion-label>
+      <ion-row>
+        <ion-col>
+          <ion-label stacked class="input-label">Date of Birth</ion-label>
+          <ion-label class="view-style">{{dob}}</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-label stacked class="input-label">Marital Status</ion-label>
+            <ion-label class="view-style">Married</ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
   </ion-card>
   <ion-card style="width: 106%; margin-left:-3%">
     <ion-card-header style="font-size: 14px; color:rgb(33, 33, 33)">
       Contact Information
     </ion-card-header>
-    <ion-card-content>
+    <ion-card-content *ngIf= "editMode">
         <ion-label stacked class="input-label">Address Line 1</ion-label>
         <ion-input type="text" value="4283 Express Lane" class="input-style"></ion-input>
         <ion-label stacked class="input-label">Address Line 2</ion-label>
@@ -72,11 +88,28 @@
         <ion-label stacked class="input-label">Email</ion-label>
         <ion-input type="text" value="emilyholmes@gmail.com" class="input-style"></ion-input>
     </ion-card-content>
+    <ion-card-content *ngIf= "!editMode">
+        <ion-label stacked class="input-label">Address Line 1</ion-label>
+        <ion-label class="view-style">4283 Express Lane</ion-label>
+        <ion-label stacked class="input-label">Address Line 2</ion-label>
+        <ion-label class="view-style">Suite #222</ion-label>
+        <ion-label stacked class="input-label">City</ion-label>
+        <ion-label class="view-style">Sarasota</ion-label>
+        <ion-label stacked class="input-label">State</ion-label>
+        <ion-label class="view-style">Florida</ion-label>
+        <ion-label stacked class="input-label">Country</ion-label>
+        <ion-label class="view-style">Suite #222</ion-label>
+        <ion-label stacked class="input-label">Contact Number</ion-label>
+        <ion-label class="view-style">432-983-6773</ion-label>
+        <ion-label stacked class="input-label">Email</ion-label>
+        <ion-label class="view-style">emilyholmes@gmail.com</ion-label>
+    </ion-card-content>
+    
   </ion-card>
-  <ion-row text-center>
+  <ion-row text-center *ngIf="editMode">
     <ion-col>
-      <button round ion-button>CANCEL</button>
-      <button round ion-button>SAVE</button>
+      <button round ion-button (click)= "toggleButton('Cancel')" >CANCEL</button>
+      <button round ion-button (click)= "toggleButton('Save')">SAVE</button>
     </ion-col>
   </ion-row>
   <br/>
