@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, Platform } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 
 import { WeeklySchedulePage } from '../weekly-schedule/weekly-schedule';
-import * as moment from 'moment';
+import { PunchMissedPage } from '../punch-missed/punch-missed';
 /**
  * Generated class for the NewHomePage page.
  *
@@ -16,7 +16,7 @@ import * as moment from 'moment';
 })
 export class NewHomePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public platform: Platform) {
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
@@ -27,4 +27,9 @@ export class NewHomePage {
     this.navCtrl.push(WeeklySchedulePage);
   }
 
+
+  viewPunchMissed(){
+    this.navCtrl.push(PunchMissedPage);
+  }
+  
 }

@@ -9,7 +9,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title style="margin-top:4%; margin-left:0%">
+    <ion-title style="margin-top:2%; margin-left:0%">
       <img src="./assets/imgs/Walmart-Logo.png" width="60%" height="20%" />
     </ion-title>
   </ion-navbar>
@@ -17,28 +17,29 @@
 
 
 <ion-content padding>
-  <ion-row>
+  <ion-row style="margin-top:-5%">
     <ion-col>
       <ion-label text-left style="font-size: 14px; color:rgb(33, 33, 33)">PERSONAL DATA</ion-label>
     </ion-col>
-    <ion-col text-right>
-      <button ion-button round>EDIT</button>
+    <ion-col text-right style="margin-top:5%">
+      <!-- <button ion-button round>EDIT</button> -->
+      <ion-icon name="open" color="blue"></ion-icon>
     </ion-col>
   </ion-row>
   <hr/>
-  <ion-card style="width: 106%; margin-left:-3%">
+  <ion-card style="width: 106%; margin-left:-3%; margin-top:-5%">
     <ion-card-header style="font-size: 14px; color:rgb(33, 33, 33)">
       General Information
     </ion-card-header>
     <ion-card-content>
         <ion-label stacked class="input-label">First Name</ion-label>
-        <ion-input type="text" class="input-style" [(ngModel)]="associate.fName"></ion-input>
+        <ion-input type="text" class="input-style" value="Emily"></ion-input>
         <ion-label stacked class="input-label">Last Name</ion-label>
         <ion-input type="text" value="Holmes" class="input-style"></ion-input>
       <ion-row>
         <ion-col>
           <ion-label stacked class="input-label">Date of Birth</ion-label>
-          <ion-datetime displayFormat="MM/DD/YYYY" pickerFormat="MM/DD/YYYY" class="input-style" [(ngModel)]="dob"></ion-datetime>
+          <ion-datetime displayFormat="MM/DD/YYYY" class="input-style" [(ngModel)]="dob"></ion-datetime>
         </ion-col>
         <ion-col>
           <ion-label stacked class="input-label">Marital Status</ion-label>
@@ -72,4 +73,11 @@
         <ion-input type="text" value="emilyholmes@gmail.com" class="input-style"></ion-input>
     </ion-card-content>
   </ion-card>
+  <ion-row text-center>
+    <ion-col>
+      <button round ion-button>CANCEL</button>
+      <button round ion-button>SAVE</button>
+    </ion-col>
+  </ion-row>
+  <br/>
 </ion-content>

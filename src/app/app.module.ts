@@ -22,6 +22,7 @@ import { AssociateService } from '../services/associate.service.mock';
 import { ShiftDayPage } from '../pages/shift-day/shift-day';
 import { VoiceEnablePage } from '../pages/voice-enable/voice-enable';
 import { ApiProvider } from '../providers/api/api';
+import { PunchMissedPage } from '../pages/punch-missed/punch-missed';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { ApiProvider } from '../providers/api/api';
     PersonalDataPage,
     ChangeShiftModalPage,
     ShiftDayPage,
-    VoiceEnablePage
+    VoiceEnablePage,
+    PunchMissedPage
   ],
   imports: [
     BrowserModule,
@@ -69,7 +71,8 @@ import { ApiProvider } from '../providers/api/api';
     PersonalDataPage,
     ChangeShiftModalPage,
     ShiftDayPage,
-    VoiceEnablePage
+    VoiceEnablePage,
+    PunchMissedPage
   ],
   providers: [
     StatusBar,

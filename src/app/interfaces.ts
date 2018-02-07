@@ -3,6 +3,8 @@ export interface ShiftTimes {
   endTime: string;
   breakTime: string;
   mealTime: string;
+  startOnTime: boolean;
+  endOnTime: boolean;
 }
 
 export interface Associate {
