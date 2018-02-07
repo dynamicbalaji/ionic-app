@@ -19,7 +19,7 @@ import { WelcomeLoginPage } from '../pages/welcome-login/welcome-login';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = NewHomePage;
+  rootPage: any = WelcomeLoginPage;
 
   pages: Array<{title: string, component: any, selected: boolean}>;
 
@@ -32,7 +32,7 @@ export class MyApp {
     endOnTime: false
   };
 
-  notifications: any[] = [];
+  //notifications: any[] = [];
   //notificationMinute: number;
   //notifyTime: any;
 
@@ -88,78 +88,7 @@ export class MyApp {
             this.currentShift.mealTime + ", "+ this.currentShift.breakTime + ", "+ this.currentShift.endOnTime);    
     console.log('Default Notification time: '+ moment(new Date()).format());
     //console.log('Moment adding 2 mins: '+ moment().add(2, 'minutes').toLocaleString());
-
-    //this.scheduleNotifications();
     
   }
-
-  // addNotification(notifyid: number, msg: string){
-
-  //   let notification = {
-  //       id: notifyid,
-  //       title: 'Hi, Emily!',
-  //       text: msg,
-  //       at: new Date().setMinutes((new Date().getMinutes() + notifyid),0,0)
-  //   };
-
-  //   this.notifications.push(notification);
-  //   console.log("Notifications to be scheduled: ", notification);
-  // }
-
-  // scheduleNotifications(){
-
-    // let firstNotificationTime = new Date();
-    // firstNotificationTime.setMinutes(this.notificationMinute);
-
-    // let notification = {
-    //     id: firstNotificationTime.getDay(),
-    //     title: 'Hi, Emily!',
-    //     text: 'You have entered the Walmart store. Please login and start your shift.',
-    //     at: firstNotificationTime
-    // };
-
-    // this.notifications.push(notification);
-  
-    
- 
-  //   if(this.platform.is('cordova')){
- 
-  //       // Cancel any existing notifications
-  //       this.localNotifications.cancelAll().then(() => {
- 
-  //           // Schedule the new notifications
-  //           this.localNotifications.schedule(this.notifications);
-  //           console.log("Notifications are scheduled: "+ this.notifications);
-  //           this.notifications = [];
- 
-  //           let alert = this.alertCtrl.create({
-  //               title: 'Notifications set',
-  //               buttons: ['Ok']
-  //           });
- 
-  //           alert.present(); 
-  //       });
- 
-  //   }else{
-  //     console.log("Not a Cordova platform: "+ this.notifications);
-  //           let alert = this.alertCtrl.create({
-  //               title: 'Notifications not set !',
-  //               buttons: ['Ok']
-  //           });
- 
-  //           alert.present(); 
-  //   }
-  // }
- 
-  // cancelAll(){
-  //   this.localNotifications.cancelAll();
- 
-  //   let alert = this.alertCtrl.create({
-  //       title: 'Notifications cancelled',
-  //       buttons: ['Ok']
-  //   });
- 
-  //   alert.present();
-  // }
 
 }

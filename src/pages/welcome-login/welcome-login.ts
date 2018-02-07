@@ -20,6 +20,10 @@ export class WelcomeLoginPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad WelcomeLoginPage');
+    setTimeout(function () {  
+      document.getElementById("greeting").style.display = "none";
+      document.getElementById("login").style.display = "inline";
+  }, 6000); 
   }
 
   NextPage() {
