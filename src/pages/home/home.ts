@@ -20,9 +20,9 @@ export interface Actions {
 })
 export class HomePage {
 
-  notifications: any[] = [];
-  notificationMinute: number;
-  notifyTime: any;
+  // notifications: any[] = [];
+  // notificationMinute: number;
+  // notifyTime: any;
 
   allActions: Actions[] = [
     {action:'Clocked Hours', icon:'clock', title1:'22 hours', subTitle1: '15th-31th Jan 2018'},
@@ -35,10 +35,10 @@ export class HomePage {
   constructor(public navCtrl: NavController, public alertCtrl: AlertController, 
     public localNotifications: LocalNotifications, public platform: Platform) {
 
-      this.notifyTime = moment(new Date()).format();
-      this.notificationMinute = new Date().getMinutes()+2 // adding 2 mins;
-      console.log('Default Notification time: '+ this.notifyTime);
-      this.addNotification();
+      //this.notifyTime = moment(new Date()).format();
+      //this.notificationMinute = new Date().getMinutes()+2 // adding 2 mins;
+      //console.log('Default Notification time: '+ this.notifyTime);
+      //this.addNotification();
     
   }
 
@@ -46,56 +46,56 @@ export class HomePage {
       this.navCtrl.push(ChangeSchedulePage, action);
   }
 
-  addNotification(){
-    let firstNotificationTime = new Date();
-    firstNotificationTime.setMinutes(this.notificationMinute);
+  // addNotification(){
+  //   let firstNotificationTime = new Date();
+  //   firstNotificationTime.setMinutes(this.notificationMinute);
 
-    let notification = {
-        id: firstNotificationTime.getDay,
-        title: 'Hey!',
-        text: 'You just got notified :)',
-        at: firstNotificationTime
-    };
+  //   let notification = {
+  //       id: firstNotificationTime.getDay,
+  //       title: 'Hey!',
+  //       text: 'You just got notified :)',
+  //       at: firstNotificationTime
+  //   };
 
-    this.notifications.push(notification);
+  //   this.notifications.push(notification);
   
-    console.log("Notifications to be scheduled: ", this.notifications);
+  //   console.log("Notifications to be scheduled: ", this.notifications);
  
-    if(this.platform.is('cordova')){
+  //   if(this.platform.is('cordova')){
  
-        // Cancel any existing notifications
-        this.localNotifications.cancelAll().then(() => {
+  //       // Cancel any existing notifications
+  //       this.localNotifications.cancelAll().then(() => {
  
-            // Schedule the new notifications
-            this.localNotifications.schedule(this.notifications);
+  //           // Schedule the new notifications
+  //           this.localNotifications.schedule(this.notifications);
  
-            this.notifications = [];
+  //           this.notifications = [];
  
-            let alert = this.alertCtrl.create({
-                title: 'Notifications set',
-                buttons: ['Ok']
-            });
+  //           let alert = this.alertCtrl.create({
+  //               title: 'Notifications set',
+  //               buttons: ['Ok']
+  //           });
  
-            alert.present();
+  //           alert.present();
  
-        });
+  //       });
  
-    }
-  }
+  //   }
+  // }
 
-  postponeNotifications(){
+  // postponeNotifications(){
 
-  }
+  // }
  
-  cancelAll(){
-    this.localNotifications.cancelAll();
+  // cancelAll(){
+  //   this.localNotifications.cancelAll();
  
-    let alert = this.alertCtrl.create({
-        title: 'Notifications cancelled',
-        buttons: ['Ok']
-    });
+  //   let alert = this.alertCtrl.create({
+  //       title: 'Notifications cancelled',
+  //       buttons: ['Ok']
+  //   });
  
-    alert.present();
-  }
+  //   alert.present();
+  // }
 
 }

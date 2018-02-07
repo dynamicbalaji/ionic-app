@@ -75,38 +75,38 @@ export class MyApp {
     this.currentShift.startTime = moment().add(2, 'minutes').format('hh:mm A');
     //let notificationTime = new Date();
     //notificationTime.setMinutes((new Date().getMinutes() + 2), 0,0);
-    this.addNotification(2, 'You have entered the Walmart store. Please login and start your shift.');
+    //this.addNotification(2, 'You have entered the Walmart store. Please login and start your shift.');
 
     this.currentShift.mealTime = moment().add(10,'minutes').format('hh:mm A');
-    this.addNotification(5, 'Your Meal break is coming up in 5 minutes, kindly take the needed break. Enjoy your meal! ');
+    //this.addNotification(5, 'Your Meal break is coming up in 5 minutes, kindly take the needed break. Enjoy your meal! ');
 
     this.currentShift.breakTime = moment().add(12,'minutes').format('hh:mm A');
     this.currentShift.endTime = moment().add(15,'minutes').format('hh:mm A');
-    this.addNotification(16, 'You have not yet ended your shift.'); // Delayed to show crossed time
+    //this.addNotification(16, 'You have not yet ended your shift.'); // Delayed to show crossed time
 
     console.log("Initialized new shift times: "+ this.currentShift.startTime + ", "+ 
             this.currentShift.mealTime + ", "+ this.currentShift.breakTime + ", "+ this.currentShift.endOnTime);    
     console.log('Default Notification time: '+ moment(new Date()).format());
-    console.log('Moment adding 2 mins: '+ moment().add(2, 'minutes').toLocaleString());
+    //console.log('Moment adding 2 mins: '+ moment().add(2, 'minutes').toLocaleString());
 
-    this.scheduleNotifications();
+    //this.scheduleNotifications();
     
   }
 
-  addNotification(notifyid: number, msg: string){
+  // addNotification(notifyid: number, msg: string){
 
-    let notification = {
-        id: notifyid,
-        title: 'Hi, Emily!',
-        text: msg,
-        at: new Date().setMinutes((new Date().getMinutes() + notifyid),0,0)
-    };
+  //   let notification = {
+  //       id: notifyid,
+  //       title: 'Hi, Emily!',
+  //       text: msg,
+  //       at: new Date().setMinutes((new Date().getMinutes() + notifyid),0,0)
+  //   };
 
-    this.notifications.push(notification);
-    console.log("Notifications to be scheduled: ", notification);
-  }
+  //   this.notifications.push(notification);
+  //   console.log("Notifications to be scheduled: ", notification);
+  // }
 
-  scheduleNotifications(){
+  // scheduleNotifications(){
 
     // let firstNotificationTime = new Date();
     // firstNotificationTime.setMinutes(this.notificationMinute);
@@ -122,44 +122,44 @@ export class MyApp {
   
     
  
-    if(this.platform.is('cordova')){
+  //   if(this.platform.is('cordova')){
  
-        // Cancel any existing notifications
-        this.localNotifications.cancelAll().then(() => {
+  //       // Cancel any existing notifications
+  //       this.localNotifications.cancelAll().then(() => {
  
-            // Schedule the new notifications
-            this.localNotifications.schedule(this.notifications);
-            console.log("Notifications are scheduled: "+ this.notifications);
-            this.notifications = [];
+  //           // Schedule the new notifications
+  //           this.localNotifications.schedule(this.notifications);
+  //           console.log("Notifications are scheduled: "+ this.notifications);
+  //           this.notifications = [];
  
-            let alert = this.alertCtrl.create({
-                title: 'Notifications set',
-                buttons: ['Ok']
-            });
+  //           let alert = this.alertCtrl.create({
+  //               title: 'Notifications set',
+  //               buttons: ['Ok']
+  //           });
  
-            alert.present(); 
-        });
+  //           alert.present(); 
+  //       });
  
-    }else{
-      console.log("Not a Cordova platform: "+ this.notifications);
-            let alert = this.alertCtrl.create({
-                title: 'Notifications not set !',
-                buttons: ['Ok']
-            });
+  //   }else{
+  //     console.log("Not a Cordova platform: "+ this.notifications);
+  //           let alert = this.alertCtrl.create({
+  //               title: 'Notifications not set !',
+  //               buttons: ['Ok']
+  //           });
  
-            alert.present(); 
-    }
-  }
+  //           alert.present(); 
+  //   }
+  // }
  
-  cancelAll(){
-    this.localNotifications.cancelAll();
+  // cancelAll(){
+  //   this.localNotifications.cancelAll();
  
-    let alert = this.alertCtrl.create({
-        title: 'Notifications cancelled',
-        buttons: ['Ok']
-    });
+  //   let alert = this.alertCtrl.create({
+  //       title: 'Notifications cancelled',
+  //       buttons: ['Ok']
+  //   });
  
-    alert.present();
-  }
+  //   alert.present();
+  // }
 
 }
