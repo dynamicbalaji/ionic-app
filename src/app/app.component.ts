@@ -10,7 +10,6 @@ import { NewHomePage } from '../pages/new-home/new-home';
 import { PersonalDataPage } from '../pages/personal-data/personal-data';
 import { ShiftTimes } from './interfaces';
 import { ShiftDayPage } from '../pages/shift-day/shift-day';
-import { VoiceEnablePage } from '../pages/voice-enable/voice-enable';
 import { WelcomeLoginPage } from '../pages/welcome-login/welcome-login';
 
 @Component({
@@ -19,9 +18,9 @@ import { WelcomeLoginPage } from '../pages/welcome-login/welcome-login';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = WelcomeLoginPage;
+  rootPage: any = ShiftDayPage;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, component: any, selected: boolean}>;
   newShift : ShiftTimes = {
     startTime: '00:00',
     endTime: '00:00',
@@ -34,14 +33,14 @@ export class MyApp {
     this.initializeShiftTimes();
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'DASHBOARD', component: NewHomePage },
-      { title: 'PERSONAL DATA', component: PersonalDataPage },
-      { title: 'TRAINING', component: NewHomePage },
-      { title: 'PERFORMANCE', component: NewHomePage },
-      { title: 'BENEFITS & REWARDS', component: NewHomePage },
-      { title: 'Change Schedule', component: ChangeSchedulePage },
-      { title: 'GTAMenu', component: GtamenuPage },
-      { title: 'Shift Day', component: ShiftDayPage}
+      { title: 'DASHBOARD', component: NewHomePage, selected: true },
+      { title: 'PERSONAL DATA', component: PersonalDataPage, selected: false },
+      { title: 'TRAINING', component: NewHomePage, selected: false },
+      { title: 'PERFORMANCE', component: NewHomePage, selected: false },
+      { title: 'BENEFITS & REWARDS', component: NewHomePage, selected: false },
+      { title: 'Change Schedule', component: ChangeSchedulePage, selected: false },
+      { title: 'GTAMenu', component: GtamenuPage, selected: false },
+      { title: 'Shift Day', component: ShiftDayPage, selected: false }
     ];
 
   }
@@ -59,6 +58,9 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component, {'shiftTimes': this.newShift});
+    for(let p of this.pages) {
+      p.selected = (p.title == page.title) ? true : false;
+    }
   }
 
   initializeShiftTimes(){
