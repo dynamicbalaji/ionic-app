@@ -19,7 +19,7 @@ import { WelcomeLoginPage } from '../pages/welcome-login/welcome-login';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = NewHomePage;
+  rootPage: any = WelcomeLoginPage;
 
   pages: Array<{title: string, component: any, selected: boolean}>;
 
@@ -137,7 +137,7 @@ export class MyApp {
                 buttons: ['Ok']
             });
  
-            alert.present(); 
+            //alert.present(); 
         });
  
     }else{
@@ -147,7 +147,7 @@ export class MyApp {
                 buttons: ['Ok']
             });
  
-            alert.present(); 
+            //alert.present(); 
     }
   }
  
