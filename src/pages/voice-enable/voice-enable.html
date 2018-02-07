@@ -14,29 +14,35 @@
     </ion-toolbar>
   </ion-header>
 -->
- <ion-content >
+ <ion-content text-center>
 
     <ion-card class="Welcomehdr">
         <ion-card-header class="greet-msg">
-            Welcome <B>Liz!</B><br>
-            <ion-label style="font-size:20px" align="left"> Wally is voice enabled! </ion-label>
+          <ion-label style="margin-left:8%">Welcome <b>Liz!</b></ion-label>
+            <ion-label style="font-size:20px; margin-left:8%"><b>Wally is voice enabled!</b></ion-label>
           </ion-card-header>
     </ion-card>
 
-      <br><br>
+      <div text-center style="margin-top:20%">
       <ion-label style="font-size:15px" align="center"> You can speak out your query.</ion-label>
       
-      <ion-label style="font-size:15px" align ="center"> Please say, <B>Hi Wally! </B> before you ask</ion-label>
-      <ion-label style="font-size:15px" align ="center"> your question.</ion-label>
+      <ion-label style="font-size:15px; margin-top:5%" align ="center"> Please say, <B>Hi Wally! </B> before you ask</ion-label>
+      <ion-label style="font-size:15px; margin-top:-3%" align ="center"> your question.</ion-label>
       <br>
   
-      <div padding class = "center">
-     <button ion-button round style="width: 70%; font-size:15px" (click)="NextPage1()">CONTINUE</button>
+      <div style="margin-top:10%">
+     <button ion-button round style="width: 60%; font-size:15px" (click)="NextPage1()">CONTINUE</button>
      </div>
  
-  <ion-item no-lines>
-      <ion-label style="font-size:13px" align="left"> Don't see this message again</ion-label>
-    <ion-checkbox class="checkbox-square" align="center"></ion-checkbox>
-  </ion-item>
+     <div text-center style="margin-top:5%">
+        <!-- <input type="checkbox" class="checkbox1" id="check1" /> -->
+        <ion-checkbox class="checkbox-square" item-left style="vertical-align:middle;"></ion-checkbox>
+        <span style="font-size:10px;">Don't see this message again</span>
+     </div>
+  <!-- <ion-item no-lines style="margin-left:20%">    
+      <input type="checkbox" class="checkbox1" id="check1" />Don't see this message again
+      <ion-label style="font-size:10px; margin-left:-10%">Don't see this message again</ion-label>
+  </ion-item> -->
+  </div>
 
 </ion-content>
