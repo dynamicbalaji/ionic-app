@@ -44,14 +44,14 @@ export class NewHomePage {
     let firstNotificationTime = new Date();
     firstNotificationTime.setMinutes(this.notificationMinute);
 
-    let notification = {
+    /* let notification = {
         id: firstNotificationTime.getDay,
         title: 'Hey!',
         text: 'You just got notified :)',
         at: firstNotificationTime
     };
 
-    this.notifications.push(notification);
+    this.notifications.push(notification); */
   
     console.log("Notifications to be scheduled: ", this.notifications);
  
@@ -65,12 +65,12 @@ export class NewHomePage {
  
             this.notifications = [];
  
-            let alert = this.alertCtrl.create({
+            /* let alert = this.alertCtrl.create({
                 title: 'Notifications set',
                 buttons: ['Ok']
             });
  
-            alert.present();
+            alert.present(); */
  
         });
  
