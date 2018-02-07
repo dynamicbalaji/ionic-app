@@ -4,8 +4,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import * as moment from 'moment';
 
-import { ChangeSchedulePage } from '../pages/change-schedule/change-schedule';
-import { GtamenuPage } from '../pages/gtamenu/gtamenu';
+//import { ChangeSchedulePage } from '../pages/change-schedule/change-schedule';
+//import { GtamenuPage } from '../pages/gtamenu/gtamenu';
 import { NewHomePage } from '../pages/new-home/new-home';
 import { PersonalDataPage } from '../pages/personal-data/personal-data';
 import { ShiftTimes } from './interfaces';
@@ -18,7 +18,7 @@ import { WelcomeLoginPage } from '../pages/welcome-login/welcome-login';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = ShiftDayPage;
+  rootPage: any = PersonalDataPage;
 
   pages: Array<{title: string, component: any, selected: boolean}>;
   newShift : ShiftTimes = {
@@ -38,8 +38,8 @@ export class MyApp {
       { title: 'TRAINING', component: NewHomePage, selected: false },
       { title: 'PERFORMANCE', component: NewHomePage, selected: false },
       { title: 'BENEFITS & REWARDS', component: NewHomePage, selected: false },
-      { title: 'Change Schedule', component: ChangeSchedulePage, selected: false },
-      { title: 'GTAMenu', component: GtamenuPage, selected: false },
+      //{ title: 'Change Schedule', component: ChangeSchedulePage, selected: false },
+      //{ title: 'GTAMenu', component: GtamenuPage, selected: false },
       { title: 'Shift Day', component: ShiftDayPage, selected: false }
     ];
 

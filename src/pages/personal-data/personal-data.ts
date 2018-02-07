@@ -18,10 +18,12 @@ import { AssociateService } from '../../services/associate.service.mock';
 export class PersonalDataPage {
 
   associate: Associate;
-  dob: string = "03/21/1982";
-  maritalStatus: string = "0";
+  dob = '03/21/1982';
+  maritalStatus: string = "2";
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public ascService: AssociateService) {
+    this.dob = "03/21/1982";
+    this.maritalStatus = "2";
     this.ascService.getAsc().then(data => {console.log(JSON.stringify(data));this.associate = <Associate>data});
   }
 
