@@ -85,10 +85,7 @@ export class MyApp {
     this.addNotification(16, 'You have not yet ended your shift.'); // Delayed to show crossed time
 
     console.log("Initialized new shift times: "+ this.currentShift.startTime + ", "+ 
-            this.currentShift.endTime + this.currentShift.breakTime + ", "+ this.currentShift.mealTime);
-
-    //this.notifyTime = moment(new Date()).format();
-    
+            this.currentShift.mealTime + ", "+ this.currentShift.breakTime + ", "+ this.currentShift.endOnTime);    
     console.log('Default Notification time: '+ moment(new Date()).format());
     console.log('Moment adding 2 mins: '+ moment().add(2, 'minutes').toLocaleString());
 
@@ -106,7 +103,7 @@ export class MyApp {
     };
 
     this.notifications.push(notification);
-    console.log("Notifications to be scheduled: ", this.notifications);
+    console.log("Notifications to be scheduled: ", notification);
   }
 
   scheduleNotifications(){
@@ -143,11 +140,15 @@ export class MyApp {
             alert.present(); 
         });
  
+    }else{
+      console.log("Not a Cordova platform: "+ this.notifications);
+            let alert = this.alertCtrl.create({
+                title: 'Notifications not set !',
+                buttons: ['Ok']
+            });
+ 
+            alert.present(); 
     }
-  }
-
-  postponeNotifications(){
-
   }
  
   cancelAll(){
