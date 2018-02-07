@@ -18,3 +18,9 @@ export interface Associate {
   phone: string;
   email: string;
 }
+
+export interface Schedule {
+  scheduleDay: number;
+  scheduleMonth: string;
+  shiftTimes: ShiftTimes;
+}

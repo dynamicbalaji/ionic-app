@@ -21,6 +21,7 @@ import { ChangeShiftModalPage } from '../pages/change-shift-modal/change-shift-m
 import { AssociateService } from '../services/associate.service.mock';
 import { ShiftDayPage } from '../pages/shift-day/shift-day';
 import { VoiceEnablePage } from '../pages/voice-enable/voice-enable';
+import { ApiProvider } from '../providers/api/api';
 
 @NgModule({
   declarations: [
@@ -75,7 +76,8 @@ import { VoiceEnablePage } from '../pages/voice-enable/voice-enable';
     SplashScreen,
     LocalNotifications,
     AssociateService,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ApiProvider
   ]
 })
 export class AppModule {}

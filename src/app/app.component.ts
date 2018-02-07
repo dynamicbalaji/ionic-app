@@ -1,7 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
+import { Nav, Platform, AlertController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { LocalNotifications } from '@ionic-native/local-notifications';
 import * as moment from 'moment';
 
 import { ChangeSchedulePage } from '../pages/change-schedule/change-schedule';
@@ -29,7 +30,12 @@ export class MyApp {
     mealTime: '00:00'
   };
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  notifications: any[] = [];
+  notificationMinute: number;
+  notifyTime: any;
+
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,
+              public alertCtrl: AlertController, public localNotifications: LocalNotifications) {
     this.initializeApp();
     this.initializeShiftTimes();
     // used for an example of ngFor and navigation
@@ -43,7 +49,6 @@ export class MyApp {
       { title: 'GTAMenu', component: GtamenuPage },
       { title: 'Shift Day', component: ShiftDayPage}
     ];
-
   }
 
   initializeApp() {
@@ -69,5 +74,63 @@ export class MyApp {
 
     console.log("Initialized new shift times: "+ this.newShift.startTime + ", "+ 
             this.newShift.endTime + this.newShift.breakTime + ", "+ this.newShift.mealTime);
+
+    this.notifyTime = moment(new Date()).format();
+    this.notificationMinute = new Date().getMinutes() + 2 // adding 2 mins;
+    console.log('Default Notification time: '+ this.notifyTime);
+    this.addNotification();
   }
+
+  addNotification(){
+    let firstNotificationTime = new Date();
+    firstNotificationTime.setMinutes(this.notificationMinute);
+
+    let notification = {
+        id: firstNotificationTime.getDay,
+        title: 'Hey!',
+        text: 'You just got notified :)',
+        at: firstNotificationTime
+    };
+
+    this.notifications.push(notification);
+  
+    console.log("Notifications to be scheduled: ", this.notifications);
+ 
+    if(this.platform.is('cordova')){
+ 
+        // Cancel any existing notifications
+        this.localNotifications.cancelAll().then(() => {
+ 
+            // Schedule the new notifications
+            this.localNotifications.schedule(this.notifications);
+ 
+            this.notifications = [];
+ 
+            let alert = this.alertCtrl.create({
+                title: 'Notifications set',
+                buttons: ['Ok']
+            });
+ 
+            alert.present();
+ 
+        });
+ 
+    }
+  }
+
+  postponeNotifications(){
+
+  }
+ 
+  cancelAll(){
+    this.localNotifications.cancelAll();
+ 
+    let alert = this.alertCtrl.create({
+        title: 'Notifications cancelled',
+        buttons: ['Ok']
+    });
+ 
+    alert.present();
+  }
+
 }
