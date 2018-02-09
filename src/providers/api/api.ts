@@ -1,7 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import {ShiftTimes, Schedule} from '../../app/interfaces';
+import {  } from 'module';
+import {ShiftTimes, Schedule, Associate} from '../../app/interfaces';
+import 'rxjs/add/operator/map';
+import { Http, Response } from '@angular/http';
 
 /*
   Generated class for the ApiProvider provider.
@@ -12,12 +15,13 @@ import {ShiftTimes, Schedule} from '../../app/interfaces';
 @Injectable()
 export class ApiProvider {
 
-  constructor(public http: HttpClient) {
+  constructor(public http: Http) {
     console.log('Hello ApiProvider Provider');
   }
 
-  // getShiftSchedules(): Observable<Schedule>{
-    
-  // }
+  getAssociatePersonalData(){
+     return this.http.get('assets/data/mock-associate.json')
+                     .map((response:Response) => response.json());
+  }
 
 }
