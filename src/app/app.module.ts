@@ -8,7 +8,6 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 import { ChangeSchedulePage } from '../pages/change-schedule/change-schedule';
 import { EntryexitPage } from '../pages/entryexit/entryexit';
 import { ChangeScheduleDonePage } from '../pages/change-schedule-done/change-schedule-done';
@@ -28,7 +27,6 @@ import { PunchMissedPage } from '../pages/punch-missed/punch-missed';
   declarations: [
     MyApp,
     HomePage,
-    ListPage,
     ChangeSchedulePage,
     EntryexitPage,
     ChangeScheduleDonePage,
@@ -60,7 +58,6 @@ import { PunchMissedPage } from '../pages/punch-missed/punch-missed';
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage,
     ChangeSchedulePage,
     EntryexitPage,
     ChangeScheduleDonePage,

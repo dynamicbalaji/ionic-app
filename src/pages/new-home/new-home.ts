@@ -71,12 +71,12 @@ export class NewHomePage {
             console.log("Notifications are scheduled: "+ this.notifications);
             this.notifications = [];
  
-            let alert = this.alertCtrl.create({
+            /* let alert = this.alertCtrl.create({
                 title: 'Notifications setup success!',
                 buttons: ['OK']
-            });
+            }); */
  
-            alert.present(); 
+            //alert.present(); 
         });
  
     }else{
@@ -93,12 +93,12 @@ export class NewHomePage {
   cancelAll(){
     this.localNotifications.cancelAll();
  
-    let alert = this.alertCtrl.create({
+    /* let alert = this.alertCtrl.create({
         title: 'Notifications cancelled',
         buttons: ['Ok']
-    });
+    }); */
  
-    alert.present();
+    //alert.present();
   }
 
 

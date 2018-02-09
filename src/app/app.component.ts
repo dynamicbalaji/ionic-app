@@ -38,8 +38,7 @@ export class MyApp {
   //notifyTime: any;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,
-              public alertCtrl: AlertController, public localNotifications: LocalNotifications,
-              public geofence: Geofence) {
+              public alertCtrl: AlertController, public localNotifications: LocalNotifications) {
     this.initializeApp();
     this.initializeShiftTimes();
     // used for an example of ngFor and navigation
@@ -51,7 +50,7 @@ export class MyApp {
       { title: 'BENEFITS & REWARDS', component: NewHomePage, selected: false },
       //{ title: 'Change Schedule', component: ChangeSchedulePage, selected: false },
       //{ title: 'GTAMenu', component: GtamenuPage, selected: false },
-      { title: 'Shift Day', component: ShiftDayPage, selected: false }
+      { title: 'SHIFT DAY', component: ShiftDayPage, selected: false }
     ];
 
     // // initialize the Geofence plugin
