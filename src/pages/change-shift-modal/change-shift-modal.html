@@ -69,7 +69,19 @@
       </div>
     </div>
     <div *ngIf="shiftChangeComplete">
-      <div text-center>
+      <div text-center id="progress">
+          <ion-row>
+            <ion-col text-wrap>
+                <ion-label class="modal-info-txt">Contacting operations team,<br/>Please hold on</ion-label>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <img src="./assets/imgs/Spinner-1s-200px.gif" width="50%" style="margin-top:3%" />
+            </ion-col>
+          </ion-row>
+      </div>
+      <div text-center id="success" style="display:none">
           <ion-row>
             <ion-col text-wrap>
                 <ion-label class="modal-info-txt">Your shift time is changed</ion-label>

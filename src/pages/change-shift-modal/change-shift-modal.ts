@@ -45,6 +45,10 @@ export class ChangeShiftModalPage {
       this.shiftSelection = false;
       this.shiftChangeComplete = true;
       console.log("Selected alternate time: "+ this.newOption);
+      setTimeout(function () {  
+        document.getElementById("progress").style.display = "none";
+        document.getElementById("success").style.display = "inline";
+      }, 6000);
     }else{
       this.shiftChangeComplete = false;
       this.closeModal();
