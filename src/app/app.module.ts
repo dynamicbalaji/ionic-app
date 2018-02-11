@@ -5,6 +5,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { NgCircleProgressModule } from 'ng-circle-progress';
+import { HttpModule } from '@angular/http';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -17,7 +18,7 @@ import { NewHomePage } from '../pages/new-home/new-home';
 import { WeeklySchedulePage } from '../pages/weekly-schedule/weekly-schedule';
 import { PersonalDataPage } from '../pages/personal-data/personal-data';
 import { ChangeShiftModalPage } from '../pages/change-shift-modal/change-shift-modal';
-import { AssociateService } from '../services/associate.service.mock';
+import { AssociateService } from '../services/associate.service';
 import { ShiftDayPage } from '../pages/shift-day/shift-day';
 import { VoiceEnablePage } from '../pages/voice-enable/voice-enable';
 import { ApiProvider } from '../providers/api/api';
@@ -42,6 +43,7 @@ import { PunchMissedPage } from '../pages/punch-missed/punch-missed';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp),
     // Specify ng-circle-progress as an import
     NgCircleProgressModule.forRoot({
