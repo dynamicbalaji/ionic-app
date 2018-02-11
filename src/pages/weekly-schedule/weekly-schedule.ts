@@ -16,6 +16,8 @@ import { ChangeShiftModalPage } from '../change-shift-modal/change-shift-modal';
 })
 export class WeeklySchedulePage {
 
+  toggleBtn: string = "./assets/imgs/IN_toggle.png";
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
   }
 
@@ -24,6 +26,7 @@ export class WeeklySchedulePage {
   }
 
   showChangeOptions(){
+    this.toggleBtn = "./assets/imgs/OUT_toggle.png";
     let changeShiftModal = this.modalCtrl.create(ChangeShiftModalPage);
     changeShiftModal.present();
   }
