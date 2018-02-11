@@ -1,8 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+//import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import {  } from 'module';
-import {ShiftTimes, Schedule, Associate} from '../../app/interfaces';
+//import { Observable } from 'rxjs/Observable';
+//import {  } from 'module';
+//import {ShiftTimes, Schedule, Associate} from '../../app/interfaces';
 import 'rxjs/add/operator/map';
 import { Http, Response } from '@angular/http';
 

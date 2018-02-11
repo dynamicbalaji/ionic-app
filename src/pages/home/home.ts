@@ -3,7 +3,6 @@ import { NavController, Platform, AlertController } from 'ionic-angular';
 
 import { ChangeSchedulePage } from '../change-schedule/change-schedule';
 import { LocalNotifications } from '@ionic-native/local-notifications';
-import * as moment from 'moment';
 
 export interface Actions {
   action: string;
