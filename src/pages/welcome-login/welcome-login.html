@@ -21,6 +21,7 @@
             </ion-card-header>
             <ion-card-content>
                 <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
+                <ion-label style="font-size: 10px; color:red;" text-center>{{loginErrorMsg}}</ion-label>
                 <ion-list no-lines>
                     <ion-item>
                       <ion-label floating>Username</ion-label>

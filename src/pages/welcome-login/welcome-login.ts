@@ -19,6 +19,7 @@ import { AssociateService } from '../../services/associate.service';
 export class WelcomeLoginPage {
 
   loginForm: FormGroup;
+  loginErrorMsg : string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public formBuilder: FormBuilder, public ascService: AssociateService) {
@@ -44,11 +45,12 @@ export class WelcomeLoginPage {
   onSubmit(value: any): void {
     if (this.loginForm.valid) {
       this.ascService.getLoginInfo(value.username, value.password).then(data => {
-        console.log(data);
         if (data.validUser) {
-          console.log("murugan");
           this.navCtrl.push(VoiceEnablePage);
           this.navCtrl.setRoot(VoiceEnablePage);
+        }
+        else {
+          this.loginErrorMsg = data.message;
         }
       }
       );
