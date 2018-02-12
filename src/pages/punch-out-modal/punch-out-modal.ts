@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { Component, Renderer } from '@angular/core';
+import { NavController, NavParams, ViewController } from 'ionic-angular';
 
 /**
  * Generated class for the PunchOutModalPage page.
@@ -14,7 +14,8 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class PunchOutModalPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, 
+    public viewCtrl: ViewController, public renderer: Renderer) {
   }
 
   ionViewDidLoad() {
