@@ -45,6 +45,7 @@ export class WelcomeLoginPage {
   onSubmit(value: any): void {
     if (this.loginForm.valid) {
       this.ascService.getLoginInfo(value.username, value.password).then(data => {
+        data.validUser = true; // REMOVE THIS after local testing
         if (data.validUser) {
           this.navCtrl.push(VoiceEnablePage);
           this.navCtrl.setRoot(VoiceEnablePage);

@@ -4,6 +4,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { LocalNotifications } from '@ionic-native/local-notifications';
+import { Geolocation } from '@ionic-native/geolocation';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { HttpModule } from '@angular/http';
 
@@ -23,6 +24,7 @@ import { ShiftDayPage } from '../pages/shift-day/shift-day';
 import { VoiceEnablePage } from '../pages/voice-enable/voice-enable';
 import { ApiProvider } from '../providers/api/api';
 import { PunchMissedPage } from '../pages/punch-missed/punch-missed';
+//import { GeoLocationServiceProvider } from '../providers/geo-location-service/geo-location-service';
 
 @NgModule({
   declarations: [
@@ -78,8 +80,10 @@ import { PunchMissedPage } from '../pages/punch-missed/punch-missed';
     SplashScreen,
     LocalNotifications,
     AssociateService,
+    Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ApiProvider
+    //GeoLocationServiceProvider
   ]
 })
 export class AppModule {}
