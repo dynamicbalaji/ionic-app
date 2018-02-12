@@ -23,6 +23,7 @@ import { ShiftDayPage } from '../pages/shift-day/shift-day';
 import { VoiceEnablePage } from '../pages/voice-enable/voice-enable';
 import { ApiProvider } from '../providers/api/api';
 import { PunchMissedPage } from '../pages/punch-missed/punch-missed';
+import { DashboardService } from '../services/dashboard.service';
 
 @NgModule({
   declarations: [
@@ -78,6 +79,7 @@ import { PunchMissedPage } from '../pages/punch-missed/punch-missed';
     SplashScreen,
     LocalNotifications,
     AssociateService,
+    DashboardService,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ApiProvider
   ]

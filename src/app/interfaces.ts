@@ -27,3 +27,10 @@ export interface Schedule {
   scheduleMonth: string;
   shiftTimes: ShiftTimes;
 }
+
+export class ScheduleNew  {
+  public date:string;
+  public day:string;
+  public shiftIn :string;
+  public shiftOut:string;
+}

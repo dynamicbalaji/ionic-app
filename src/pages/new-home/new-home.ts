@@ -6,6 +6,8 @@ import { PunchMissedPage } from '../punch-missed/punch-missed';
 import * as moment from 'moment';
 
 import { LocalNotifications } from '@ionic-native/local-notifications';
+import { DashboardService } from '../../services/dashboard.service';
+import { ScheduleNew } from '../../app/interfaces';
 /**
  * Generated class for the NewHomePage page.
  *
@@ -20,9 +22,23 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
 export class NewHomePage {
 
   notifications: any[] = [];
+  clockedHours: string = "0";
+  punchesMissedCount: string = "0";
+  payPeriodDate: any = "";
+  pastMonthDate: any = "";
+  todayDate: any = "";
+  tomorrowDate: any = "";
+  todayScheduleShift: string = "05:00 - 14:00";
+  tomorrowScheduleShift: string = "05:00 - 14:00";
+  currentPayPeriod: string = "";
+  previousCurrentPayPeriod1: string = "";
+  previousCurrentPayPeriod2: string = "";
+  speakerEnabled = 'true';
+  points:any = "50";
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public platform: Platform,
-  public alertCtrl: AlertController, public localNotifications: LocalNotifications) {
+    public alertCtrl: AlertController, public localNotifications: LocalNotifications,
+    public dashboardService: DashboardService) {
 
     this.addNotification(2, 'You have entered the Walmart store. Please login and start your shift.');
     this.addNotification(5, 'Your Meal break is coming up in 5 minutes, kindly take the needed break. Enjoy your meal! ');
@@ -31,6 +47,39 @@ export class NewHomePage {
     console.log('Default Notification time - from HOME: '+ moment(new Date()).format());
 
     this.scheduleNotifications();
+  }
+
+  populateAllDetails(){
+    this.dashboardService.fetchTimeAndAttendanceInfo().then(data => {
+      let a = JSON.stringify(data);
+      let b = JSON.parse(a);
+      console.log(b)
+      this.clockedHours = b[0].clockedHoursCW + b[0].clockedHoursLW;
+      this.punchesMissedCount = b[0].punchesMissedLastMonth;
+      this.points = b[0].leaderboardPoints;
+      this.fetchSceduleShift(b[0].schedule as ScheduleNew[]);
+    });
+
+    this.dashboardService.fetchPayrollInfo().then(data => {
+      console.log(data)
+      let payPeriodEndDate: Date = new Date(data[0].currentPayperiodEndDate);
+      this.payPeriodDate = moment(payPeriodEndDate).format('ll');
+      this.currentPayPeriod = moment(payPeriodEndDate).subtract(13, 'days').format('ll') + " - " + moment(payPeriodEndDate).format('ll');
+      this.previousCurrentPayPeriod1 = moment(payPeriodEndDate).subtract(27, 'days').format('ll') + " - " + moment(payPeriodEndDate).subtract(14, 'days').format('ll')
+      this.previousCurrentPayPeriod2 = moment(payPeriodEndDate).subtract(41, 'days').format('ll') + " - " + moment(payPeriodEndDate).subtract(28, 'days').format('ll');
+    });
+  }
+
+  fetchSceduleShift(schedule: ScheduleNew[]) {
+    for (let sec of schedule) {
+
+      if (sec.date === this.todayDate) {
+        this.todayScheduleShift = sec.shiftIn + " - " + sec.shiftOut;
+      }
+      if (sec.date === this.tomorrowDate) {
+        this.tomorrowScheduleShift = sec.shiftIn + " - " + sec.shiftOut;
+      }
+    }
   }
 
   ionViewDidLoad() {
