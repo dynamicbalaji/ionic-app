@@ -24,6 +24,7 @@ import { VoiceEnablePage } from '../pages/voice-enable/voice-enable';
 import { ApiProvider } from '../providers/api/api';
 import { PunchMissedPage } from '../pages/punch-missed/punch-missed';
 import { DashboardService } from '../services/dashboard.service';
+import { PunchOutModalPage } from '../pages/punch-out-modal/punch-out-modal';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { DashboardService } from '../services/dashboard.service';
     ChangeShiftModalPage,
     ShiftDayPage,
     VoiceEnablePage,
-    PunchMissedPage
+    PunchMissedPage,
+    PunchOutModalPage
   ],
   imports: [
     BrowserModule,
@@ -72,7 +74,8 @@ import { DashboardService } from '../services/dashboard.service';
     ChangeShiftModalPage,
     ShiftDayPage,
     VoiceEnablePage,
-    PunchMissedPage
+    PunchMissedPage,
+    PunchOutModalPage
   ],
   providers: [
     StatusBar,
