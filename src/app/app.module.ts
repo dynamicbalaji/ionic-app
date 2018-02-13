@@ -6,6 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { HttpModule } from '@angular/http';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -48,6 +49,7 @@ import { PunchOutModalPage } from '../pages/punch-out-modal/punch-out-modal';
     BrowserModule,
     HttpModule,
     IonicModule.forRoot(MyApp),
+    NgbModule.forRoot(),
     // Specify ng-circle-progress as an import
     NgCircleProgressModule.forRoot({
       // set defaults here
