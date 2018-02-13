@@ -114,27 +114,6 @@ page-weekly-schedule {
         //flex-direction: column;
     }
 
-    // .card-avatar-big-txt {
-    //     font-size:26px !important;
-    //     color: rgb(26, 117, 207);
-    //     margin-top: -10%;
-    //     overflow:visible;
-    // }
-
-    // .card-avatar-big-txt-red {
-    //     font-size:26px !important;
-    //     color: rgb(213, 32, 47);
-    //     margin-top: -10%;
-    //     overflow:visible;
-    // }
-
-    // .card-avatar-sm-txt {
-    //     font-size:10px !important;
-    //     color: rgb(26, 117, 207);
-    //     margin-top: -10%;
-    //     overflow:visible;
-    // }
-
     ion-card {
        // border-bottom: 3px solid rgb(253, 186, 45);
        width: 106%;
@@ -143,19 +122,12 @@ page-weekly-schedule {
     ion-item {
         height: 80px;
     }
-    
-    // ion-thumbnail {
-    //     //height: 4px;
-    //     //width:  4px;
-    //     //font-size: 14px;
-    //     //color: rgb(33,33,33);
-    // }
 
     .in-out-img {
         margin-top:30%; 
         width:80%; 
-        height:80%; 
-        background-color: white; 
-        margin-right:-13%
+        //height:80%; 
+        background-color: white;
+        //margin-right:2%
     }
 }
