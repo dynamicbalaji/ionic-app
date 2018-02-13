@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { ChangeShiftModalPage } from '../change-shift-modal/change-shift-modal';
+import { ApiProvider } from '../../providers/api/api';
+import { ScheduleNew } from '../../app/interfaces';
 
 /**
  * Generated class for the WeeklySchedulePage page.
@@ -17,8 +19,14 @@ import { ChangeShiftModalPage } from '../change-shift-modal/change-shift-modal';
 export class WeeklySchedulePage {
 
   toggleBtn: string = "./assets/imgs/IN_toggle.png";
+  thisWkSchedule: ScheduleNew[];
+  nextWkSchedule: ScheduleNew[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, 
+    public api: ApiProvider) {
+      this.thisWkSchedule = api.thisWkSchedule;
+      this.nextWkSchedule = api.nextWkSchedule;
+      console.log(this.thisWkSchedule + " && " + this.nextWkSchedule);
   }
 
   ionViewDidLoad() {

@@ -33,4 +33,8 @@ export class ScheduleNew  {
   public day:string;
   public shiftIn :string;
   public shiftOut:string;
+  public month: string;
+  public calDay: number;
+  public isOptedLOA: boolean;
+  public isWeeklyOff: boolean;
 }
