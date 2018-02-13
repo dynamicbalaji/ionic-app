@@ -1,6 +1,8 @@
 import { Component, Renderer } from '@angular/core';
 import { NavController, NavParams, ViewController } from 'ionic-angular';
 
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 /**
  * Generated class for the PunchOutModalPage page.
  *
@@ -14,12 +16,22 @@ import { NavController, NavParams, ViewController } from 'ionic-angular';
 })
 export class PunchOutModalPage {
 
+  time: string;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, 
     public viewCtrl: ViewController, public renderer: Renderer) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PunchOutModalPage');
+  }
+
+  closeModal() {
+    this.viewCtrl.dismiss();
+  }
+
+  punchOut() {
+    this.closeModal();
   }
 
 }
