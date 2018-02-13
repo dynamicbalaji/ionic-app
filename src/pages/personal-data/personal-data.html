@@ -27,23 +27,24 @@
     </ion-col>
   </ion-row>
   <hr/>
+  <form [formGroup]="dataForm" (ngSubmit)="onSubmit(dataForm.value)">
   <ion-card style="width: 106%; margin-left:-3%; margin-top:-5%">
     <ion-card-header style="font-size: 14px; color:rgb(33, 33, 33)">
       General Information
     </ion-card-header>
     <ion-card-content *ngIf= "editMode">
         <ion-label stacked class="input-label">First Name</ion-label>
-        <ion-input type="text" class="input-style" value="{{associate.fName}}"></ion-input>
+        <ion-input type="text" class="input-style" formControlName="fName"></ion-input>
         <ion-label stacked class="input-label">Last Name</ion-label>
-        <ion-input type="text" value="Holmes" class="input-style"></ion-input>
-      <ion-row>
+        <ion-input type="text" formControlName="lName" class="input-style"></ion-input>
+      <ion-row style="margin-left:-2%">
         <ion-col>
           <ion-label stacked class="input-label">Date of Birth</ion-label>
-          <ion-datetime displayFormat="MM/DD/YYYY" class="input-style" [(ngModel)]="dob"></ion-datetime>
+          <ion-datetime displayFormat="MM/DD/YYYY" class="input-style" formControlName="dob"></ion-datetime>
         </ion-col>
         <ion-col>
           <ion-label stacked class="input-label">Marital Status</ion-label>
-          <ion-select [(ngModel)]="maritalStatus" class="input-select">
+          <ion-select formControlName="maritalStatus" class="input-select">
               <ion-option value="0">Select</ion-option>
               <ion-option value="Single">Single</ion-option>
               <ion-option value="Married">Married</ion-option>
@@ -56,7 +57,7 @@
         <ion-label class="view-style">{{associate.fName}}</ion-label>
         <ion-label stacked class="input-label">Last Name</ion-label>
         <ion-label class="view-style">{{associate.lName}}</ion-label>
-      <ion-row>
+      <ion-row style="margin-left:-2%">
         <ion-col>
           <ion-label stacked class="input-label">Date of Birth</ion-label>
           <ion-label class="view-style">{{associate.dob}}</ion-label>
@@ -74,19 +75,19 @@
     </ion-card-header>
     <ion-card-content *ngIf= "editMode">
         <ion-label stacked class="input-label">Address Line 1</ion-label>
-        <ion-input type="text" value="4283 Express Lane" class="input-style"></ion-input>
+        <ion-input type="text" formControlName="addr1" class="input-style"></ion-input>
         <ion-label stacked class="input-label">Address Line 2</ion-label>
-        <ion-input type="text" value="Suite #222" class="input-style"></ion-input>
+        <ion-input type="text" formControlName="addr2" class="input-style"></ion-input>
         <ion-label stacked class="input-label">City</ion-label>
-        <ion-input type="text" value="Sarasota" class="input-style"></ion-input>
+        <ion-input type="text" formControlName="city" class="input-style"></ion-input>
         <ion-label stacked class="input-label">State</ion-label>
-        <ion-input type="text" value="Florida" class="input-style"></ion-input>
+        <ion-input type="text" formControlName="state" class="input-style"></ion-input>
         <ion-label stacked class="input-label">Country</ion-label>
-        <ion-input type="text" value="Suite #222" class="input-style"></ion-input>
+        <ion-input type="text" formControlName="country" class="input-style"></ion-input>
         <ion-label stacked class="input-label">Contact Number</ion-label>
-        <ion-input type="text" value="432-983-6773" class="input-style"></ion-input>
+        <ion-input type="text" formControlName="phone" class="input-style"></ion-input>
         <ion-label stacked class="input-label">Email</ion-label>
-        <ion-input type="text" value="emilyholmes@gmail.com" class="input-style"></ion-input>
+        <ion-input type="text" formControlName="email" class="input-style"></ion-input>
     </ion-card-content>
     <ion-card-content *ngIf= "!editMode">
         <ion-label stacked class="input-label">Address Line 1</ion-label>
@@ -106,11 +107,13 @@
     </ion-card-content>
     
   </ion-card>
+  <ion-label style="font-size: 10px; color:red;" text-center>{{errorMsg}}</ion-label>
   <ion-row text-center *ngIf="editMode">
     <ion-col>
       <button round ion-button (click)= "toggleButton('Cancel')" >CANCEL</button>
-      <button round ion-button (click)= "toggleButton('Save')">SAVE</button>
+      <button round ion-button type="submit">SAVE</button>
     </ion-col>
   </ion-row>
+</form>
   <br/>
 </ion-content>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import * as moment from 'moment';
 
 import { Associate } from '../../app/interfaces';
@@ -21,20 +22,33 @@ import { DashboardService } from '../../services/dashboard.service';
 export class PersonalDataPage {
 
   associate: Associate;
+  dataForm: FormGroup;
+  errorMsg: string;
   dob = '03/21/1982';
   maritalStatus: string = "2";
 
   editMode: boolean = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public api: ApiProvider
-    , public dashboardService: DashboardService) {
-    // this.dob = "03/21/1982";
-    // this.maritalStatus = "2";
+    , public dashboardService: DashboardService,  public formBuilder: FormBuilder) {
+    this.dataForm = formBuilder.group({
+      fName: ['', Validators.compose([Validators.required])],
+      lName: ['', Validators.compose([Validators.required])],
+      dob: ['', Validators.compose([Validators.required])],
+      maritalStatus: ['', Validators.compose([Validators.required])],
+      addr1: ['', Validators.compose([Validators.required])],
+      addr2: ['', Validators.compose([Validators.required])],
+      city: ['', Validators.compose([Validators.required])],
+      state: ['', Validators.compose([Validators.required])],
+      country: ['', Validators.compose([Validators.required])],
+      phone: ['', Validators.compose([Validators.required])],
+      email: ['', Validators.compose([Validators.required])]
+    });
     this.associate = {
-      fName: 'Emily',
-      lName: 'Holmes',
-      dob: '03/21/1982',
-      maritalStatus: '2',
+      fName: '',
+      lName: '',
+      dob: '',
+      maritalStatus: '',
       addr1: '',
       addr2: '',
       city: '',
@@ -68,7 +82,7 @@ export class PersonalDataPage {
         this.associate.fName =  b[0].first_Name;
         this.associate.lName =  b[0].last_Name;
         this.associate.dob = b[0].date_Of_Birth;
-        this.associate.dob = moment(this.associate.dob).format('MM/DD/YYYY ');
+        this.associate.dob = moment(this.associate.dob).format('MM/DD/YYYY');
         if(b[0].marital_Status=='S'){
           this.associate.maritalStatus = "Single"; 
         }else{
@@ -84,8 +98,46 @@ export class PersonalDataPage {
         this.associate.city = b[0].city;
         this.associate.state = b[0].state;
         this.associate.country = b[0].country;
-        console.log(this.associate);
+        this.patchValueToForm();
       });
+  }
+
+  onSubmit(value: any): void {
+    if (!this.dataForm.valid) {
+      this.errorMsg = "Please fill all fields.";
+    }
+    else {
+      this.editMode = false;
+      this.errorMsg = "";
+      this.associate.fName = value.fName;
+      this.associate.lName =  value.lName;
+      this.associate.dob = value.dob;
+      this.associate.maritalStatus = value.maritalStatus;
+      this.associate.addr1 =  value.addr1;
+      this.associate.addr2 = value.addr2;
+      this.associate.phone = value.phone;
+      this.associate.email =  value.email;
+      this.associate.city = value.city;
+      this.associate.state =  value.state;
+      this.associate.country = value.country;
+      this.patchValueToForm();
+    }
+  }
+
+  patchValueToForm() {
+    this.dataForm.patchValue({
+      fName: this.associate.fName,
+      lName: this.associate.lName,
+      dob: this.associate.dob,
+      maritalStatus: this.associate.maritalStatus,
+      addr1: this.associate.addr1,
+      addr2: this.associate.addr2,
+      city: this.associate.city,
+      state: this.associate.state,
+      country: this.associate.country,
+      phone: this.associate.phone,
+      email: this.associate.email
+    });
   }
   
 
