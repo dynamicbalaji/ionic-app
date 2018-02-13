@@ -37,4 +37,9 @@ export class DashboardService {
       .map(res => res.json()).toPromise();
     }
 
+    fechAssociateInfo(): Promise<any> {
+        return this.http.post(ENV.API_ENDPOINT+'fetchAssocInfo?empId=600600602','')
+        .map(res => res.json()).toPromise();
+      }
+
 }

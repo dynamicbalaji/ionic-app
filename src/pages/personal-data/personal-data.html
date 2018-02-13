@@ -33,7 +33,7 @@
     </ion-card-header>
     <ion-card-content *ngIf= "editMode">
         <ion-label stacked class="input-label">First Name</ion-label>
-        <ion-input type="text" class="input-style" value="Emily"></ion-input>
+        <ion-input type="text" class="input-style" value="{{associate.fName}}"></ion-input>
         <ion-label stacked class="input-label">Last Name</ion-label>
         <ion-input type="text" value="Holmes" class="input-style"></ion-input>
       <ion-row>
@@ -45,25 +45,25 @@
           <ion-label stacked class="input-label">Marital Status</ion-label>
           <ion-select [(ngModel)]="maritalStatus" class="input-select">
               <ion-option value="0">Select</ion-option>
-              <ion-option value="1">Single</ion-option>
-              <ion-option value="2">Married</ion-option>
+              <ion-option value="Single">Single</ion-option>
+              <ion-option value="Married">Married</ion-option>
             </ion-select>
         </ion-col>
       </ion-row>
     </ion-card-content>
     <ion-card-content *ngIf= "!editMode">
         <ion-label stacked class="input-label">First Name</ion-label>
-        <ion-label class="view-style">Emily</ion-label>
+        <ion-label class="view-style">{{associate.fName}}</ion-label>
         <ion-label stacked class="input-label">Last Name</ion-label>
-        <ion-label class="view-style">Holmes</ion-label>
+        <ion-label class="view-style">{{associate.lName}}</ion-label>
       <ion-row>
         <ion-col>
           <ion-label stacked class="input-label">Date of Birth</ion-label>
-          <ion-label class="view-style">{{dob}}</ion-label>
+          <ion-label class="view-style">{{associate.dob}}</ion-label>
         </ion-col>
         <ion-col>
           <ion-label stacked class="input-label">Marital Status</ion-label>
-            <ion-label class="view-style">Married</ion-label>
+            <ion-label class="view-style">{{associate.maritalStatus}}</ion-label>
         </ion-col>
       </ion-row>
     </ion-card-content>
@@ -90,19 +90,19 @@
     </ion-card-content>
     <ion-card-content *ngIf= "!editMode">
         <ion-label stacked class="input-label">Address Line 1</ion-label>
-        <ion-label class="view-style">4283 Express Lane</ion-label>
+        <ion-label class="view-style">{{associate.addr1}}</ion-label>
         <ion-label stacked class="input-label">Address Line 2</ion-label>
-        <ion-label class="view-style">Suite #222</ion-label>
+        <ion-label class="view-style">{{associate.addr2}}</ion-label>
         <ion-label stacked class="input-label">City</ion-label>
-        <ion-label class="view-style">Sarasota</ion-label>
+        <ion-label class="view-style">{{associate.city}}</ion-label>
         <ion-label stacked class="input-label">State</ion-label>
-        <ion-label class="view-style">Florida</ion-label>
+        <ion-label class="view-style">{{associate.state}}</ion-label>
         <ion-label stacked class="input-label">Country</ion-label>
-        <ion-label class="view-style">Suite #222</ion-label>
+        <ion-label class="view-style">{{associate.country}}</ion-label>
         <ion-label stacked class="input-label">Contact Number</ion-label>
-        <ion-label class="view-style">432-983-6773</ion-label>
+        <ion-label class="view-style">{{associate.phone}}</ion-label>
         <ion-label stacked class="input-label">Email</ion-label>
-        <ion-label class="view-style">emilyholmes@gmail.com</ion-label>
+        <ion-label class="view-style">{{associate.email}}</ion-label>
     </ion-card-content>
     
   </ion-card>
