@@ -33,7 +33,8 @@ export class WeeklySchedulePage {
     console.log('ionViewDidLoad WeeklySchedulePage');
   }
 
-  showChangeOptions(){
+  showChangeOptions(val){
+    console.log(val);
     this.toggleBtn = "./assets/imgs/OUT_toggle.png";
     let changeShiftModal = this.modalCtrl.create(ChangeShiftModalPage);
     changeShiftModal.present();

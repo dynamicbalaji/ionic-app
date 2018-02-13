@@ -46,11 +46,11 @@ export class ApiProvider {
           schedule.calDay = newShift.date();
           schedule.month = newShift.format('MMM');
           if(isCurrentWk && moment().format('dddd') === newShift.format('dddd')){
-              schedule.day = 'TODAY, '+newShift.format('dddd');
+              schedule.day = 'TODAY, '+(newShift.format('dddd')).toLocaleUpperCase();
           }else if(isCurrentWk && moment().add(1,'days').format('dddd') === newShift.format('dddd')){
-              schedule.day = 'TOMORROW, '+newShift.format('dddd');
+              schedule.day = 'TOMORROW, '+(newShift.format('dddd')).toLocaleUpperCase();
           }else{
-              schedule.day = newShift.format('dddd');
+              schedule.day = newShift.format('dddd').toLocaleUpperCase();
           }
           
           if(newShift.format('dddd') === 'Sunday'){
