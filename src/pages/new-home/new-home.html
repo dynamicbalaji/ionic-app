@@ -26,7 +26,7 @@
               <img src="./assets/imgs/clocked-hours_icon.png" width="30px !important" height="30px !important" />
             </div>
             <ion-label class="card-avatar-txt">CLOCKED HOURS</ion-label>
-            <ion-label class="card-avatar-big-txt">22:00</ion-label>
+            <ion-label class="card-avatar-big-txt">{{clockedHours}}</ion-label>
           </div>
         </div>
       </ion-card>
@@ -39,7 +39,7 @@
               <img src="./assets/imgs/Punchmissed_icon.png" width="30px !important" />
             </div>
             <ion-label class="card-avatar-txt">PUNCHES MISSED</ion-label>
-            <ion-label class="card-avatar-big-txt-red">2 DAYS</ion-label>
+            <ion-label class="card-avatar-big-txt-red">{{punchesMissedCount}} DAYS</ion-label>
           </div>
         </div>
       </ion-card>
@@ -55,12 +55,12 @@
       </div>
       <div class="card-main">
         <div>
-          <ion-label class="card-avatar-txt">TODAY, JAN 24, 2018</ion-label>
-          <ion-label class="card-avatar-sub-txt">7:00 - 16:00 | 10:00 - 17:00</ion-label>
+          <ion-label class="card-avatar-txt">TODAY, {{todayDate}}</ion-label>
+          <ion-label class="card-avatar-sub-txt">{{todayScheduleShift}}</ion-label>
         </div>
         <div>
-          <ion-label class="card-avatar-txt">TOMORROW, JAN 25, 2018</ion-label>
-          <ion-label class="card-avatar-sub-txt">8:00 - 14:00 | 11:00 - 19:00</ion-label>
+          <ion-label class="card-avatar-txt">TOMORROW, {{tomorrowDate}}</ion-label>
+          <ion-label class="card-avatar-sub-txt">{{tomorrowScheduleShift}}</ion-label>
         </div>
       </div>
     </div>
@@ -112,10 +112,10 @@
     <div class="new-home-card">
       <div class="card-avatar-section" text-center>
         <div class="card-avatar">
-          <img src="./assets/imgs/clocked-hours_icon.png" width="30px !important" height="30px !important" />
+          <img src="./assets/imgs/Leaderboard_icon.png" width="30px !important" height="30px !important" />
         </div>
         <ion-label class="card-avatar-txt">LEADERBOARD</ion-label>
-        <ion-label class="card-avatar-big-txt">50</ion-label>
+        <ion-label class="card-avatar-big-txt">{{points}}</ion-label>
         <ion-label class="card-avatar-sm-txt">POINTS</ion-label>
       </div>
     </div>
