@@ -22,12 +22,9 @@
             </ion-col>
           </ion-row>
           <ion-row>
-            <br/>
-          </ion-row>
-          <ion-row>
             <ion-col>
               <ion-select [(ngModel)]="reason" interface="popover" 
-                  placeholder="Select your reason" (change)="onOtherSelection()" style="max-width: 80% !important;">
+                  placeholder="Select your reason" (ionChange)="onOtherSelection()" style="max-width: 80% !important;">
                 <ion-option value="1">Servicing Customer request</ion-option>
                 <ion-option value="2">Missed the reminder from app</ion-option>
                 <ion-option value="3">Was assisting a customer</ion-option>
@@ -38,7 +35,7 @@
           </ion-row>
           <ion-row *ngIf="otherOptionSelected">
             <ion-col>
-              <ion-input placeholder="Please enter your reason"></ion-input>
+              <ion-textarea placeholder="Please enter your reason here" style="border:0.5px solid #dfdfdf;"></ion-textarea>
             </ion-col>
           </ion-row>
           <ion-row>
@@ -47,5 +44,22 @@
             </ion-col>
           </ion-row>
         </div>
+      </div>
+      <div text-center id="success" style="display:none">
+          <ion-row>
+            <ion-col text-wrap>
+                <ion-label class="modal-info-txt">Your shift is ended. Thank you!</ion-label>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <img src="./assets/imgs/success_icon.png" width="20%" style="margin-top:5%" />
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <button ion-button round (click)="closeModal()" style="margin-top:5%">CLOSE</button>
+            </ion-col>
+          </ion-row>
       </div>
 </ion-content>

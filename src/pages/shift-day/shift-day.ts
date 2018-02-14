@@ -4,6 +4,7 @@ import * as moment from 'moment';
 
 import { ShiftStatus } from '../../app/enums';
 import {LateShiftEndmodalPage} from '../late-shift-endmodal/late-shift-endmodal';
+import { NewHomePage } from '../new-home/new-home';
 
 /**
  * Generated class for the ShiftDayPage page.
@@ -82,12 +83,14 @@ export class ShiftDayPage {
       this.shiftPercent = 85;
     }
     else if(this.curStatus === ShiftStatus.inprogress && this.shiftPercent === 85){
-      this.shiftEndTime = moment(new Date()).add(8,'hours').format('hh:mm A');
-      let endShiftModal = this.modalCtrl.create(LateShiftEndmodalPage, {shftProgress: this.shiftPercent});
-      endShiftModal.present();
       this.curStatus = ShiftStatus.finish;
       this.shiftPercent = 100;
       console.log("ShftDay: "+ this.shiftPercent);
+    }else if (this.curStatus === ShiftStatus.finish && this.shiftPercent === 100){
+      this.shiftEndTime = moment(new Date()).add(8,'hours').format('hh:mm A');
+      let endShiftModal = this.modalCtrl.create(LateShiftEndmodalPage, {shftProgress: this.shiftPercent});
+      endShiftModal.present();
+      this.navCtrl.push(NewHomePage);
     }
   }
 }

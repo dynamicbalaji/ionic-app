@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ViewController } from 'ionic-angular';
+import { NewHomePage } from '../new-home/new-home';
 
 /**
  * Generated class for the LateShiftEndmodalPage page.
@@ -29,11 +30,21 @@ export class LateShiftEndmodalPage {
   }
 
   submitReason(){
+    console.log(this.reason);
     if(this.reason !== undefined){
+        this.delayedShiftout = false;
         this.currentShiftPercent = 100;
-        this.viewCtrl.dismiss();
-        console.log(this.currentShiftPercent);
+        //this.viewCtrl.dismiss();
+        //console.log(this.currentShiftPercent);
+        document.getElementById("success").style.display = "inline";
+        //this.shiftChangeComplete = true;
+        //this.closeModal();
     }
+  }
+
+  closeModal(){
+    this.viewCtrl.dismiss();
+    //this.navCtrl.push(NewHomePage);
   }
 
   onOtherSelection(){
