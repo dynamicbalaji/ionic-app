@@ -128,7 +128,7 @@ export class PersonalDataPage {
     this.dataForm.patchValue({
       fName: this.associate.fName,
       lName: this.associate.lName,
-      dob: this.associate.dob,
+      dob: moment(this.associate.dob).format('YYYY-MM-DD'),
       maritalStatus: this.associate.maritalStatus,
       addr1: this.associate.addr1,
       addr2: this.associate.addr2,
