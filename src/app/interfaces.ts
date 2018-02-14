@@ -33,3 +33,20 @@ export class ScheduleNew  {
   public isOptedLOA: boolean;
   public isWeeklyOff: boolean;
 }
+
+export class UserDetails {
+  firstName : string;
+  middleName : string;
+  lastName : string;
+  dob : Date;
+  maritalStatus : string;
+  addressOne : string;
+  addressTwo : string;
+  city : string;
+  state : string;
+  country : string;
+  zipCode : string;
+  contactNbr : string;
+  email : string;
+  empNbr: number;
+}

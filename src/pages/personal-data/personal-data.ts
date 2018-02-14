@@ -3,7 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import * as moment from 'moment';
 
-import { Associate } from '../../app/interfaces';
+import { Associate, UserDetails } from '../../app/interfaces';
 //import { AssociateService } from '../../services/associate.service.mock';
 import { ApiProvider } from '../../providers/api/api';
 import { DashboardService } from '../../services/dashboard.service';
@@ -26,6 +26,7 @@ export class PersonalDataPage {
   errorMsg: string;
   dob = '03/21/1982';
   maritalStatus: string = "2";
+  userDetails: UserDetails;
 
   editMode: boolean = false;
 
@@ -56,6 +57,22 @@ export class PersonalDataPage {
       country: '',
       phone: '',
       email: ''
+    };
+    this.userDetails = {
+      firstName : '',
+      middleName : '',
+      lastName : '',
+      dob : new Date(),
+      maritalStatus : '',
+      addressOne : '',
+      addressTwo : '',
+      city : '',
+      state : '',
+      country : '',
+      zipCode : '',
+      contactNbr : '',
+      email : '',
+      empNbr: 0
     };
     //this.ascService.getAsc().then(data => {console.log(JSON.stringify(data));this.associate = <Associate>data});
     this.getAssociateData();
@@ -120,6 +137,8 @@ export class PersonalDataPage {
       this.associate.city = value.city;
       this.associate.state =  value.state;
       this.associate.country = value.country;
+      this.patchValueToObj();
+      this.dashboardService.updatePersonalInfo(this.userDetails);
       this.patchValueToForm();
     }
   }
@@ -138,6 +157,29 @@ export class PersonalDataPage {
       phone: this.associate.phone,
       email: this.associate.email
     });
+  }
+
+  patchValueToObj(){
+    let phone = this.associate.phone;
+    var re = /\(/gi;
+    phone = phone.replace(re,'');
+    re = /\)/gi;
+    phone = phone.replace(re,'');
+    re = /-/gi;
+    phone = phone.replace(re,'');
+
+
+    this.userDetails.firstName = this.associate.fName;
+    this.userDetails.lastName = this.associate.lName;
+    this.userDetails.dob = new Date(this.associate.dob);
+    this.userDetails.maritalStatus = this.associate.maritalStatus === 'Married' ? 'M' : 'S';
+    this.userDetails.addressOne = this.associate.addr1;
+    this.userDetails.addressTwo = this.associate.addr2;
+    this.userDetails.city = this.associate.city;
+    this.userDetails.state = this.associate.state;
+    this.userDetails.country  = this.associate.country;
+    this.userDetails.contactNbr = phone;
+    this.userDetails.email = this.associate.email;
   }
   
 
