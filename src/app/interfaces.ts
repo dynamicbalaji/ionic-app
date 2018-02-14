@@ -1,11 +1,12 @@
 
-export interface ShiftTimes {
-  startTime: string;
-  endTime: string;
-  breakTime: string;
-  mealTime: string;
-  startOnTime: boolean;
-  endOnTime: boolean;
+export class ShiftTimes {
+  public startTime: string;
+  public breakTime1: string;
+  public mealTime: string;
+  public breakTime2: string;
+  public endTime: string;
+  public startOnTime: boolean;
+  public endOnTime: boolean;
 }
 
 export interface Associate {
@@ -20,12 +21,6 @@ export interface Associate {
   country: string;
   phone: string;
   email: string;
-}
-
-export interface Schedule {
-  scheduleDay: number;
-  scheduleMonth: string;
-  shiftTimes: ShiftTimes;
 }
 
 export class ScheduleNew  {

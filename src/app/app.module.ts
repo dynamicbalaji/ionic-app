@@ -28,6 +28,7 @@ import { PunchMissedPage } from '../pages/punch-missed/punch-missed';
 //import { GeoLocationServiceProvider } from '../providers/geo-location-service/geo-location-service';
 import { DashboardService } from '../services/dashboard.service';
 import { PunchOutModalPage } from '../pages/punch-out-modal/punch-out-modal';
+import { LNotificationProvider } from '../providers/l-notification/l-notification';
 
 @NgModule({
   declarations: [
@@ -89,7 +90,8 @@ import { PunchOutModalPage } from '../pages/punch-out-modal/punch-out-modal';
     Geolocation,
     DashboardService,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ApiProvider
+    ApiProvider,
+    LNotificationProvider
     //GeoLocationServiceProvider
   ]
 })

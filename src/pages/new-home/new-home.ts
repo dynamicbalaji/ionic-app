@@ -1,14 +1,16 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, Platform, AlertController } from 'ionic-angular';
+import { NavController, NavParams} from 'ionic-angular';
 
 import { WeeklySchedulePage } from '../weekly-schedule/weekly-schedule';
 import { PunchMissedPage } from '../punch-missed/punch-missed';
 import * as moment from 'moment';
 
-import { LocalNotifications } from '@ionic-native/local-notifications';
+//import { LocalNotifications } from '@ionic-native/local-notifications';
 import { Geolocation, GeolocationOptions, Geoposition, PositionError } from '@ionic-native/geolocation';
 //import { GeoLocationServiceProvider } from '../../providers/geo-location-service/geo-location-service';
 import { DashboardService } from '../../services/dashboard.service';
+import { ApiProvider } from '../../providers/api/api';
+import { LNotificationProvider } from '../../providers/l-notification/l-notification';
 import { ScheduleNew } from '../../app/interfaces';
 /**
  * Generated class for the NewHomePage page.
@@ -44,21 +46,17 @@ export class NewHomePage {
   speakerEnabled = 'true';
   points: any = "50";
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public platform: Platform,
-    public alertCtrl: AlertController, public localNotifications: LocalNotifications,
-    public geolocation: Geolocation, public dashboardService: DashboardService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    public geolocation: Geolocation, public dashboardService: DashboardService, public apiProvider: ApiProvider,
+    public lNotification: LNotificationProvider) {
 
-    this.addNotification(2, 'You have entered the Walmart store. Please login and start your shift.');
-    this.addNotification(5, 'Your Meal break is coming up in 5 minutes, kindly take the needed break. Enjoy your meal! ');
-    this.addNotification(16, 'You have not yet ended your shift.'); // Delayed to show crossed time
-
-    console.log('Default Notification time - from HOME: ' + moment(new Date()).format());
     this.populateAllDetails();
     this.todayDate = moment().format('ll');
     this.tomorrowDate = moment().add(1, 'days').format('ll');
     this.pastMonthDate = moment().subtract(45, 'days').format('ll');
-    this.scheduleNotifications();
-    this.getAssocPosition();
+    //this.getAssocPosition();
+    this.WatchAssocPosition();
+
   }
 
   populateAllDetails() {
@@ -108,59 +106,59 @@ export class NewHomePage {
   }
 
 
-  addNotification(notifyid: number, msg: string) {
+  // addNotification(notifyid: number, msg: string) {
 
-    let notification = {
-      id: notifyid,
-      title: 'Hi, Emily!',
-      text: msg,
-      at: new Date().setMinutes((new Date().getMinutes() + notifyid), 0, 0)
-    };
+  //   let notification = {
+  //     id: notifyid,
+  //     title: 'Hi, Emily!',
+  //     text: msg,
+  //     at: new Date().setMinutes((new Date().getMinutes() + notifyid), 0, 0)
+  //   };
 
-    this.notifications.push(notification);
-    console.log("Notification added to array: ", notification);
-  }
+  //   this.notifications.push(notification);
+  //   console.log("Notification added to array: ", notification);
+  // }
 
-  scheduleNotifications() {
+  // scheduleNotifications() {
 
-    if (this.platform.is('cordova')) {
-      // Cancel any existing notifications
-      this.localNotifications.cancelAll().then(() => {
+  //   if (this.platform.is('cordova')) {
+  //     // Cancel any existing notifications
+  //     this.localNotifications.cancelAll().then(() => {
 
-        // Schedule the new notifications
-        this.localNotifications.schedule(this.notifications);
-        console.log("Notifications are scheduled: " + this.notifications);
-        this.notifications = [];
+  //       // Schedule the new notifications
+  //       this.localNotifications.schedule(this.notifications);
+  //       console.log("Notifications are scheduled: " + this.notifications);
+  //       this.notifications = [];
 
-        /* let alert = this.alertCtrl.create({
-            title: 'Notifications setup success!',
-            buttons: ['OK']
-        }); */
+  //       /* let alert = this.alertCtrl.create({
+  //           title: 'Notifications setup success!',
+  //           buttons: ['OK']
+  //       }); */
 
-        //alert.present(); 
-      });
+  //       //alert.present(); 
+  //     });
 
-    } else {
-      //console.log("Not a Cordova platform: "+ this.notifications);
-      // let alert = this.alertCtrl.create({
-      //     title: 'Notifications not set !',
-      //     buttons: ['OK']
-      // });
+  //   } else {
+  //     //console.log("Not a Cordova platform: "+ this.notifications);
+  //     // let alert = this.alertCtrl.create({
+  //     //     title: 'Notifications not set !',
+  //     //     buttons: ['OK']
+  //     // });
 
-      // alert.present(); 
-    }
-  }
+  //     // alert.present(); 
+  //   }
+  // }
 
-  cancelAll() {
-    this.localNotifications.cancelAll();
+  // cancelAll() {
+  //   this.localNotifications.cancelAll();
 
-    /* let alert = this.alertCtrl.create({
-        title: 'Notifications cancelled',
-        buttons: ['Ok']
-    }); */
+  //   /* let alert = this.alertCtrl.create({
+  //       title: 'Notifications cancelled',
+  //       buttons: ['Ok']
+  //   }); */
 
-    //alert.present();
-  }
+  //   //alert.present();
+  // }
 
   //  getCurrentLocation() {
   //      var currCoord = this.geolocation.getCurrentLocation();
@@ -215,9 +213,13 @@ export class NewHomePage {
     const subscription = this.geolocation.watchPosition()
                                //.filter((p) => p.coords !== undefined) //Filter Out Errors
                                .subscribe(position => {
-          console.log('WATCHED POSITION: ' + position.coords.longitude + ' ' + position.coords.latitude);
+          this.currentPosition = position;
+          console.log(position.coords);
+          this.calcPosition(position.coords.latitude, position.coords.longitude, this.lat, this.lon);
+          //console.log('WATCHED POSITION: ' + position.coords.longitude + ' ' + position.coords.latitude);
     });
 
+    subscription.unsubscribe();
 
   }
 
@@ -236,17 +238,23 @@ export class NewHomePage {
     console.log("You are" + " " + d + " " + "miles away from gpc");
     var dispresult = "You are currently at Latitude: " + lat1 + " Longitude: " + lon1 + " and you are " + d + " " + "miles away from Store " + " at Latitude: " + lat2 + " Longitude: " + lon2;
     //var time = new Date();
-    if (d <= 0.5) {
+    if (d <= 0.1) {
       result = true;
-      this.addNotification(0, 'You have entered the Walmart store. Please login and start your shift.');
+      let notification = {
+        id: 0,
+        title: 'Hi, Emily!',
+        text: 'You have entered the Walmart store. Please login and start your shift.',
+        at: new Date().setMinutes((new Date().getMinutes()), 0, 0)
+      };
+      this.lNotification.scheduleNotification(notification);
     }
     console.log("Your Result: " + dispresult + " " + result);
 
-     let alert = this.alertCtrl.create({
-     title: dispresult,
-     buttons: ['Ok']
-     });
-     alert.present();
+    //  let alert = this.alertCtrl.create({
+    //  title: dispresult,
+    //  buttons: ['Ok']
+    //  });
+    //  alert.present();
 
     return result;
   }
