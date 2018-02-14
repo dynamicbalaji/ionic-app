@@ -30,7 +30,10 @@
     </ion-col>
   </ion-row>
   <circle-progress [percent]="shiftPercent" [radius]="100" [outerStrokeWidth]="9" [innerStrokeWidth]="10" [outerStrokeColor]="'#4882c2'"
-    [innerStrokeColor]="'#d2e3ee'" [animation]="true" [animationDuration]="1000" [space]="-10"></circle-progress>
+    [innerStrokeColor]="'#d2e3ee'" [animation]="true" [animationDuration]="1000" [space]="-10" 
+    [showTitle]="true" [showSubtitle]="true" [showUnits]="false" [title]="title" [subtitle]="subTitle"
+    [titleColor]="titleColor" [subtitleColor]="subtitleColor" [titleFontSize]="titleFontSize"
+    [subtitleFontSize]="subtitleFontSize"></circle-progress>
   <!--<br/><img src="./assets/imgs/man_walking.png" width="5%" height="10%" style="margin-top:10%" /><br/>-->
   <button ion-button round *ngIf="curStatus === ShiftStatus.start" (click)="updateShift(curStatus, shiftPercent)">START MY SHIFT</button>
   <button ion-button round *ngIf="curStatus === ShiftStatus.coffeebreak || curStatus === ShiftStatus.mealbreak" class="meal-brk">TAKE A MEAL BREAK</button>

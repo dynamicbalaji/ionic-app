@@ -16,14 +16,20 @@ import { ShiftStatus } from '../../app/enums';
 })
 export class ShiftDayPage {
 
-  shiftPercent: number = 33;
+  shiftPercent: number = 0;
   curStatus : number;
   ShiftStatus: typeof ShiftStatus = ShiftStatus;
   shiftStartTime: string = "--:-- PM";
   shiftEndTime: string = "--:-- AM";
+  title : string = "GOOD GOING SO FAR";
+  subTitle : string = "Keep it up";
+  titleColor: string = "#1A75CF";
+  subtitleColor: string = "#1A75CF";
+  titleFontSize: string = "16";
+  subtitleFontSize: string = "8";
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.curStatus = ShiftStatus.coffeebreak;
+    this.curStatus = ShiftStatus.start;
   }
 
   ionViewDidLoad() {
