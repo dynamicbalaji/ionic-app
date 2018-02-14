@@ -42,7 +42,8 @@
   <button ion-button round *ngIf="curStatus === ShiftStatus.finish" (click)="updateShift()">  END SHIFT  </button>
   <button ion-button clear *ngIf="curStatus === ShiftStatus.inprogress" (click)="updateShift()">SHIFT IN PROGRESS...</button>
   <button ion-button clear *ngIf="curStatus === ShiftStatus.breakinprogress" (click)="updateShift()">BREAK IN PROGRESS...</button>
-  <img src="./assets/imgs/points_icon.png" width="50%" style="margin-top:10%" />
+  <br/>
+  <img src="./assets/imgs/points_icon.png" width="50%" style="margin-top:5%" />
   <ion-label text-wrap class="league-msg">You are just
     <b>400</b> points away from
     <br/>entering the Top 50 League</ion-label>
