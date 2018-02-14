@@ -26,8 +26,10 @@ export class NewHomePage {
   notifications: any[] = [];
   currentPosition: Geoposition;
   options: GeolocationOptions;
-  lat = 36.365025;
-  lon = -94.214577;
+  //lat = 36.365025;
+  //lon = -94.214577;
+  lat = 36.350115;
+  lon = -94.185172;
   clockedHours: string = "0";
   punchesMissedCount: string = "0";
   payPeriodDate: any = "";
@@ -228,6 +230,12 @@ export class NewHomePage {
       this.addNotification(0, 'You have entered the Walmart store. Please login and start your shift.');
     }
     console.log("Your Result: " + dispresult + " " + result);
+
+     let alert = this.alertCtrl.create({
+     title: dispresult,
+     buttons: ['Ok']
+     });
+     alert.present();
 
     return result;
   }

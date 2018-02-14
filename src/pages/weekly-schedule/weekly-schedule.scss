@@ -113,10 +113,10 @@ page-weekly-schedule {
         //text-align: left; 
         //flex-direction: column;
     }
-
+    
     ion-card {
        // border-bottom: 3px solid rgb(253, 186, 45);
-       width: 106%;
+       width: 100%;
        margin-right: -3%
      }
     ion-item {
@@ -124,10 +124,10 @@ page-weekly-schedule {
     }
 
     .in-out-img {
-        margin-top:30%; 
+        margin-top:25%; 
         width:80%; 
         //height:80%; 
-        background-color: white;
-        //margin-right:2%
+        background-color: white; 
+        margin-right:2%
     }
 }
