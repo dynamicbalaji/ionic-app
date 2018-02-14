@@ -19,11 +19,16 @@
         <ion-label class="modal-info-txt">Hi, Emily! Select your punch out time</ion-label>
     </ion-col>
   </ion-row>
-  <ion-row>
-    <ion-col>
-      <ngb-timepicker [(ngModel)]="time" meridian="true" spinners="false"></ngb-timepicker>
+<!--   <ion-row style="border:0px !important" text-center>
+    <ion-col text-center>
+      <ngb-timepicker [(ngModel)]="time" [meridian]="true" [spinners]="true"></ngb-timepicker>
     </ion-col>
-  </ion-row>
+  </ion-row> -->
+  <ion-row style="border:1px !important; font-size: 30px !important" text-center>
+    <ion-col text-center>
+  <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="time" placeholder="HH:MM AM"></ion-datetime>
+</ion-col>
+</ion-row>
   <ion-row>
     <ion-col>
       <ion-textarea placeholder="Type remarks here" style="border:1px solid black;"></ion-textarea>

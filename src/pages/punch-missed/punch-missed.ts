@@ -21,7 +21,7 @@ export class PunchMissedPage {
   constructor(public navCtrl: NavController, public navParams: NavParams
     , public modalCtrl: ModalController) {
     this.punchMissed = [
-      {punchDate: 'Friday, 28 Jan 2018', punchTime: '1:30 AM'},
+      //{punchDate: 'Friday, 28 Jan 2018', punchTime: '1:30 AM'},
       {punchDate: 'Saturday, 29 Jan 2018', punchTime: '1:30 AM'}
     ];
   }
