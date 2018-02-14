@@ -1,5 +1,5 @@
-import { Component, Renderer } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { Component } from '@angular/core';
+import { NavController, NavParams, ViewController } from 'ionic-angular';
 import { ScheduleNew } from '../../app/interfaces';
 
 /**
@@ -9,7 +9,6 @@ import { ScheduleNew } from '../../app/interfaces';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-change-shift-modal',
   templateUrl: 'change-shift-modal.html',
@@ -23,7 +22,7 @@ export class ChangeShiftModalPage {
   selectedSchedule: ScheduleNew;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
-  public viewCtrl: ViewController, public renderer: Renderer) {
+  public viewCtrl: ViewController) {
     this.changeOptionModal = true;
     this.shiftSelection = false;
     this.selectedSchedule = this.navParams.get('toChgSchedule');

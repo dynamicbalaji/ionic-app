@@ -29,6 +29,7 @@ import { PunchMissedPage } from '../pages/punch-missed/punch-missed';
 import { DashboardService } from '../services/dashboard.service';
 import { PunchOutModalPage } from '../pages/punch-out-modal/punch-out-modal';
 import { LNotificationProvider } from '../providers/l-notification/l-notification';
+import { LateShiftEndmodalPage } from '../pages/late-shift-endmodal/late-shift-endmodal';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { LNotificationProvider } from '../providers/l-notification/l-notificatio
     ShiftDayPage,
     VoiceEnablePage,
     PunchMissedPage,
-    PunchOutModalPage
+    PunchOutModalPage,
+    LateShiftEndmodalPage
   ],
   imports: [
     BrowserModule,
@@ -80,7 +82,8 @@ import { LNotificationProvider } from '../providers/l-notification/l-notificatio
     ShiftDayPage,
     VoiceEnablePage,
     PunchMissedPage,
-    PunchOutModalPage
+    PunchOutModalPage,
+    LateShiftEndmodalPage
   ],
   providers: [
     StatusBar,

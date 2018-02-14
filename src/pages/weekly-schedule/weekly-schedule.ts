@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { NavController, NavParams, ModalController } from 'ionic-angular';
 import { ChangeShiftModalPage } from '../change-shift-modal/change-shift-modal';
 import { ApiProvider } from '../../providers/api/api';
 import { ScheduleNew } from '../../app/interfaces';
@@ -11,7 +11,6 @@ import { ScheduleNew } from '../../app/interfaces';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-weekly-schedule',
   templateUrl: 'weekly-schedule.html',

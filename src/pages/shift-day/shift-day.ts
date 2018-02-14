@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ModalController } from 'ionic-angular';
 import * as moment from 'moment';
 
 import { ShiftStatus } from '../../app/enums';
+import {LateShiftEndmodalPage} from '../late-shift-endmodal/late-shift-endmodal';
 
 /**
  * Generated class for the ShiftDayPage page.
@@ -29,7 +30,7 @@ export class ShiftDayPage {
   titleFontSize: string = "16";
   subtitleFontSize: string = "8";
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
     this.curStatus = ShiftStatus.start;
   }
 
@@ -42,7 +43,6 @@ export class ShiftDayPage {
       this.curStatus = ShiftStatus.inprogress;
       this.shiftPercent = 15;
       this.shiftStartTime = moment(new Date()).format('hh:mm A');
-      this.shiftEndTime = moment(new Date()).add(8,'hours').format('hh:mm A');
       /* setTimeout(function () {  
         alert('murugan');
         this.curStatus = ShiftStatus.mealbreak;
@@ -82,8 +82,12 @@ export class ShiftDayPage {
       this.shiftPercent = 85;
     }
     else if(this.curStatus === ShiftStatus.inprogress && this.shiftPercent === 85){
+      this.shiftEndTime = moment(new Date()).add(8,'hours').format('hh:mm A');
+      let endShiftModal = this.modalCtrl.create(LateShiftEndmodalPage, {shftProgress: this.shiftPercent});
+      endShiftModal.present();
       this.curStatus = ShiftStatus.finish;
       this.shiftPercent = 100;
+      console.log("ShftDay: "+ this.shiftPercent);
     }
   }
 }
