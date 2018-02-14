@@ -21,7 +21,7 @@
   <ion-card class="card-main">
     <div class="schedule-card">
         <ion-list>
-            <ion-item *ngFor="let schedule of thisWkSchedule">
+            <ion-item *ngFor="let schedule of thisWkSchedule; let i = index">
               <ion-row>
                   <ion-col col-3>
                       <div class="card-calIcon">
@@ -31,86 +31,22 @@
                   </ion-col>
                   <ion-col col-6>
                         <p class="card-wkday-txt">{{schedule.day}}</p>
-                        <span *ngIf=!schedule.isWeeklyOff>
+                        <span *ngIf="!schedule.isWeeklyOff && !schedule.isOptedLOA">
                             <p class="card-daytime-txt">{{schedule.shiftIn}} - {{schedule.shiftOut}}</p>
                         </span>
                         <span *ngIf=schedule.isWeeklyOff>
                             <p class="card-daytime-txt">WEEKLY HOLIDAY</p>
                         </span>
+                        <span *ngIf=schedule.isOptedLOA>
+                            <p class="card-daytime-txt">LEAVE OF ABSENCE</p>
+                        </span>
                   </ion-col>
                   <ion-col col-3 text-right>
-                        <img class="in-out-img" [src]="toggleBtn" (click)="showChangeOptions()">
+                        <img class="in-out-img" id="img{{schedule.calDay}}" 
+                        [src] ="(schedule.isOptedLOA || schedule.isWeeklyOff) ? './assets/imgs/OUT_toggle.png' : './assets/imgs/IN_toggle.png' " (click)="showShiftChangeOptions(schedule)">
                   </ion-col>
               </ion-row>
             </ion-item>
-          <!--<ion-item>
-              <ion-row>
-                  <ion-col col-3>
-                      <div class="card-calIcon">
-                        <h2 class="cal-month-text">FEB</h2>
-                        <h2 class="cal-day-text">6</h2>
-                      </div>
-                  </ion-col>
-                  <ion-col col-6>
-                        <p class="card-wkday-txt">TOMORROW, TUESDAY</p>
-                        <p class="card-daytime-txt">7:00 - 16:00</p>
-                  </ion-col>
-                  <ion-col col-3 text-right>
-                    <ion-img class="in-out-img" [src]="toggleBtn" (click)="showChangeOptions()"></ion-img>
-                  </ion-col>
-              </ion-row>
-          </ion-item>
-          <ion-item>
-              <ion-row>
-                  <ion-col col-3>
-                      <div class="card-calIcon">
-                        <h2 class="cal-month-text">FEB</h2>
-                        <h2 class="cal-day-text">7</h2>
-                      </div>
-                  </ion-col>
-                  <ion-col col-6>
-                        <p class="card-wkday-txt">WEDNESDAY</p>
-                        <p class="card-daytime-txt">7:00 - 16:00</p>
-                  </ion-col>
-                  <ion-col col-3 text-right>
-                        <ion-img class="in-out-img" [src]="toggleBtn" (click)="showChangeOptions()"></ion-img>
-                  </ion-col>
-              </ion-row>
-          </ion-item>
-          <ion-item>
-              <ion-row>
-                  <ion-col col-3>
-                      <div class="card-calIcon">
-                        <h2 class="cal-month-text">FEB</h2>
-                        <h2 class="cal-day-text">8</h2>
-                      </div>
-                  </ion-col>
-                  <ion-col col-6>
-                        <p class="card-wkday-txt">THURSDAY</p>
-                        <p class="card-daytime-txt">7:00 - 16:00</p>
-                  </ion-col>
-                  <ion-col col-3 text-right>
-                        <ion-img class="in-out-img" [src]="toggleBtn" (click)="showChangeOptions()"></ion-img>
-                  </ion-col>
-              </ion-row>
-          </ion-item>
-          <ion-item>
-              <ion-row>
-                  <ion-col col-3>
-                      <div class="card-calIcon">
-                        <h2 class="cal-month-text">FEB</h2>
-                        <h2 class="cal-day-text">9</h2>
-                      </div>
-                  </ion-col>
-                  <ion-col col-6>
-                        <p class="card-wkday-txt">FRIDAY</p>
-                        <p class="card-daytime-txt">7:00 - 16:00</p>
-                  </ion-col>
-                  <ion-col col-3 text-right>
-                        <ion-img class="in-out-img" [src]="toggleBtn" (click)="showChangeOptions()"></ion-img>
-                  </ion-col>
-              </ion-row>
-          </ion-item>-->
         </ion-list>
     </div>
   </ion-card>
@@ -118,7 +54,7 @@
   <ion-card class="card-main">
     <div class="schedule-card">
         <ion-list>
-            <ion-item *ngFor="let schedule of nextWkSchedule">
+            <ion-item *ngFor="let schedule of nextWkSchedule; let i = index">
               <ion-row>
                   <ion-col col-3>
                       <div class="card-calIcon">
@@ -128,86 +64,22 @@
                   </ion-col>
                   <ion-col col-6>
                         <p class="card-wkday-txt">{{schedule.day}}</p>
-                        <span *ngIf=!schedule.isWeeklyOff>
+                        <span *ngIf="!schedule.isWeeklyOff && !schedule.isOptedLOA">
                             <p class="card-daytime-txt">{{schedule.shiftIn}} - {{schedule.shiftOut}}</p>
                         </span>
                         <span *ngIf=schedule.isWeeklyOff>
                             <p class="card-daytime-txt">WEEKLY HOLIDAY</p>
                         </span>
+                        <span *ngIf=schedule.isOptedLOA>
+                            <p class="card-daytime-txt">LEAVE OF ABSENCE</p>
+                        </span>
                   </ion-col>
                   <ion-col col-3 text-right>
-                        <img class="in-out-img"  [src]="toggleBtn" (click)="showChangeOptions(schedule.calDay)">
+                        <img class="in-out-img" id="img{{schedule.calDay}}" 
+                            [src] ="(schedule.isOptedLOA || schedule.isWeeklyOff) ? './assets/imgs/OUT_toggle.png' : './assets/imgs/IN_toggle.png' " (click)="showShiftChangeOptions(schedule)">
                   </ion-col>
               </ion-row>
             </ion-item>
-          <!--<ion-item>
-              <ion-row>
-                  <ion-col col-3>
-                      <div class="card-calIcon">
-                        <h2 class="cal-month-text">FEB</h2>
-                        <h2 class="cal-day-text">11</h2>
-                      </div>
-                  </ion-col>
-                  <ion-col col-6>
-                        <p class="card-wkday-txt">SUNDAY</p>
-                        <p class="card-daytime-txt">WEEKLY HOLIDAY</p>
-                  </ion-col>
-                  <ion-col col-3 text-right>
-                        <ion-img class="in-out-img" [src]="toggleBtn" (click)="showChangeOptions()"></ion-img>
-                  </ion-col>
-              </ion-row>
-          </ion-item>
-          <ion-item>
-              <ion-row>
-                  <ion-col col-3>
-                      <div class="card-calIcon">
-                        <h2 class="cal-month-text">FEB</h2>
-                        <h2 class="cal-day-text">12</h2>
-                      </div>
-                  </ion-col>
-                  <ion-col col-6>
-                        <p class="card-wkday-txt">MONDAY</p>
-                        <p class="card-daytime-txt">7:00 - 16:00</p>
-                  </ion-col>
-                  <ion-col col-3 text-right>
-                        <ion-img class="in-out-img" [src]="toggleBtn" (click)="showChangeOptions()"></ion-img>
-                  </ion-col>
-              </ion-row>
-          </ion-item>
-          <ion-item>
-              <ion-row>
-                  <ion-col col-3>
-                      <div class="card-calIcon">
-                        <h2 class="cal-month-text">FEB</h2>
-                        <h2 class="cal-day-text">13</h2>
-                      </div>
-                  </ion-col>
-                  <ion-col col-6>
-                        <p class="card-wkday-txt">TUESDAY</p>
-                        <p class="card-daytime-txt">LEAVE OF ABSENCE</p>
-                  </ion-col>
-                  <ion-col col-3 text-right>
-                        <ion-img class="in-out-img" [src]="toggleBtn" (click)="showChangeOptions()"></ion-img>
-                  </ion-col>
-              </ion-row>
-          </ion-item>
-          <ion-item>
-              <ion-row>
-                  <ion-col col-3>
-                      <div class="card-calIcon">
-                        <h2 class="cal-month-text">FEB</h2>
-                        <h2 class="cal-day-text">14</h2>
-                      </div>
-                  </ion-col>
-                  <ion-col col-6>
-                        <p class="card-wkday-txt">WEDNESDAY</p>
-                        <p class="card-daytime-txt">7:00 - 16:00</p>
-                  </ion-col>
-                  <ion-col col-3 text-right>
-                        <ion-img class="in-out-img" [src]="toggleBtn" (click)="showChangeOptions()"></ion-img>
-                  </ion-col>
-              </ion-row>
-          </ion-item>-->
         </ion-list>
     </div>
   </ion-card>

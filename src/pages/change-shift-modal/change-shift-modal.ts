@@ -1,5 +1,6 @@
 import { Component, Renderer } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { ScheduleNew } from '../../app/interfaces';
 
 /**
  * Generated class for the ChangeShiftModalPage page.
@@ -19,13 +20,19 @@ export class ChangeShiftModalPage {
   shiftSelection: boolean;
   shiftChangeComplete: boolean;
   newOption: string;
+  selectedSchedule: ScheduleNew;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
   public viewCtrl: ViewController, public renderer: Renderer) {
     this.changeOptionModal = true;
     this.shiftSelection = false;
+    this.selectedSchedule = this.navParams.get('toChgSchedule');
   }
   
+  ionViewWillEnter() {
+    let myValue: ScheduleNew = this.navParams.get('toChgSchedule');
+    console.log(myValue);
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ChangeShiftModalPage');
@@ -45,10 +52,24 @@ export class ChangeShiftModalPage {
       this.shiftSelection = false;
       this.shiftChangeComplete = true;
       console.log("Selected alternate time: "+ this.newOption);
+
+      // Split the new shift time and set in existing schedule sent for modification
+      let newShift = this.newOption.split('-');
+      console.log("Splitted shifts: "+ newShift[0] + ", "+ newShift[1]);
+      this.selectedSchedule.shiftIn = newShift[0].trim();
+      this.selectedSchedule.shiftOut = newShift[1].trim();
+
       setTimeout(function () {  
         document.getElementById("progress").style.display = "none";
         document.getElementById("success").style.display = "inline";
-      }, 6000);
+        //this.shiftChangeComplete = true;
+        //this.closeModal();
+      }, 5000);
+    }else if(optionId === 'LOA'){
+      // Assoc Opted for LOA option so turn off the shift
+      this.selectedSchedule.isOptedLOA = true;
+      this.shiftChangeComplete = false;
+      this.closeModal();
     }else{
       this.shiftChangeComplete = false;
       this.closeModal();

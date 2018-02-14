@@ -198,6 +198,7 @@ export class NewHomePage {
     this.options = {
       enableHighAccuracy: true
     };
+
     this.geolocation.getCurrentPosition(this.options).then(
       (position: Geoposition) => {
         this.currentPosition = position;
@@ -207,6 +208,16 @@ export class NewHomePage {
       }, (err: PositionError) => {
         console.log("error : " + err.message);
       });
+
+  }
+
+  WatchAssocPosition(){
+    const subscription = this.geolocation.watchPosition()
+                               //.filter((p) => p.coords !== undefined) //Filter Out Errors
+                               .subscribe(position => {
+          console.log('WATCHED POSITION: ' + position.coords.longitude + ' ' + position.coords.latitude);
+    });
+
 
   }
 

@@ -33,11 +33,19 @@ export class WeeklySchedulePage {
     console.log('ionViewDidLoad WeeklySchedulePage');
   }
 
-  showChangeOptions(val){
-    console.log(val);
-    this.toggleBtn = "./assets/imgs/OUT_toggle.png";
-    let changeShiftModal = this.modalCtrl.create(ChangeShiftModalPage);
+  showShiftChangeOptions(schedule: ScheduleNew){
+    console.log(schedule);
+    //console.log(document.getElementById('imgCWId'+val));
+    let changeShiftModal = this.modalCtrl.create(ChangeShiftModalPage, {toChgSchedule: schedule});
     changeShiftModal.present();
+
+    changeShiftModal.onDidDismiss((data) => {
+        console.log(data);
+    });
+
+    //let imgTag = document.getElementById('imgCWId'+val) as HTMLImageElement;
+    //imgTag.src = "./assets/imgs/OUT_toggle.png"
+
   }
 
 }

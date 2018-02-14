@@ -34,7 +34,7 @@ export class WelcomeLoginPage {
     setTimeout(function () {
       document.getElementById("greeting").style.display = "none";
       document.getElementById("login").style.display = "inline";
-    }, 6000);
+    }, 3000);
   }
 
   login() {
