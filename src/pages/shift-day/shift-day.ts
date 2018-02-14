@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import * as moment from 'moment';
 
 import { ShiftStatus } from '../../app/enums';
 
@@ -36,4 +37,53 @@ export class ShiftDayPage {
     console.log('ionViewDidLoad ShiftDayPage');
   }
 
+  updateShift() {
+    if(this.curStatus === ShiftStatus.start) {
+      this.curStatus = ShiftStatus.inprogress;
+      this.shiftPercent = 15;
+      this.shiftStartTime = moment(new Date()).format('hh:mm A');
+      this.shiftEndTime = moment(new Date()).add(8,'hours').format('hh:mm A');
+      /* setTimeout(function () {  
+        alert('murugan');
+        this.curStatus = ShiftStatus.mealbreak;
+        this.shiftPercent = 30;
+      }, 5000); */
+    }
+    else if(this.curStatus === ShiftStatus.inprogress && this.shiftPercent === 15){
+      this.curStatus = ShiftStatus.mealbreak;
+      this.shiftPercent = 30;
+    }
+    else if(this.curStatus === ShiftStatus.mealbreak){
+      this.curStatus = ShiftStatus.breakinprogress;
+      this.shiftPercent = 40;
+    }
+    else if(this.curStatus === ShiftStatus.breakinprogress && this.shiftPercent === 40){
+      this.curStatus = ShiftStatus.resume;
+      this.shiftPercent = 50;
+    }
+    else if(this.curStatus === ShiftStatus.resume && this.shiftPercent === 50){
+      this.curStatus = ShiftStatus.inprogress;
+      this.shiftPercent = 65;
+    }
+    else if(this.curStatus === ShiftStatus.inprogress && this.shiftPercent === 65){
+      this.curStatus = ShiftStatus.coffeebreak;
+      this.shiftPercent = 70;
+    }
+    else if(this.curStatus === ShiftStatus.coffeebreak){
+      this.curStatus = ShiftStatus.breakinprogress;
+      this.shiftPercent = 75;
+    }
+    else if(this.curStatus === ShiftStatus.breakinprogress && this.shiftPercent === 75){
+      this.curStatus = ShiftStatus.resume;
+      this.shiftPercent = 80;
+    }
+    else if(this.curStatus === ShiftStatus.resume && this.shiftPercent === 80){
+      this.curStatus = ShiftStatus.inprogress;
+      this.shiftPercent = 85;
+    }
+    else if(this.curStatus === ShiftStatus.inprogress && this.shiftPercent === 85){
+      this.curStatus = ShiftStatus.finish;
+      this.shiftPercent = 100;
+    }
+  }
 }

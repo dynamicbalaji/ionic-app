@@ -35,11 +35,13 @@
     [titleColor]="titleColor" [subtitleColor]="subtitleColor" [titleFontSize]="titleFontSize"
     [subtitleFontSize]="subtitleFontSize"></circle-progress>
   <!--<br/><img src="./assets/imgs/man_walking.png" width="5%" height="10%" style="margin-top:10%" /><br/>-->
-  <button ion-button round *ngIf="curStatus === ShiftStatus.start" (click)="updateShift(curStatus, shiftPercent)">START MY SHIFT</button>
-  <button ion-button round *ngIf="curStatus === ShiftStatus.coffeebreak || curStatus === ShiftStatus.mealbreak" class="meal-brk">TAKE A MEAL BREAK</button>
-  <button ion-button round *ngIf="curStatus === ShiftStatus.resume">RESUME SHIFT</button>
-  <button ion-button round *ngIf="curStatus === ShiftStatus.finish">END SHIFT</button>
-  <button ion-button clear *ngIf="curStatus === ShiftStatus.inprogress">SHIFT IN PROGRESS...</button>
+  <button ion-button round *ngIf="curStatus === ShiftStatus.start" (click)="updateShift()">START MY SHIFT</button>
+  <button ion-button round *ngIf="curStatus === ShiftStatus.mealbreak" class="meal-brk" (click)="updateShift()">TAKE A MEAL BREAK</button>
+  <button ion-button round *ngIf="curStatus === ShiftStatus.coffeebreak" class="meal-brk" (click)="updateShift()">TAKE A COFFEE BREAK</button>
+  <button ion-button round *ngIf="curStatus === ShiftStatus.resume" (click)="updateShift()">RESUME SHIFT</button>
+  <button ion-button round *ngIf="curStatus === ShiftStatus.finish" (click)="updateShift()">  END SHIFT  </button>
+  <button ion-button clear *ngIf="curStatus === ShiftStatus.inprogress" (click)="updateShift()">SHIFT IN PROGRESS...</button>
+  <button ion-button clear *ngIf="curStatus === ShiftStatus.breakinprogress" (click)="updateShift()">BREAK IN PROGRESS...</button>
   <img src="./assets/imgs/points_icon.png" width="50%" style="margin-top:10%" />
   <ion-label text-wrap class="league-msg">You are just
     <b>400</b> points away from

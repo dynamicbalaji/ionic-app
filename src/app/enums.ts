@@ -4,5 +4,6 @@ export enum ShiftStatus {
     mealbreak = 3,
     resume = 4,
     coffeebreak = 5,
-    finish = 6
+    finish = 6,
+    breakinprogress = 7
 }
