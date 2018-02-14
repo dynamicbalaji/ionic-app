@@ -71,7 +71,7 @@ export class GtamenuPage {
 
   showAlert(msg: string) {
     let alert = this.alertCtrl.create({
-      title: 'Hi Emily!',
+      title: 'Hi Debra!',
       subTitle: msg,
       buttons: ['OK']
     });

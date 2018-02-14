@@ -242,7 +242,7 @@ export class NewHomePage {
       result = true;
       let notification = {
         id: 0,
-        title: 'Hi, Emily!',
+        title: 'Hi, Debra!',
         text: 'You have entered the Walmart store. Please login and start your shift.',
         at: new Date().setMinutes((new Date().getMinutes()), 0, 0)
       };

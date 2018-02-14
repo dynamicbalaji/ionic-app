@@ -25,7 +25,7 @@ export class LNotificationProvider {
 
     let notification = {
       id: notifyid,
-      title: 'Hi, Emily!',
+      title: 'Hi, Debra!',
       text: msg,
       at: new Date().setMinutes((new Date().getMinutes() + notifyid), 0, 0)
     };
