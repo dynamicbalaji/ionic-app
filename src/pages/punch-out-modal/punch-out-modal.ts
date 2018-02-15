@@ -17,6 +17,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 export class PunchOutModalPage {
 
   time: string;
+  reason: string;
+  otherOptionSelected: boolean = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
     public viewCtrl: ViewController, public renderer: Renderer) {
@@ -31,7 +33,19 @@ export class PunchOutModalPage {
   }
 
   punchOut() {
-    this.closeModal();
+    console.log(this.reason);
+    if(this.reason !== undefined && this.time !== undefined){
+        //document.getElementById("success").style.display = "inline";
+        this.closeModal();
+    }
+  }
+
+  onOtherSelection(){
+      if(this.reason !== undefined && this.reason === "5"){
+          this.otherOptionSelected = true;
+      }else{
+          this.otherOptionSelected = false;
+      }
   }
 
 }

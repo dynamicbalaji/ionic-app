@@ -53,16 +53,16 @@ export class ChangeShiftModalPage {
       console.log("Selected alternate time: "+ this.newOption);
 
       // Split the new shift time and set in existing schedule sent for modification
-      let newShift = this.newOption.split('-');
-      console.log("Splitted shifts: "+ newShift[0] + ", "+ newShift[1]);
-      this.selectedSchedule.shiftIn = newShift[0].trim();
-      this.selectedSchedule.shiftOut = newShift[1].trim();
+      if(this.newOption !== undefined){
+        let newShift = this.newOption.split('-');
+        console.log("Splitted shifts: "+ newShift[0] + ", "+ newShift[1]);
+        this.selectedSchedule.shiftIn = newShift[0].trim();
+        this.selectedSchedule.shiftOut = newShift[1].trim();
+      }
 
       setTimeout(function () {  
         document.getElementById("progress").style.display = "none";
         document.getElementById("success").style.display = "inline";
-        //this.shiftChangeComplete = true;
-        //this.closeModal();
       }, 5000);
     }else if(optionId === 'LOA'){
       // Assoc Opted for LOA option so turn off the shift
