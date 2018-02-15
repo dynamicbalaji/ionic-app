@@ -11,6 +11,9 @@ import { ShiftTimes } from './interfaces';
 import { ShiftDayPage } from '../pages/shift-day/shift-day';
 import { WelcomeLoginPage } from '../pages/welcome-login/welcome-login';
 import { LNotificationProvider } from '../providers/l-notification/l-notification';
+import { BenefitsPage } from '../pages/benefits/benefits';
+import { PerformancePage } from '../pages/performance/performance';
+import { TrainingPage } from '../pages/training/training';
 
 @Component({
   templateUrl: 'app.html'
@@ -30,9 +33,9 @@ export class MyApp {
     this.pages = [
       { title: 'DASHBOARD', component: NewHomePage, selected: true },
       { title: 'PERSONAL DATA', component: PersonalDataPage, selected: false },
-      { title: 'TRAINING', component: NewHomePage, selected: false },
-      { title: 'PERFORMANCE', component: NewHomePage, selected: false },
-      { title: 'BENEFITS & REWARDS', component: NewHomePage, selected: false },
+      { title: 'TRAINING', component: TrainingPage, selected: false },
+      { title: 'PERFORMANCE', component: PerformancePage, selected: false },
+      { title: 'BENEFITS & REWARDS', component: BenefitsPage, selected: false },
       { title: 'SHIFT DAY', component: ShiftDayPage, selected: false }
     ];
   }

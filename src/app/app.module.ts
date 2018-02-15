@@ -30,6 +30,9 @@ import { DashboardService } from '../services/dashboard.service';
 import { PunchOutModalPage } from '../pages/punch-out-modal/punch-out-modal';
 import { LNotificationProvider } from '../providers/l-notification/l-notification';
 import { LateShiftEndmodalPage } from '../pages/late-shift-endmodal/late-shift-endmodal';
+import { BenefitsPage } from '../pages/benefits/benefits';
+import { PerformancePage } from '../pages/performance/performance';
+import { TrainingPage } from '../pages/training/training';
 
 @NgModule({
   declarations: [
@@ -48,7 +51,10 @@ import { LateShiftEndmodalPage } from '../pages/late-shift-endmodal/late-shift-e
     VoiceEnablePage,
     PunchMissedPage,
     PunchOutModalPage,
-    LateShiftEndmodalPage
+    LateShiftEndmodalPage,
+    BenefitsPage,
+    PerformancePage,
+    TrainingPage
   ],
   imports: [
     BrowserModule,
@@ -83,7 +89,10 @@ import { LateShiftEndmodalPage } from '../pages/late-shift-endmodal/late-shift-e
     VoiceEnablePage,
     PunchMissedPage,
     PunchOutModalPage,
-    LateShiftEndmodalPage
+    LateShiftEndmodalPage,
+    BenefitsPage,
+    PerformancePage,
+    TrainingPage
   ],
   providers: [
     StatusBar,
