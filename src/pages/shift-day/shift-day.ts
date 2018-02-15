@@ -23,9 +23,9 @@ export class ShiftDayPage {
   shiftPercent: number = 0;
   curStatus : number;
   ShiftStatus: typeof ShiftStatus = ShiftStatus;
-  shiftStartTime: string = "--:-- PM";
-  shiftEndTime: string = "--:-- AM";
-  title : string = "GOOD GOING SO FAR";
+  shiftStartTime: string = "--:-- ";
+  shiftEndTime: string = "--:-- ";
+  title : string = "GOOD START";
   subTitle : string = "Keep it up";
   titleColor: string = "#1A75CF";
   subtitleColor: string = "#1A75CF";
@@ -46,15 +46,12 @@ export class ShiftDayPage {
       this.curStatus = ShiftStatus.inprogress;
       this.shiftPercent = 15;
       this.shiftStartTime = moment(new Date()).format('hh:mm A');
-      /* setTimeout(function () {  
-        alert('murugan');
-        this.curStatus = ShiftStatus.mealbreak;
-        this.shiftPercent = 30;
-      }, 5000); */
+      this.shiftEndTime = moment(new Date()).add(8,'hours').format('hh:mm A');
     }
     else if(this.curStatus === ShiftStatus.inprogress && this.shiftPercent === 15){
       this.curStatus = ShiftStatus.mealbreak;
       this.shiftPercent = 30;
+      this.title = "GOOD GOING SO FAR!"
     }
     else if(this.curStatus === ShiftStatus.mealbreak){
       this.curStatus = ShiftStatus.breakinprogress;
@@ -87,12 +84,16 @@ export class ShiftDayPage {
     else if(this.curStatus === ShiftStatus.inprogress && this.shiftPercent === 85){
       this.curStatus = ShiftStatus.finish;
       this.shiftPercent = 100;
+      //this.title = "YOU'VE NOT YET ENDED<br/> YOUR SHIFT"
+      this.subTitle = "Logout on time and earn more points";
       console.log("ShftDay: "+ this.shiftPercent);
     }else if (this.curStatus === ShiftStatus.finish && this.shiftPercent === 100){
-      this.shiftEndTime = moment(new Date()).add(8,'hours').format('hh:mm A');
+      //this.title = "YOU'VE NOT YET ENDED YOUR SHIFT"
+      //this.subTitle = "Logout on time and earn more points";
+      this.shiftEndTime = moment(new Date()).add(8,'hours').add(2,'minutes').format('hh:mm A');
       let endShiftModal = this.modalCtrl.create(LateShiftEndmodalPage, {shftProgress: this.shiftPercent});
       endShiftModal.present();
-      this.navCtrl.push(NewHomePage);
+      this.navCtrl.setRoot(NewHomePage);
     }
   }
 }
