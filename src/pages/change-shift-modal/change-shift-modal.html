@@ -6,7 +6,10 @@
 -->
 <!--<ion-header>
 
-  <ion-navbar>
+    <div text-right>
+      <button ion-button clear (click)="closeModal()" color="grey"><ion-icon name="close"></ion-icon></button>
+    </div>
+  <!--<ion-navbar>
     <ion-title style="margin-top:2%; margin-left:0%">
       <img src="./assets/imgs/Walmart-Logo.png" width="40%" height="15%" />
     </ion-title>
@@ -18,9 +21,7 @@
 </ion-header>-->
 
   <ion-content padding>
-      <!--<div text-right>
-        <button ion-button clear (click)="closeModal()" color="grey"><ion-icon name="close"></ion-icon></button>
-      </div>-->
+      <ion-icon name="close" text-right (click)="closeModal()" class="popclose"></ion-icon>
       <div *ngIf="changeOptionModal">
         <div text-center>
           <ion-row>

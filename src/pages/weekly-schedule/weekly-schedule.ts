@@ -35,7 +35,8 @@ export class WeeklySchedulePage {
   showShiftChangeOptions(schedule: ScheduleNew){
     console.log(schedule);
     //console.log(document.getElementById('imgCWId'+val));
-    let changeShiftModal = this.modalCtrl.create(ChangeShiftModalPage, {toChgSchedule: schedule});
+    let changeShiftModal = this.modalCtrl.create(ChangeShiftModalPage, 
+              {toChgSchedule: schedule}, { enableBackdropDismiss: true });
     changeShiftModal.present();
 
     changeShiftModal.onDidDismiss((data) => {

@@ -14,29 +14,37 @@
 
 
 <ion-content padding text-center>
+  <ion-icon name="close" text-right (click)="closeModal()" class="popclose"></ion-icon>
   <ion-row>
-    <ion-col>
+    <ion-col text-wrap>
         <ion-label class="modal-info-txt">Hi, Debra! Select your punch out time</ion-label>
     </ion-col>
   </ion-row>
-<!--   <ion-row style="border:0px !important" text-center>
+  <ion-row style="border:1px !important; font-size: 25px !important" text-center>
     <ion-col text-center>
-      <ngb-timepicker [(ngModel)]="time" [meridian]="true" [spinners]="true"></ngb-timepicker>
+      <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="time" placeholder="HH:MM AM"></ion-datetime>
     </ion-col>
-  </ion-row> -->
-  <ion-row style="border:1px !important; font-size: 30px !important" text-center>
-    <ion-col text-center>
-  <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="time" placeholder="HH:MM AM"></ion-datetime>
-</ion-col>
+  </ion-row>
+<ion-row>
+  <ion-col>
+    <ion-select [(ngModel)]="reason" interface="popover" 
+        placeholder="Select your reason" (ionChange)="onOtherSelection()" style="max-width: 80% !important;">
+      <ion-option value="1">Servicing Customer request</ion-option>
+      <ion-option value="2">Missed the reminder from app</ion-option>
+      <ion-option value="3">Was assisting a customer</ion-option>
+      <ion-option value="4">Manager requested to stay back</ion-option>
+      <ion-option value="5">Others</ion-option>
+    </ion-select>
+  </ion-col>
 </ion-row>
-  <ion-row>
-    <ion-col>
-      <ion-textarea placeholder="Type remarks here" style="border:1px solid black;"></ion-textarea>
-    </ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col>
-      <button ion-button round (click)="punchOut()">PUNCH OUT</button>
-    </ion-col>
-  </ion-row>
+<ion-row *ngIf="otherOptionSelected">
+  <ion-col>
+    <ion-textarea placeholder="Type remarks here" style="border:0.5px solid #dfdfdf;"></ion-textarea>
+  </ion-col>
+</ion-row>
+<ion-row>
+  <ion-col>
+    <button ion-button round (click)="punchOut()" style="margin-top:5%">PUNCH OUT</button>
+  </ion-col>
+</ion-row>
 </ion-content>

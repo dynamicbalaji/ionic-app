@@ -5,6 +5,7 @@ import * as moment from 'moment';
 import { ShiftStatus } from '../../app/enums';
 import {LateShiftEndmodalPage} from '../late-shift-endmodal/late-shift-endmodal';
 import { NewHomePage } from '../new-home/new-home';
+import { LNotificationProvider } from '../../providers/l-notification/l-notification';
 
 /**
  * Generated class for the ShiftDayPage page.
@@ -29,9 +30,10 @@ export class ShiftDayPage {
   titleColor: string = "#1A75CF";
   subtitleColor: string = "#1A75CF";
   titleFontSize: string = "16";
-  subtitleFontSize: string = "8";
+  subtitleFontSize: string = "10";
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController,
+      public lNotification: LNotificationProvider) {
     this.curStatus = ShiftStatus.start;
   }
 
