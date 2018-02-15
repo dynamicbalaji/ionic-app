@@ -34,18 +34,18 @@
     </ion-card-header>
     <ion-card-content *ngIf= "editMode">
         <ion-label stacked class="input-label">First Name</ion-label>
-        <ion-input type="text" class="input-style" formControlName="fName"></ion-input>
+        <ion-input type="text" class="input-style" formControlName="fName" disabled></ion-input>
         <ion-label stacked class="input-label">Last Name</ion-label>
-        <ion-input type="text" formControlName="lName" class="input-style"></ion-input>
+        <ion-input type="text" formControlName="lName" class="input-style" disabled></ion-input>
       <ion-row style="margin-left:-2%">
         <ion-col>
           <ion-label stacked class="input-label">Date of Birth</ion-label>
           <ion-datetime displayFormat="MM/DD/YYYY" class="input-style" 
-          formControlName="dob"  max="2002"></ion-datetime>
+          formControlName="dob"  max="2002" disabled></ion-datetime>
         </ion-col>
         <ion-col>
           <ion-label stacked class="input-label">Marital Status</ion-label>
-          <ion-select formControlName="maritalStatus" class="input-select">
+          <ion-select formControlName="maritalStatus" class="input-select" disabled>
               <ion-option value="0">Select</ion-option>
               <ion-option value="Single">Single</ion-option>
               <ion-option value="Married">Married</ion-option>

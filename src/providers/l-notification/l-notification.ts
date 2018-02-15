@@ -1,9 +1,7 @@
 //import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Platform, AlertController } from 'ionic-angular';
-import * as moment from 'moment';
 import { LocalNotifications } from '@ionic-native/local-notifications';
-import { Observable } from "rxjs/Observable";
 
 /*
   Generated class for the LNotificationProvider provider.
