@@ -36,43 +36,50 @@ export class ApiProvider {
   }
 
   initializeSchedules(isCurrentWk){
+     let loopCnt = 0;
+     let addDays = 0;
+     if (isCurrentWk){
+        loopCnt = (6 - moment().day());
+     }else{
+        loopCnt = 7;
+        addDays = (6 - moment().day());
+     }
+      //let loopCnt =  isCurrentWk ? (6 - moment().day())  : 6;
 
-      let addDays =  isCurrentWk ? 0 : 5; 
-
-      for(let i = 0; i<5; i++){
+      for(let i = 0; i<loopCnt; i++){
           let schedule = new ScheduleNew();
           let newShift: moment.Moment;
           newShift = moment().add(addDays, 'days');
           //schedule.date = newShift.format('MMM')+'-'+newShift.date();
-          schedule.calDay = newShift.date();
-          schedule.month = newShift.format('MMM');
-          if(isCurrentWk && moment().format('dddd') === newShift.format('dddd')){
-              schedule.day = 'TODAY, '+(newShift.format('dddd')).toLocaleUpperCase();
-          }else if(isCurrentWk && moment().add(1,'days').format('dddd') === newShift.format('dddd')){
-              schedule.day = 'TOMORROW, '+(newShift.format('dddd')).toLocaleUpperCase();
-          }else{
-              schedule.day = newShift.format('dddd').toLocaleUpperCase();
-          }
-          
-          if(newShift.format('dddd') === 'Sunday'){
-            schedule.shiftIn = '00:00';
-            schedule.shiftOut = '00:00';
-            schedule.isWeeklyOff = true;
-          }else{
-            schedule.shiftIn = newShift.format('hh:mm A');
-            schedule.shiftOut = newShift.add(8, 'hours').format('hh:mm A');
-            schedule.isWeeklyOff = false;
-          }
-          schedule.isOptedLOA = false;
-          addDays = addDays + 1;
+          // check if its Firday as its end of the week and skip all steps
+            schedule.calDay = newShift.date();
+            schedule.month = newShift.format('MMM');
+            if(isCurrentWk && moment().format('dddd') === newShift.format('dddd')){
+                schedule.day = 'TODAY, '+(newShift.format('dddd')).toLocaleUpperCase();
+            }else if(isCurrentWk && moment().add(1,'days').format('dddd') === newShift.format('dddd')){
+                schedule.day = 'TOMORROW, '+(newShift.format('dddd')).toLocaleUpperCase();
+            }else{
+                schedule.day = newShift.format('dddd').toLocaleUpperCase();
+            }
+            
+            if(newShift.format('dddd') === 'Sunday'){
+                schedule.shiftIn = '00:00';
+                schedule.shiftOut = '00:00';
+                schedule.isWeeklyOff = true;
+            }else{
+                schedule.shiftIn = newShift.format('hh:mm A');
+                schedule.shiftOut = newShift.add(8, 'hours').format('hh:mm A');
+                schedule.isWeeklyOff = false;
+            }
+            schedule.isOptedLOA = false;
+            addDays = addDays + 1;
 
-          if(isCurrentWk){
-              this.thisWkSchedule.push(schedule);
-          }else{
-              this.nextWkSchedule.push(schedule);
-          }
-          
-          //this.scheduleMap.set(0, schedule);
+            if(isCurrentWk){
+                this.thisWkSchedule.push(schedule);
+            }
+            else{
+                this.nextWkSchedule.push(schedule);
+            }
       }
 
       if(isCurrentWk){

@@ -35,13 +35,17 @@ export class WeeklySchedulePage {
   showShiftChangeOptions(schedule: ScheduleNew){
     console.log(schedule);
     //console.log(document.getElementById('imgCWId'+val));
-    let changeShiftModal = this.modalCtrl.create(ChangeShiftModalPage, 
-              {toChgSchedule: schedule}, { enableBackdropDismiss: true });
-    changeShiftModal.present();
+    if(schedule != undefined && (!schedule.isOptedLOA && !schedule.isWeeklyOff)){
+      let changeShiftModal = this.modalCtrl.create(ChangeShiftModalPage, 
+                {toChgSchedule: schedule}, { enableBackdropDismiss: true });
+      changeShiftModal.present();
 
-    changeShiftModal.onDidDismiss((data) => {
-        console.log(data);
-    });
+      changeShiftModal.onDidDismiss((data) => {
+          console.log(data);
+      });
+    }else{
+      console.log("OptedLOA or Weekly off and cannot be modified!");
+    }
 
     //let imgTag = document.getElementById('imgCWId'+val) as HTMLImageElement;
     //imgTag.src = "./assets/imgs/OUT_toggle.png"
