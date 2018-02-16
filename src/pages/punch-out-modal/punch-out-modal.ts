@@ -19,9 +19,12 @@ export class PunchOutModalPage {
   time: string;
   reason: string;
   otherOptionSelected: boolean = false;
+  punchMissedCount: number;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
     public viewCtrl: ViewController, public renderer: Renderer) {
+      this.punchMissedCount = this.navParams.get('missedPunchCount');
+      console.log("Count: " + this.punchMissedCount);
   }
 
   ionViewDidLoad() {
@@ -29,13 +32,18 @@ export class PunchOutModalPage {
   }
 
   closeModal() {
-    this.viewCtrl.dismiss();
+    let data = {
+      "missedPunchCount": this.punchMissedCount
+    }
+    this.viewCtrl.dismiss(data);
   }
 
   punchOut() {
     console.log(this.reason);
     if(this.reason !== undefined && this.time !== undefined){
         //document.getElementById("success").style.display = "inline";
+        this.punchMissedCount = this.punchMissedCount - 1;
+        console.log("After punch out:" + this.punchMissedCount);
         this.closeModal();
     }
   }

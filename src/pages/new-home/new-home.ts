@@ -33,7 +33,7 @@ export class NewHomePage {
   lat = 36.350115;
   lon = -94.185172;
   clockedHours: string = "0";
-  punchesMissedCount: string = "0";
+  punchesMissedCount: number = 0;
   payPeriodDate: any = "";
   pastMonthDate: any = "";
   todayDate: any = "";
@@ -65,7 +65,9 @@ export class NewHomePage {
       let b = JSON.parse(a);
       console.log(b)
       this.clockedHours = b[0].clockedHoursCW + b[0].clockedHoursLW;
-      this.punchesMissedCount = b[0].punchesMissedLastMonth;
+      //this.punchesMissedCount = +b[0].punchesMissedLastMonth;
+      // This will be updated from modal while punching out
+      this.dashboardService.missedPunchCount = +b[0].punchesMissedLastMonth;
       this.points = b[0].leaderboardPoints;
       this.fetchSceduleShift(b[0].schedule as ScheduleNew[]);
     });
@@ -102,7 +104,7 @@ export class NewHomePage {
 
 
   viewPunchMissed() {
-    this.navCtrl.push(PunchMissedPage);
+    this.navCtrl.push(PunchMissedPage, {missedCount: this.dashboardService.missedPunchCount});
   }
 
 

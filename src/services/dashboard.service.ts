@@ -10,6 +10,8 @@ import { UserDetails } from '../app/interfaces';
 @Injectable()
 export class DashboardService {
 
+    public missedPunchCount: number = 0;
+
     constructor(public http: Http) {
     }
 
