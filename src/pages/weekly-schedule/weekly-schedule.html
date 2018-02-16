@@ -42,9 +42,9 @@
                         </span>
                   </ion-col>
                   <ion-col col-3 text-right>
-                        <img class="in-out-img" id="img{{schedule.calDay}}" 
+                        <ion-img id="img{{schedule.calDay}}" class="in-out-img" 
                         [src] ="(schedule.isOptedLOA || schedule.isWeeklyOff) ? './assets/imgs/OUT_toggle.png' : './assets/imgs/IN_toggle.png' " 
-                        (click)="showShiftChangeOptions(schedule)">
+                        (click)="showShiftChangeOptions(schedule)"></ion-img>
                   </ion-col>
               </ion-row>
             </ion-item>
@@ -76,9 +76,9 @@
                         </span>
                   </ion-col>
                   <ion-col col-3 text-right>
-                        <img class="in-out-img" id="img{{schedule.calDay}}" 
+                        <ion-img class="in-out-img" id="img{{schedule.calDay}}" 
                             [src] ="(schedule.isOptedLOA || schedule.isWeeklyOff) ? './assets/imgs/OUT_toggle.png' : './assets/imgs/IN_toggle.png' "
-                            (click)="showShiftChangeOptions(schedule)">
+                            (click)="showShiftChangeOptions(schedule)"></ion-img>
                   </ion-col>
               </ion-row>
             </ion-item>

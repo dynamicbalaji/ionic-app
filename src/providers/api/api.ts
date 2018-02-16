@@ -103,11 +103,11 @@ export class ApiProvider {
     this.initializeSchedules(true);
     this.initializeSchedules(false);
 
-    this.lNotification.addNotification(2, 'You have entered the Walmart store. Please login and start your shift.');
-    this.lNotification.addNotification(7, 'Your Meal break is coming up in 5 minutes, kindly take the needed break. Enjoy your meal! ');
-    this.lNotification.addNotification(18, 'You have not yet ended your shift.'); // Delayed to show crossed time
-    //console.log('Default Notification time - from HOME: ' + moment(new Date()).format());
-    this.lNotification.scheduleNotifications();
+    // this.lNotification.addNotification(2, 'You have entered the Walmart store. Please login and start your shift.');
+    // this.lNotification.addNotification(7, 'Your Meal break is coming up in 5 minutes, kindly take the needed break. Enjoy your meal! ');
+    // this.lNotification.addNotification(18, 'You have not yet ended your shift.'); // Delayed to show crossed time
+    // //console.log('Default Notification time - from HOME: ' + moment(new Date()).format());
+    // this.lNotification.scheduleNotifications();
     
   }
 
