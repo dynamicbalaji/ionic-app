@@ -2,13 +2,10 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-//import { Geofence } from '@ionic-native/geofence';
-import * as moment from 'moment';
 import { Events } from 'ionic-angular';
 
 import { NewHomePage } from '../pages/new-home/new-home';
 import { PersonalDataPage } from '../pages/personal-data/personal-data';
-import { ShiftTimes } from './interfaces';
 import { ShiftDayPage } from '../pages/shift-day/shift-day';
 import { WelcomeLoginPage } from '../pages/welcome-login/welcome-login';
 import { LNotificationProvider } from '../providers/l-notification/l-notification';
@@ -25,6 +22,8 @@ export class MyApp {
   rootPage: any = WelcomeLoginPage;
   firstName: string = "Debra";
   lastName: string = "Jackson";
+  imgSrc: string = "";
+  jobTitle: string = "";
 
   pages: Array<{title: string, component: any, selected: boolean}>;
  
@@ -45,7 +44,23 @@ export class MyApp {
       console.log(lastName);
       this.firstName = firstName;
       this.lastName = lastName;
+      this.setJobTitleImg(firstName);
     });
+  }
+
+  setJobTitleImg(firstName: string) {
+    if(firstName == "John"){
+      this.jobTitle = "Loader";
+      this.imgSrc = "./assets/imgs/John_Circle.png";
+    }
+    else if(firstName == "Julio"){
+      this.jobTitle = "Cashier";
+      this.imgSrc = "./assets/imgs/Julio_Circle.png";
+    }
+    else {
+      this.jobTitle = "Cashier";
+      this.imgSrc = "./assets/imgs/Emily_chat.png";
+    }
   }
 
   initializeApp() {
