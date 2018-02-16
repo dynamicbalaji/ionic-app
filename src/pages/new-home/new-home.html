@@ -39,7 +39,8 @@
               <img src="./assets/imgs/Punchmissed_icon.png" width="30px !important" />
             </div>
             <ion-label class="card-avatar-txt">PUNCHES MISSED</ion-label>
-            <ion-label class="card-avatar-big-txt-red">{{punchesMissedCount}} DAYS</ion-label>
+            <ion-label class="card-avatar-big-txt-red" *ngIf="punchesMissedCount === 1">{{punchesMissedCount}} DAY</ion-label>
+            <ion-label class="card-avatar-big-txt-red" *ngIf="punchesMissedCount !== 0 && punchesMissedCount !== 1 && punchesMissedCount !== '0'">{{punchesMissedCount}} DAYS</ion-label>
           </div>
         </div>
       </ion-card>
@@ -114,7 +115,7 @@
         <div class="card-avatar">
           <img src="./assets/imgs/Leaderboard_icon.png" width="30px !important" height="30px !important" />
         </div>
-        <ion-label class="card-avatar-txt">LEADERBOARD</ion-label>
+        <ion-label class="card-avatar-txt">STREAK</ion-label>
         <ion-label class="card-avatar-big-txt">{{points}}</ion-label>
         <ion-label class="card-avatar-sm-txt">POINTS</ion-label>
       </div>
