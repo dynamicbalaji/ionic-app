@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ViewController } from 'ionic-angular';
 import { NewHomePage } from '../new-home/new-home';
+import { Storage } from '@ionic/storage';
 
 /**
  * Generated class for the LateShiftEndmodalPage page.
