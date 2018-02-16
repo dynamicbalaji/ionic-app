@@ -13,7 +13,6 @@ import { LNotificationProvider } from '../providers/l-notification/l-notificatio
 import { BenefitsPage } from '../pages/benefits/benefits';
 import { PerformancePage } from '../pages/performance/performance';
 import { TrainingPage } from '../pages/training/training';
-import { LogoutPage } from '../pages/logout/logout';
 
 @Component({
   templateUrl: 'app.html'
