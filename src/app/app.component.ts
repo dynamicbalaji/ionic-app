@@ -4,6 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 //import { Geofence } from '@ionic-native/geofence';
 import * as moment from 'moment';
+import { Events } from 'ionic-angular';
 
 import { NewHomePage } from '../pages/new-home/new-home';
 import { PersonalDataPage } from '../pages/personal-data/personal-data';
@@ -22,11 +23,13 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any = WelcomeLoginPage;
+  firstName: string = "Debra";
+  lastName: string = "Jackson";
 
   pages: Array<{title: string, component: any, selected: boolean}>;
  
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,
-  public lNotifications: LNotificationProvider) {
+  public lNotifications: LNotificationProvider, public events: Events) {
     this.initializeApp();
     //this.initializeShiftTimes();
     // used for an example of ngFor and navigation
@@ -38,6 +41,11 @@ export class MyApp {
       { title: 'BENEFITS & REWARDS', component: BenefitsPage, selected: false },
       { title: 'SHIFT DAY', component: ShiftDayPage, selected: false }
     ];
+    events.subscribe('user:created', (empNbr, firstName, lastName) => {
+      console.log(lastName);
+      this.firstName = firstName;
+      this.lastName = lastName;
+    });
   }
 
   initializeApp() {
