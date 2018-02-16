@@ -15,14 +15,19 @@ import { NewHomePage } from '../new-home/new-home';
 })
 export class LateShiftEndmodalPage {
 
+  firstName: string = "";
   delayedShiftout: boolean = true
   reason: string;
   otherOptionSelected: boolean = false;
   currentShiftPercent: number = 0;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams
+    , public viewCtrl: ViewController, public storage: Storage) {
       this.currentShiftPercent = this.navParams.get("shftProgress");
       console.log(this.currentShiftPercent);
+      this.storage.get('firstName').then((val)=>{
+        this.firstName = val;
+      });
   }
 
   ionViewDidLoad() {

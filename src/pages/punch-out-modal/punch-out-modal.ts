@@ -1,5 +1,6 @@
 import { Component, Renderer } from '@angular/core';
 import { NavController, NavParams, ViewController } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
@@ -16,15 +17,19 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 })
 export class PunchOutModalPage {
 
+  firstName: string = "";
   time: string;
   reason: string;
   otherOptionSelected: boolean = false;
   punchMissedCount: number;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
-    public viewCtrl: ViewController, public renderer: Renderer) {
+    public viewCtrl: ViewController, public renderer: Renderer, public storage: Storage) {
       this.punchMissedCount = this.navParams.get('missedPunchCount');
       console.log("Count: " + this.punchMissedCount);
+      this.storage.get('firstName').then((val)=>{
+        this.firstName = val;
+      });
   }
 
   ionViewDidLoad() {
