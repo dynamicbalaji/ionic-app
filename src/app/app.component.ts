@@ -3,6 +3,7 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Events } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 
 import { NewHomePage } from '../pages/new-home/new-home';
 import { PersonalDataPage } from '../pages/personal-data/personal-data';
@@ -12,6 +13,7 @@ import { LNotificationProvider } from '../providers/l-notification/l-notificatio
 import { BenefitsPage } from '../pages/benefits/benefits';
 import { PerformancePage } from '../pages/performance/performance';
 import { TrainingPage } from '../pages/training/training';
+import { LogoutPage } from '../pages/logout/logout';
 
 @Component({
   templateUrl: 'app.html'
@@ -28,9 +30,8 @@ export class MyApp {
   pages: Array<{title: string, component: any, selected: boolean}>;
  
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,
-  public lNotifications: LNotificationProvider, public events: Events) {
+  public lNotifications: LNotificationProvider, public events: Events, public storage: Storage) {
     this.initializeApp();
-    //this.initializeShiftTimes();
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'DASHBOARD', component: NewHomePage, selected: true },
@@ -38,7 +39,7 @@ export class MyApp {
       { title: 'TRAINING', component: TrainingPage, selected: false },
       { title: 'PERFORMANCE', component: PerformancePage, selected: false },
       { title: 'BENEFITS & REWARDS', component: BenefitsPage, selected: false },
-      { title: 'SHIFT DAY', component: ShiftDayPage, selected: false }
+      { title: 'SHIFT DAY', component: ShiftDayPage, selected: false },
     ];
     events.subscribe('user:created', (empNbr, firstName, lastName) => {
       console.log(lastName);
@@ -70,14 +71,14 @@ export class MyApp {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
 
-      this.lNotifications.platform.ready().then((readySource) => {
-      this.lNotifications.localNotifications.on('click', (notification, state) => {
-        let json = JSON.parse(notification);
-        console.log("Notification Clicked.." + json);
-        this.lNotifications.clearNotification(notification.id);
-        this.openPage(ShiftDayPage);
-      })
-    });
+    //   this.lNotifications.platform.ready().then((readySource) => {
+    //   this.lNotifications.localNotifications.on('click', (notification, state) => {
+    //     let json = JSON.parse(notification);
+    //     console.log("Notification Clicked.." + json);
+    //     this.lNotifications.clearNotification(notification.id);
+    //     this.openPage(ShiftDayPage);
+    //   })
+    // });
 
     });
   }
@@ -91,25 +92,9 @@ export class MyApp {
     }
   }
 
-
-  // initializeShiftTimes(){
-  //   this.currentShift.startTime = moment().add(2, 'minutes').format('hh:mm A');
-  //   //let notificationTime = new Date();
-  //   //notificationTime.setMinutes((new Date().getMinutes() + 2), 0,0);
-  //   //this.addNotification(2, 'You have entered the Walmart store. Please login and start your shift.');
-
-  //   this.currentShift.mealTime = moment().add(10,'minutes').format('hh:mm A');
-  //   //this.addNotification(5, 'Your Meal break is coming up in 5 minutes, kindly take the needed break. Enjoy your meal! ');
-
-  //   this.currentShift.breakTime1 = moment().add(12,'minutes').format('hh:mm A');
-  //   this.currentShift.endTime = moment().add(15,'minutes').format('hh:mm A');
-  //   //this.addNotification(16, 'You have not yet ended your shift.'); // Delayed to show crossed time
-
-  //   console.log("Initialized new shift times: "+ this.currentShift.startTime + ", "+ 
-  //           this.currentShift.mealTime + ", "+ this.currentShift.breakTime1 + ", "+ this.currentShift.endOnTime);    
-  //   console.log('Default Notification time: '+ moment(new Date()).format());
-  //   //console.log('Moment adding 2 mins: '+ moment().add(2, 'minutes').toLocaleString());
-    
-  // }
+  showRatingPage(){
+    this.storage.clear();
+    this.nav.setRoot(WelcomeLoginPage);
+  }
   
 }
