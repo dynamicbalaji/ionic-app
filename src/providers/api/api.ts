@@ -67,8 +67,8 @@ export class ApiProvider {
                 schedule.shiftOut = '00:00';
                 schedule.isWeeklyOff = true;
             }else{
-                schedule.shiftIn = newShift.format('hh:mm A');
-                schedule.shiftOut = newShift.add(8, 'hours').format('hh:mm A');
+                schedule.shiftIn = newShift.format(ENV.TIME_FORMAT);
+                schedule.shiftOut = newShift.add(8, 'hours').format(ENV.TIME_FORMAT);
                 schedule.isWeeklyOff = false;
             }
             schedule.isOptedLOA = false;
@@ -91,11 +91,11 @@ export class ApiProvider {
   }
 
   initializeShiftTimes(){
-    this.todayShiftTimes.startTime = moment().add(2, 'minutes').format('hh:mm A');
-    this.todayShiftTimes.breakTime1 = moment().add(5,'minutes').format('hh:mm A');
-    this.todayShiftTimes.mealTime = moment().add(12,'minutes').format('hh:mm A');
-    this.todayShiftTimes.breakTime2 = moment().add(14,'minutes').format('hh:mm A');
-    this.todayShiftTimes.endTime = moment().add(17,'minutes').format('hh:mm A');
+    this.todayShiftTimes.startTime = moment().add(2, 'minutes').format(ENV.TIME_FORMAT);
+    this.todayShiftTimes.breakTime1 = moment().add(5,'minutes').format(ENV.TIME_FORMAT);
+    this.todayShiftTimes.mealTime = moment().add(12,'minutes').format(ENV.TIME_FORMAT);
+    this.todayShiftTimes.breakTime2 = moment().add(14,'minutes').format(ENV.TIME_FORMAT);
+    this.todayShiftTimes.endTime = moment().add(17,'minutes').format(ENV.TIME_FORMAT);
 
     console.log("Initialized new shift times: "+ this.todayShiftTimes);
 
