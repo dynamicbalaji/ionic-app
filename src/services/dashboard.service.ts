@@ -3,6 +3,7 @@ import { Http } from "@angular/http";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
+import { Storage } from '@ionic/storage';
 
 import { ENV } from '../config/config';
 import { UserDetails } from '../app/interfaces';
@@ -11,8 +12,12 @@ import { UserDetails } from '../app/interfaces';
 export class DashboardService {
 
     public missedPunchCount: number = 0;
+    empNbr: number = 600600602;
 
-    constructor(public http: Http) {
+    constructor(public http: Http, public storage: Storage) {
+        this.storage.get('empNbr').then((val) => {
+            this.empNbr = val;
+        });
     }
 
     getAsc() {
@@ -26,27 +31,27 @@ export class DashboardService {
     }
 
     getDashboardInfo(): Promise<any> {
-        return this.http.post(ENV.API_ENDPOINT + 'enquiry?empId=600600602', '')
+        return this.http.post(ENV.API_ENDPOINT + 'enquiry?empId='+this.empNbr, '')
             .map(res => res.json()).toPromise();
     }
 
     fetchTimeAndAttendanceInfo(): Promise<any> {
-        return this.http.post(ENV.API_ENDPOINT + 'getTimeAndAttendance?empId=600600602', '')
+        return this.http.post(ENV.API_ENDPOINT + 'getTimeAndAttendance?empId='+this.empNbr, '')
             .map(res => res.json()).toPromise();
     }
 
     fetchPayrollInfo(): Promise<any> {
-        return this.http.post(ENV.API_ENDPOINT + 'getPayroll?empId=600600602', '')
+        return this.http.post(ENV.API_ENDPOINT + 'getPayroll?empId='+this.empNbr, '')
             .map(res => res.json()).toPromise();
     }
 
     fechAssociateInfo(): Promise<any> {
-        return this.http.post(ENV.API_ENDPOINT + 'fetchAssocInfo?empId=600600602', '')
+        return this.http.post(ENV.API_ENDPOINT + 'fetchAssocInfo?empId='+this.empNbr, '')
             .map(res => res.json()).toPromise();
     }
 
     updatePersonalInfo(userInfo: UserDetails): Promise<any> {
-        userInfo.empNbr = 600600602;
+        userInfo.empNbr = this.empNbr;
         return this.http.post(ENV.API_ENDPOINT + 'savePersonalDetails', userInfo)
             .map(res => res.json()).toPromise();
     }

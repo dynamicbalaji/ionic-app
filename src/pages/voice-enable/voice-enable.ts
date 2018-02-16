@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { NewHomePage } from '../new-home/new-home';
+import { Storage } from '@ionic/storage';
 
 /**
  * Generated class for the VoiceEnablePage page.
@@ -15,7 +16,13 @@ import { NewHomePage } from '../new-home/new-home';
 })
 export class VoiceEnablePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  firstName: string = "";
+
+  constructor(public navCtrl: NavController, public navParams: NavParams
+    , public storage: Storage) {
+      this.storage.get('firstName').then((val)=>{
+        this.firstName = val;
+      });
   }
 
   ionViewDidLoad() {
