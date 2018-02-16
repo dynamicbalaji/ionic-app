@@ -33,6 +33,7 @@ import { LNotificationProvider } from '../providers/l-notification/l-notificatio
 import { LateShiftEndmodalPage } from '../pages/late-shift-endmodal/late-shift-endmodal';
 import { BenefitsPage } from '../pages/benefits/benefits';
 import { PerformancePage } from '../pages/performance/performance';
+import { UnderconPage } from '../pages/undercon/undercon';
 import { TrainingPage } from '../pages/training/training';
 
 @NgModule({
@@ -55,7 +56,8 @@ import { TrainingPage } from '../pages/training/training';
     LateShiftEndmodalPage,
     BenefitsPage,
     PerformancePage,
-    TrainingPage
+    TrainingPage,
+    UnderconPage
   ],
   imports: [
     BrowserModule,
@@ -94,7 +96,8 @@ import { TrainingPage } from '../pages/training/training';
     LateShiftEndmodalPage,
     BenefitsPage,
     PerformancePage,
-    TrainingPage
+    TrainingPage,
+    UnderconPage
   ],
   providers: [
     StatusBar,

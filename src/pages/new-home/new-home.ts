@@ -3,6 +3,7 @@ import { NavController, NavParams} from 'ionic-angular';
 
 import { WeeklySchedulePage } from '../weekly-schedule/weekly-schedule';
 import { PunchMissedPage } from '../punch-missed/punch-missed';
+import { UnderconPage } from '../undercon/undercon';
 import * as moment from 'moment';
 
 //import { LocalNotifications } from '@ionic-native/local-notifications';
@@ -100,6 +101,10 @@ export class NewHomePage {
 
   viewSchedule() {
     this.navCtrl.push(WeeklySchedulePage);
+  }
+
+  underconstruct() {
+    this.navCtrl.push(UnderconPage);
   }
 
 
